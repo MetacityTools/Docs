@@ -13,6 +13,8 @@
   * [3D City Model](development/3d-city-model.md)
   * [Miscellaneous](development/miscellaneous.md)
 * [Resources](resources/README.md)
+  * [Trafic Simulation](resources/trafic-simulation.md)
+  * [Projects](resources/projects.md)
   * [Public Relations](resources/public-relations.md)
   * [Vis and Meta Software](resources/vis-and-meta-software.md)
   * [Synthetic Population](resources/synthetic-population.md)
