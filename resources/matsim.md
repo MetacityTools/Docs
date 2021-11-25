@@ -2,9 +2,7 @@
 
 ### Official MATSim Resources
 
-*
-* Shorter Book&#x20;
-* Full Book
+
 
 
 
