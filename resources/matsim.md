@@ -2,7 +2,9 @@
 
 ### Official MATSim Resources
 
-
+* PDF Tutorials (2019)
+* Shorter Version of Da Book
+* The Book (full version)
 
 
 
