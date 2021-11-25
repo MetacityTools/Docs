@@ -19,3 +19,4 @@
   * [Vis and Meta Software](resources/vis-and-meta-software.md)
   * [Synthetic Population](resources/synthetic-population.md)
   * [Inspiration](resources/inspiration.md)
+  * [MATSim](resources/matsim.md)
