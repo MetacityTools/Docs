@@ -1,25 +1,16 @@
 # Table of contents
 
 * [Metacity](README.md)
-
-## Group 1
-
-* [MATSim](group-1/matsim.md)
-  * [Basic Info](group-1/matsim/basic-info.md)
-
-## Group 2
-
-* [Running Example](group-2/running-example.md)
-* [Development](group-2/development/README.md)
-  * [UI & UX](group-2/development/ui-and-ux.md)
-  * [Outputs](group-2/development/outputs.md)
-  * [3D City Model](group-2/development/3d-city-model.md)
-
-***
-
+* [MATSim](matsim/README.md)
+  * [Basic Info](matsim/basic-info.md)
+  * [Outputs](matsim/outputs.md)
+  * [Running Example](matsim/running-example.md)
 * [Synthetic Population](synthetic-population/README.md)
-  * [Miscellaneous](synthetic-population/miscellaneous.md)
   * [Data Specification](synthetic-population/data-specification.md)
   * [Creating a Synthetic Population](synthetic-population/creating-a-synthetic-population.md)
+* [Development](development/README.md)
+  * [UI & UX](development/ui-and-ux.md)
+  * [3D City Model](development/3d-city-model.md)
+  * [Miscellaneous](development/miscellaneous.md)
 * [Resources](resources/README.md)
   * [Synthetic Population](resources/synthetic-population.md)
