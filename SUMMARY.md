@@ -13,4 +13,7 @@
   * [3D City Model](development/3d-city-model.md)
   * [Miscellaneous](development/miscellaneous.md)
 * [Resources](resources/README.md)
+  * [Public Relations](resources/public-relations.md)
+  * [Vis and Meta Software](resources/vis-and-meta-software.md)
   * [Synthetic Population](resources/synthetic-population.md)
+  * [Inspiration](resources/inspiration.md)
