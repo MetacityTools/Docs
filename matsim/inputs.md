@@ -31,3 +31,6 @@ Agents and their plans&#x20;
   * replanning strategies' behaviour
   * analyses/output
 
+### Public transport data
+
+Transit schedule of the public transport and how they interact with the network
