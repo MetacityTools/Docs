@@ -8,7 +8,7 @@ description: >-
 
 ## References
 
-[Official MATSim Text](../resources/matsim.md#official-matsim-resources)
+[Official MATSim Resources](../resources/matsim.md#official-matsim-resources)
 
 ## Introduction
 

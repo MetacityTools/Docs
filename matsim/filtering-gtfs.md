@@ -4,13 +4,9 @@ description: >-
   network
 ---
 
-# GTFS
+# Filtering GTFS
 
-PID in GTFS: [https://pid.cz/o-systemu/opendata/](https://pid.cz/o-systemu/opendata/)
-
-
-
-### Filtering GTFS
+## Keeping suburban routes only
 
 1. Using R to filter out routes that are suburban and keep only:
    * Tram L1-26, night tram L90-L96
