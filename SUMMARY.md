@@ -5,6 +5,7 @@
   * [Basic Info](matsim/basic-info.md)
   * [Outputs Description](matsim/outputs.md)
   * [Filtering GTFS](matsim/filtering-gtfs.md)
+  * [Config File](matsim/config-file.md)
   * [Running Example](matsim/running-example.md)
 * [Synthetic Population](synthetic-population/README.md)
   * [Data Specification](synthetic-population/data-specification.md)
