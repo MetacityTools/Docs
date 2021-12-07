@@ -6,6 +6,7 @@
   * [Outputs Description](matsim/outputs.md)
   * [Filtering GTFS](matsim/filtering-gtfs.md)
   * [OSM](matsim/osm.md)
+  * [Coordinates](matsim/coordinates.md)
   * [Config File](matsim/config-file.md)
   * [Running Example](matsim/running-example.md)
 * [Synthetic Population](synthetic-population/README.md)
