@@ -17,16 +17,6 @@ description: >-
 * Computational physics: MATSim performs fast microscopic simulations with 10^7 or more “particles”.
 * Complex adaptive systems/co-evolutionary algorithms: MATSim optimizes the experienced utilities of the whole schedule through the co-evolutionary search for the resulting equilibrium or steady state.
 
-## Simulation Stages
-
-![Taken from MATSim's user guide](../.gitbook/assets/matsim-stages.png)
-
-* Initial demand - describes mobility behaviour (list of agents and their plans)
-* Execution - “mobsim”, agents and vehicles are moved around in the network&#x20;
-* Scoring - after execution of the plans end, the plans are evaluated based on the execution
-* Replanning - performed by “strategy modules”
-* Analysis - at the end of complete simulation, performed automatically or separate post-process
-
 ## Terminology
 
 Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology)
@@ -61,6 +51,38 @@ Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology
 * **Legs** vs. **Trips**
   * Plan contains “activity” (e. g. working) and “legs” (going to work by car)
   * Trips - moving from one node to another with a 0 duration activity
+
+## Simulation Stages
+
+![Taken from MATSim's user guide](../.gitbook/assets/matsim-stages.png)
+
+* Initial demand - describes mobility behaviour (list of agents and their plans)
+* Execution - “mobsim”, agents and vehicles are moved around in the network&#x20;
+* Scoring - after execution of the plans end, the plans are evaluated based on the execution
+* Replanning - performed by “strategy modules”
+* Analysis - at the end of complete simulation, performed automatically or separate post-process
+
+## Scoring - Utility and Fitness
+
+Compares different plans.
+
+* Negative utility (agents travelling; monetary costs - tolls, fares; arriving late; leaving early)
+* Positive utility (agent performing activities)
+
+Higher score means a “better” plan (better performance).
+
+Each agent maintains multiple plans for the day, which are scored when the plan is executed (in the mobsim), selected and sometimes modified.
+
+### Phases
+
+Can be configured in “planCalcScore” module.
+
+* **Mobsim** - the mobility simulation takes one “selected” plan per agent and executes it in a synthetic reality.&#x20;
+* **Scoring** - the actual performance of the plan in the synthetic reality is taken to calculate each executed plan’s score.
+* **Replanning**
+  1. PLAN REMOVAL If an agent has more than the maximum number of plans (configurable) then some plans can be discarded (by a plan selector).&#x20;
+  2. INNOVATION For some agents, a plan is copied, modified, and selected for the next iteration.
+  3. CHOICE All other agents choose between their plans.
 
 ## MATSim Inputs
 
