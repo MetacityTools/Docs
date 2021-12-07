@@ -6,6 +6,10 @@ description: >-
 
 # Basic Info
 
+## References
+
+[Official MATSim Text](../resources/matsim.md#official-matsim-resources)
+
 ## Introduction
 
 * Microscopic modeling of traffic: MATSim performs integral microscopic simulation of resulting traffic flows and the congestion they produce.
