@@ -6,7 +6,7 @@ description: >-
 
 # Filtering GTFS
 
-## Keeping suburban routes only
+## Keeping urban routes only
 
 1. Using R to filter out routes that are suburban and keep only:
    * Tram L1-26, night tram L90-L96
