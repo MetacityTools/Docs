@@ -8,6 +8,7 @@
   * [OSM](matsim/osm.md)
   * [Coordinates](matsim/coordinates.md)
   * [Config File](matsim/config-file.md)
+  * [Scoring](matsim/scoring.md)
   * [Running Example](matsim/running-example.md)
 * [Synthetic Population](synthetic-population/README.md)
   * [Data Specification](synthetic-population/data-specification.md)
