@@ -9,7 +9,7 @@
   * [Coordinates](matsim/coordinates.md)
   * [Config File](matsim/config-file.md)
   * [Scoring](matsim/scoring.md)
-  * [Running Example](matsim/running-example.md)
+  * [Running Scenario](matsim/running-example.md)
 * [Synthetic Population](synthetic-population/README.md)
   * [Creating a Synthetic Population](synthetic-population/creating-a-synthetic-population.md)
   * [Case Studies](synthetic-population/case-studies.md)
