@@ -2,10 +2,11 @@
 A document describing various workflows to create a synthetic population, which is further used to generate travel demands (plans) for the [MATSim](https://docs.google.com/document/d/1FBWCIPXkKwGI7Jez9SENUg-B-HAw9e81kdxODJoNUVA/edit?usp=sharing) application.
 
 ## Introduction
-A [synthetic population](https://silo.zone/synPop.html) is a simplified microscopic representation of the actual population. Simplified, because not all attributes are included (for example hair color is deemed to be irrelevant for land use modeling, thus it is ignored). It is microscopic because every household and every person is represented individually. A synthetic population is not identical to the actual population, i.e. most residents will find a record in the synthetic population that matches themselves. Instead, the synthetic population matches various statistical distributions of the actual population, and therefore, is close enough to the true population to be used in modeling
+A [synthetic population](https://silo.zone/synPop.html) is a simplified microscopic representation of the actual population. Simplified, because not all attributes are included (for example hair color is deemed to be irrelevant for land use modeling, thus it is ignored). It is microscopic because every household and every person is represented individually. A synthetic population is not identical to the actual population, i.e. most reside
+nts will find a record in the synthetic population that matches themselves. Instead, the synthetic population matches various statistical distributions of the actual population, and therefore, is close enough to the true population to be used in modeling
 - More information: [Creating a Synthetic Population, 2003 ](http://moeckel.github.io/rm/doc/2003_moeckel_etal_synpop_cupum.pdf)
 - (outdated) Possible input [data requirements](https://docs.google.com/document/d/1xIxFxnPrZ9Fja_9PfYYTN6YLcxZzfu4d14OFNExxBMU/edit?usp=sharing) for generating synthetic population of Prague and Central Bohemian Region. 
-- Comprehensive tutorial, somethign of a MasterDoc: [Generating Synthetic Populations for Social Modeling, Sao Paulo, 2017](https://nssac.bii.virginia.edu/~swarup/synthetic_population_tutorial_2/AAMAS_2017_generating_synthetic_populations_for_social_modeling_full_tutorial.pdf) and earlier version [Generating Synthetic Populations for Social Modeling, Singapore, 2016](https://biocomplexity.virginia.edu/sites/default/files/staff/AAMAS_2016_generating_synthetic_populations_for_social_modeling_full_tutorial.pdf)
+- Comprehensive tutorial, something of a MasterDoc: [Generating Synthetic Populations for Social Modeling, Sao Paulo, 2017](https://nssac.bii.virginia.edu/~swarup/synthetic_population_tutorial_2/AAMAS_2017_generating_synthetic_populations_for_social_modeling_full_tutorial.pdf) and earlier version [Generating Synthetic Populations for Social Modeling, Singapore, 2016](https://biocomplexity.virginia.edu/sites/default/files/staff/AAMAS_2016_generating_synthetic_populations_for_social_modeling_full_tutorial.pdf)
 - SynthPop for MATSim: [Generation of a Synthetic Population for MATSim Models, Master's Thesis, 2017](https://diglib.tugraz.at/download.php?id=5aa247f495fb1&location=browse)
 
 #### Simulation Note
@@ -15,11 +16,11 @@ A **model** is needed to generate **synthetic micro data** from general accessib
 
 ## Synthetic Population
  todo: image
- - data and attributes of a modeled agent are synthesized by integrating a diverse set of data sources and using models for interpolation and extrapolation of data.
-– Syntetic Agent is *similar* to real individuals but is not identical to any individual in the population.
-– Individual attributes of agents and their links are based on real-world collected data.
-– Privacy of individuals is protected.
-– The correlations between the data sets agree with the measured correlations of data in the real world.
+ * data and attributes of a modeled agent are synthesized by integrating a diverse set of data sources and using models for interpolation and extrapolation of data.
+* Syntetic Agent is *similar* to real individuals but is not identical to any individual in the population.
+* Individual attributes of agents and their links are based on real-world collected data.
+* Privacy of individuals is protected.
+* The correlations between the data sets agree with the measured correlations of data in the real world.
 
 ### Synthetic Agent
 A *representation* of elements’ states and interactions that is *not intended to match any snapshot of the system*, but to provide a statistically accurate overall picture. [AAMAS16]
