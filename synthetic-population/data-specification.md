@@ -4,17 +4,18 @@ description: Definition of available and necessary data to create a synthetic po
 
 
 # Available data (as of 7. 12. 2021):
-*SLDB 2011* - Full census (Praha + stredni Cechy) 
-*Česko v Pohybu* - travel diary (2017-2019)
+* **SLDB 2011** - Full census (Praha + stredni Cechy) 
+* **Česko v Pohybu** - travel diary (2017-2019)
 
 SHP files (2021)
-    - Population address point - residences with average number of residents in Prague
-    - Amenities - commercial, civic, recreational POI - [x, y] coordinates
-    - Zones in Prague - ZSJ (základní sídelní jednotka) - 687 zones
+* Population address point - residences with average number of residents in Prague
+* Amenities - commercial, civic, recreational POI - [x, y] coordinates
+* Zones in Prague - ZSJ (základní sídelní jednotka) - 687 zones
+
 Additional files 
-    - Mapping of ZSJ to districts (Praha 1-22, ...) - 57 districts
-    - Mapping between districts (census (57) <-> travel diary (cca 30) districts)
-    - Probability of commute between zones to work or education (from SLDB 2011)
+* Mapping of ZSJ to districts (Praha 1-22, ...) - 57 districts
+* Mapping between districts (census (57) <-> travel diary (cca 30) districts)
+* Probability of commute between zones to work or education (from SLDB 2011)
 
 # Pipeline overview
 1. Clean census -> one census person = individual of the synthetic population
@@ -37,16 +38,16 @@ entries: 2551962
 Prague entries: 1268463
 
 Steps:
-    1. Filter by region 3018
-    2. Drop NA in ['employment', 'sex', 'zone_id']
-    3. Fill age median grouped by ['sex', 'employment']
-    4. Fill most frequent employment grouped by ['sex', 'age']
+1. Filter by region 3018
+2. Drop NA in ['employment', 'sex', 'zone_id']
+3. Fill age median grouped by ['sex', 'employment']
+4. Fill most frequent employment grouped by ['sex', 'age']
 
 
 ## Česko v Pohybu
-Households: # entries 1509
-Travelers: # 3418
-Trips: # 8219
+* Households: # entries 1509
+* Travelers: # 3418
+* Trips: # 8219
 
 ### Households
 Steps:
