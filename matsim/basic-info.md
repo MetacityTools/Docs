@@ -101,6 +101,7 @@ Agents and their plans&#x20;
 * 1 or more plans (choice set, gene pool) - 1 is executed and scored
 * Choose 1 plan, create new one (mutation)
 * Removing bad plans (survival of the fittest)
+* Executing a plan (= network loading)
 
 ### Config.xml
 
