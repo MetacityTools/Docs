@@ -92,6 +92,7 @@ todo
 
 ```
 writeExperiencedPlans
+fractionOfIterationsToStartScoreMSA - 1 or 0, Forcing Scores to Converge
 
 learningRate
 BrainExpBeta
@@ -99,6 +100,7 @@ lateArrival
 earlyDeparture
 performing
 marginalUtilityOfMoney
+utilityOfLineSwitch
 waiting
 waitingPt
 
