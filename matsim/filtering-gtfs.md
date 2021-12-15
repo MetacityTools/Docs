@@ -10,7 +10,7 @@ description: >-
 
 [https://pid.cz/o-systemu/opendata/](https://pid.cz/o-systemu/opendata/)
 
-## Keeping urban routes only
+## Keeping Urban Routes Only
 
 Filter out routes that are suburban and keep only:
 
