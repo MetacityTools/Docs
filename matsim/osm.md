@@ -4,6 +4,10 @@ description: How to preprocess OSM before creating a MATSim network
 
 # OSM
 
+### Data Reference
+
+[http://download.geofabrik.de/osm-data-in-gis-formats-free.pdf](http://download.geofabrik.de/osm-data-in-gis-formats-free.pdf)
+
 ## [Planet OSM](https://planet.openstreetmap.org)
 
 1. Download Czech Republic (.osm): [https://download.geofabrik.de/europe/czech-republic.html](https://download.geofabrik.de/europe/czech-republic.html)&#x20;
