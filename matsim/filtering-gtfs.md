@@ -6,9 +6,11 @@ description: >-
 
 # Filtering GTFS
 
-## PID GTFS
+## URL
 
-[https://pid.cz/o-systemu/opendata/](https://pid.cz/o-systemu/opendata/)
+**Data reference:** [https://developers.google.com/transit/gtfs/reference ](https://developers.google.com/transit/gtfs/reference)
+
+**PID GTFS:** [https://pid.cz/o-systemu/opendata/](https://pid.cz/o-systemu/opendata/)
 
 ## Keeping Urban Routes Only
 
