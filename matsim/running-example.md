@@ -69,3 +69,6 @@ As of now the trams are also in their own network, not driving alongside cars or
 * [https://jitpack.io/p/colinsheppard/pt2matsim](https://jitpack.io/p/colinsheppard/pt2matsim)
 * [https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf](https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf)
 
+### Population / Plans
+
+TODO
