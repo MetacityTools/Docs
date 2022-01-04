@@ -24,8 +24,7 @@ _**Allows to export only a small area!**_
 
 1. Export OSM data (map.osm)
 2. Compress using some tool to .osm.pbf (e. g. osmium-tool): [https://osmcode.org/osmium-tool/](https://osmcode.org/osmium-tool/)&#x20;
-3. Use SupersonicOsmNetworkReader to change data to MATSim XML
-   1. Or deprecated [https://www.matsim.org/apidocs/core/0.4.0/org/matsim/core/utils/io/OsmNetworkReader.html](https://www.matsim.org/apidocs/core/0.4.0/org/matsim/core/utils/io/OsmNetworkReader.html)&#x20;
+3. Use SupersonicOsmNetworkReader to change data to MATSim XML ([OsmNetworkReader](https://www.matsim.org/apidocs/core/12.0/org/matsim/core/utils/io/OsmNetworkReader.html) is deprecated)
 4. Run NetworkSimplifier from MATSim - improves simulation performance, introduces artifacts
 5. Run NetworkCleaner from MATSim
 
