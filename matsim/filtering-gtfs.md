@@ -26,6 +26,6 @@ Filter out routes that are suburban and keep only:
 
 1. Clone the Metacity-MATSim repository
 2. Move into the `utility/gtfs` folder
-3. Add the downloaded GTFS folder into the `data` folder
+3. Add the downloaded GTFS folder into the `utility/gtfs/data` folder
 4. Run: `python filter_by_route_id.py`
-5. The filtered GTFS will be in the output folder by default
+5. The filtered GTFS will be in the `utility/gtfs/output` folder by default
