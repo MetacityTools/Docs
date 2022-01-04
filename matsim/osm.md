@@ -28,3 +28,14 @@ _**Allows to export only a small area!**_
    1. Or deprecated [https://www.matsim.org/apidocs/core/0.4.0/org/matsim/core/utils/io/OsmNetworkReader.html](https://www.matsim.org/apidocs/core/0.4.0/org/matsim/core/utils/io/OsmNetworkReader.html)&#x20;
 4. Run NetworkSimplifier from MATSim - improves simulation performance, introduces artifacts
 5. Run NetworkCleaner from MATSim
+
+## Cycle-relevant data in OSM
+
+Refer to: [https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf](https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf)
+
+* Main road with a bicycle lane
+  * `highway=?` and `cycleway=lane`
+* Bicycle lane on the sidewalk
+  * `highway=?` and `cycleway=track`
+* A bicycle track away from roads
+  * `highway=cycleway`
