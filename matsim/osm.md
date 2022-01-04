@@ -34,6 +34,8 @@ _**Allows to export only a small area!**_
 
 Refer to: [https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf](https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf)
 
+Bikes in MATSim: [https://github.com/matsim-org/pt2matsim/issues/137](https://github.com/matsim-org/pt2matsim/issues/137)
+
 * Main road with a bicycle lane
   * `highway=?` and `cycleway=lane`
 * Bicycle lane on the sidewalk
