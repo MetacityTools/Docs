@@ -1,5 +1,7 @@
 ---
-description: How to preprocess OSM before creating a MATSim network
+description: >-
+  How to preprocess OSM before creating a MATSim network, additional info about
+  OSM
 ---
 
 # OSM
@@ -28,7 +30,7 @@ _**Allows to export only a small area!**_
 4. Run NetworkSimplifier from MATSim - improves simulation performance, introduces artifacts
 5. Run NetworkCleaner from MATSim
 
-## Cycle data in OSM
+## Cycle Data in OSM
 
 Refer to: [https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf](https://2018.stateofthemap.org/slides/A35-Using\_OpenStreetMap\_to\_model\_bicycle\_traffic\_in\_an\_agent-based\_transport\_simulation.pdf)
 
