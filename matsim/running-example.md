@@ -16,7 +16,7 @@
    ``Make sure to change the values of parameters in the json property file (e.g. simulation seed, correct population file name...) before running the config generator script. You can add more key-value pairs but make sure it follows the [MATSim configuration file](config-file.md) standard.\
    A new MATSim configuration file with suffix `-run` will be created in `matsim/data/matsim-files`.
 7. Build a JAR file using a maven-wrapper: `./mvnw clean package`\
-   ``Dependencies are installed into your `/home/.m2` directory.\
+   ``Dependencies are installed into your `/home/yourusername/.m2` directory.\
    The used packages are specified in `matsim/pom.xml` file.
 8. Run: `./run_matsim.sh`\
    The script defines how much memory will be used for the Java app, change it to your wanted size (option `-Xmx`, e.g. `-Xmx10g` will allocate 10GB RAM)
