@@ -36,6 +36,13 @@ The OSM road structure is projected into coordinates in which the Euclidean dist
 
 * **Output**: a multimodal network in MATSim XML format (probably zipped as well)
 
+#### OSM-Network configuration file
+
+Parameters involving paths (and need to be changed accordingly):
+
+* `osmFile` - path to the OSM file
+* `outputNetworkFile` - output file for the multimodal network in MATSim XML format
+
 ### Public Transit
 
 The GTFS for the public transit is then mapped onto the network. Click [here](filtering-gtfs.md) to see how to filter out routes outside the OSM area. The mapping is configured using the <mark style="background-color:green;">pt-mapping-config.xml</mark> mapping configuration file.&#x20;
@@ -43,6 +50,15 @@ The GTFS for the public transit is then mapped onto the network. Click [here](fi
 The links of the network have \[x, y] projected coordinates specified, meanwhile the GTFS is in WGS84 and the route is not given - only the order of stops along the route are known. Therefore, in this step the transit schedules are mapped onto the MATSim multimodal network and so the public transport is merged with the MATSim network.
 
 * **Output**: a multimodal network with mapped public transit routes, transit vehicles (bus, tram vehicles, ...) and a mapped transit schedule (timetable) for a chosen GTFS sample day
+
+#### PT mapping configuration file
+
+Parameters involving paths (and need to be changed accordingly):
+
+* `inputNetworkFile` - path to the multimodal network in MATSim XML format
+* `inputScheduleFile` - intermediate schedule file created when processing GTFS
+* `outputNetworkFile` - a multimodal network with mapped public transit routes
+* `outputScheduleFile` - a mapped transit schedule (timetable)
 
 #### Mapping Options
 
