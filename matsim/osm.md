@@ -42,3 +42,9 @@ Bikes in MATSim: [https://github.com/matsim-org/pt2matsim/issues/137](https://gi
   * `highway=?` and `cycleway=track`
 * A bicycle track away from roads
   * `highway=cycleway`
+
+## OSM Tags in MATSim OsmNetworkReader
+
+To process the OSM file into a MATSim network correctly, the following tags must be used:
+
+{% embed url="https://github.com/matsim-org/matsim-libs/blob/master/contribs/osm/src/main/java/org/matsim/contrib/osm/networkReader/OsmTags.java" %}
