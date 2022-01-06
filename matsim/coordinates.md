@@ -6,9 +6,7 @@ description: Description of used coordinates in MATSim simulation
 
 ## Prague / Czechia
 
-#### Coordinates: S-JTSK + Bpv (YXH) (EPSG:5513, EPSG:2065)
-
-* [https://geoportal.cuzk.cz/(S(f11gyyeko4ufnsjy13t1nwz1))/INC/TextMeta/html/CZ/help/transformace/index.html](https://geoportal.cuzk.cz/\(S\(f11gyyeko4ufnsjy13t1nwz1\)\)/INC/TextMeta/html/CZ/help/transformace/index.html)
+**Coordinates: S-JTSK + Bpv (YXH) (EPSG:5513, EPSG:2065)** [https://geoportal.cuzk.cz/(S(f11gyyeko4ufnsjy13t1nwz1))/INC/TextMeta/html/CZ/help/transformace/index.html](https://geoportal.cuzk.cz/\(S\(f11gyyeko4ufnsjy13t1nwz1\)\)/INC/TextMeta/html/CZ/help/transformace/index.html)
 
 #### Why EPSG:5513 (and not EPSG:5514)?
 
