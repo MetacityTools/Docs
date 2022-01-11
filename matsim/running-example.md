@@ -87,7 +87,26 @@ As of now the trams are also in their own network, not driving alongside cars or
 
 ### Scaling Vehicle PCE
 
-todo
+When running a scaled-down simulation, the PCE for buses have to be re-defined, otherwise the buses get stuck.
+
+For example simulating 10% of population results in **bus PCE = 0.3**. This can be edited in file `transit-vehicles.xml.gz`&#x20;
+
+```
+<vehicleType id="Bus">
+	<capacity>
+		<seats persons="70"/>
+		<standingRoom persons="0"/>
+	</capacity>
+	<length meter="18.0"/>
+	<width meter="2.5"/>
+	<accessTime secondsPerPerson="0.5"/>
+	<egressTime secondsPerPerson="0.5"/>
+	<doorOperation mode="serial"/>
+	<passengerCarEquivalents pce="0.3"/> <!-- edit here -->
+</vehicleType>
+```
+
+
 
 ### Population / Plans
 
