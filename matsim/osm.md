@@ -17,6 +17,7 @@ description: >-
    1. Polygons describing Prague (.geojson) - 57 districts: [https://www.geoportalpraha.cz/en/data/opendata/E9E20135-18B3-4163-B516-45613956B856](https://www.geoportalpraha.cz/en/data/opendata/E9E20135-18B3-4163-B516-45613956B856)&#x20;
    2. Join the districts into one polygon: `./dissolve-polygon.py MAP_MESTSKECASTI_P.json prague-polygon.json`
    3. Run: `osmium extract -p prague-polygon.json czech-republic-latest.osm.pbf -o prague.osm.pbf`
+   4. Optionally convert to osm: `osmium cat prague.osm.pbf -o prague.osm`
 3. _Optional: Create a multimodal network (roads, pt, rails, ...)_\
    __[https://github.com/matsim-org/pt2matsim/wiki/Creating-a-multimodal-network-(Osm2MultimodalNetwork)](https://github.com/matsim-org/pt2matsim/wiki/Creating-a-multimodal-network-\(Osm2MultimodalNetwork\))&#x20;
 
