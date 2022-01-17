@@ -17,7 +17,7 @@ description: Description of used coordinates in MATSim simulation
 
 Matsim cannot comprehend negative axis values while projecting long-lat to x-y.
 
-**Result: flipped axes!!** MATSim's 5513: x = 7...., y = 10...
+**Result: switched axes!!** MATSim's 5513: x = 7...., y = 10...
 
 
 
