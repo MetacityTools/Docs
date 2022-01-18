@@ -109,13 +109,15 @@ For example simulating 10% of population results in **bus PCE = 0.3**. This can 
 ### Transport Modes
 
 * Main mode (network mode) - these modes use routing algorithm on the provided MATSim network (with e. g. "qsim" algorithm)
-  * car
+  * car, (bike <mark style="color:red;">\*</mark>), ...
 * Transit mode - the modes have predefined routes according to the transit schedule, which do not change during the simulation
   * all public transit (pt): bus, tram, subway, ferry, funicular, ...
 * Teleport mode - these modes do not use any routing in the MATSim network, they only take into account the start and end link of an activity a "teleport" along the beeline in a predefined time or speed factor
   * walk, bike, ...
 
-Bikes may be simulated in the main mode if the network has a well connected network for bikes (as in there always exists a way from any node x to any node y)
+<mark style="color:red;">\*</mark> <mark style="color:purple;"></mark> Bikes may be simulated in the main mode if the network has a well connected network for bikes (as in there always exists a way from any node x to any node y)
+
+See mixed traffic settings in MATSim: [https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/84246576/Mixed+traffic](https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/84246576/Mixed+traffic)
 
 
 
