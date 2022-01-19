@@ -102,6 +102,7 @@ Agents and their plans&#x20;
 * 1 or more plans (choice set, gene pool) - 1 is executed and scored
 * Choose 1 plan, create new one (mutation)
 * Removing bad plans (survival of the fittest)
+* Executing a plan (= network loading)
 
 ### Config.xml
 
@@ -119,3 +120,15 @@ Agents and their plans&#x20;
 ### Public transport data
 
 Transit schedule of the public transport and how they interact with the network
+
+## Deterministic Public Transit Simulation
+
+{% embed url="https://github.com/SchweizerischeBundesbahnen/matsim-sbb-extensions" %}
+MATSim's Swiss Rail Extension
+{% endembed %}
+
+Cars and buses are simulated in queue network (qsim)
+
+PT should be simulated differently (trains in the queue network run fast because there's no stopping them! - they arrive too early according to the schedule)
+
+**The SwissRailRaptor is now available directly in MATSim.**
