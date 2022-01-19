@@ -19,8 +19,8 @@ Files created after an iteration:
 - Link stats - e.g. link volumes (counted LinkLeave-Events)
 
 ## Plans vs. events
-Plans = input for the simulation (how agents plan to move for the iteration)
-Events = output of the simulation (~ executed plans)
+Plan = input for the simulation (how agents plan to move for the iteration)
+Event = output of the simulation, plan is realized by a series of events (~ executed plans)
 
 Events and Plans often do not match. Assumptions to create plans might be wrong. Interaction with other agents cannot be foreseen.
 
@@ -28,7 +28,7 @@ Events and Plans often do not match. Assumptions to create plans might be wrong.
 
 ### Output_events.xml.gz
 Is the only real output of MATSim.
-The XML file contains every action in the simulation recorded as an event. 
+The XML file contains every action, executed either by an agent, vehicle or pther entity, in the simulation recorded as an event. 
 
 Each event has (guaranteed):
 - time (timestamp)
@@ -49,14 +49,15 @@ MATSim module “PrepareForSim” calculates the (these are added in the file):
 
 
 ### Output_experienced_plans.xml.gz
-Plans with calculated travel time (the “real” time it took to travel - instead of planned)
+Plans with calculated travel time (the “real” time it took to travel - instead of planned). Contains information about executed plan of each agent in simulation.
+
 ### Output_trips.csv.gz
 A file listing all planned trips of each agent. 
 Similar to a travel diary(?)
 Properties:
 person id; trip_number; trip_id; dep_time; trav_time; wait_time; traveled_distance; euclidean_distance; main_mode; longest_distance_mode; modes; start_activity_type; end_activity_type; start_facility_id; start_link; start_x; start_y; end_facility_id; end_link; end_x; end_y; first_pt_boarding_stop; last_pt_egress_stop
 
-####Output_vehicles.xml.gz
+### Output_vehicles.xml.gz
 Defined vehicles in MATSim (defined type, capacity, … and list of each vehicle).
 
 ### Output_transitVehicles.xml.gz
@@ -74,17 +75,15 @@ person; executed_score; first_act_x; first_act_y; first_act_type
 ### Output_counts.xml.gz
 MATSim can compare the simulated traffic volumes to traffic counts from the real world.
 
-### Output_facilities.xml.gz
 
 
-### Output_households.xml.gz
-
-
-### Output_legs.csv.gz
 ### Output_network.xml.gz
 Describes MATSim network. A list of links and nodes.
 Each node has coordinate point. Each link connects two nodes.
 
 
 ### Output_transitSchedule.xml.gz
+### Output_facilities.xml.gz
+### Output_households.xml.gz
+### Output_legs.csv.gz
 
