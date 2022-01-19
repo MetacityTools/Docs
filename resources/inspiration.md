@@ -6,3 +6,4 @@
 * [Albert Bandura](https://albertbandura.com)
 * [NNGroup](https://www.nngroup.com)
 * [Material IO](https://material.io)
+* [Digital Twins in Civil Infrastructure Systems](https://www.mdpi.com/2071-1050/13/20/11549)
