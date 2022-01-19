@@ -16,7 +16,7 @@ The configuration file consists of _modules._ Each module represents a logical p
 
 List of modules to configure in our Prague scenario
 
-### Global
+### global
 
 ```
 randomSeed
@@ -25,7 +25,7 @@ numberOfThreads - for parallel event handling
 insistingOnDeprecatedConfigVersion
 ```
 
-### Controler
+### controler
 
 ```
 outputDirectory
@@ -42,7 +42,7 @@ writeSnapshotsInterval
 writeTripsInterval
 ```
 
-### QSim
+### qsim
 
 ```
 startTime
@@ -51,22 +51,26 @@ flowCapacityFactor - scales the capacities of the routes accordingly
 storageCapacityFactor - tested for flowCapacityFactor^(0.75)
 snapshotperiod
 mainMode - modes that use routing in qsim (usually car)
+linkDynamics
+trafficDynamics
+usePersonIdForMissingVehicleId
 numberOfThreads - for parallel QSim
+vehiclesSource - specifies whether only vehicle types are used or more detailed type for each vehicle ID (see Vehicles)
 ```
 
-### Network
+### network
 
 ```
 inputNetworkFile - path to MATSim network
 ```
 
-### Plans
+### plans
 
 ```
 inputPlansFile - path to plans/population file
 ```
 
-### Transit
+### transit
 
 ```
 useTransit - specify whether PT should be simulated
@@ -76,19 +80,25 @@ routingAlgorithmType - the type of transit routing algorithm used (default: Swis
 transitModes - for public transit equals to "pt"
 ```
 
-### Facilities
+### facilities
 
 ```
 todo
 ```
 
-### Households
+### households
 
 ```
 todo
 ```
 
-### PlanCalcScore
+### vehicles
+
+```
+vehiclesFile - file specifying vehicle types (or more detailed their id)
+```
+
+### planCalcScore
 
 ```
 writeExperiencedPlans
@@ -123,7 +133,7 @@ parameterset type= "activityParams" - must be described for every activity in pl
     closingTime
 ```
 
-### Planscalcroute
+### planscalcroute
 
 ```
 networkModes - leg modes that will be reated by the network router (usually cars)
@@ -131,7 +141,15 @@ networkModes - leg modes that will be reated by the network router (usually cars
 parameterset type="teleportedModeParameters" - leg modes using teleport (walk, ...)
     beelineDistanceFactor
     mode
-    teleportedModeSpeed
+    teleportedModeSpeed - uses beeline distance
+    teleportedModeFreespeedFactor - uses distance from the route on network (not simulated!)
+```
+
+### travelTimeCalculator
+
+```
+analyzedModes - usually car
+separateModes
 ```
 
 ### TimeAllocationMutator
@@ -141,13 +159,13 @@ mutationAffectsDuration
 mutationRange - defines how many seconds a time mutation can maximally shift a time
 ```
 
-### SwissRailRaptor
+### swissRailRaptor
 
 ```
 useCapacityConstraints
 ```
 
-### Strategy
+### strategy
 
 ```
 maxAgentPlanMemorySize
