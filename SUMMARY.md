@@ -16,6 +16,7 @@
   * [Data Specification](synthetic-population/data-specification.md)
   * [Activity Chains](synthetic-population/activity-chains.md)
   * [Spatial Distribution](synthetic-population/spatial-distribution.md)
+  * [Households](synthetic-population/creating-households.md)
 * [Development](development/README.md)
   * [UI & UX](development/ui-and-ux.md)
   * [3D City Model](development/3d-city-model.md)
