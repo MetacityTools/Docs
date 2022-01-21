@@ -106,6 +106,10 @@ For example simulating 10% of population results in **bus PCE = 0.3**. This can 
 </vehicleType>
 ```
 
+### Vehicles.xml
+
+See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
+
 ### Transport Modes
 
 * Main mode (network mode) - these modes use routing algorithm on the provided MATSim network (with e. g. "qsim" algorithm)
