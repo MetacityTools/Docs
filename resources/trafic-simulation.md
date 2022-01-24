@@ -9,3 +9,4 @@
 * [MULTIMODÁLNÍ MODEL PRAHY A OKOLÍ (verze 2015)](https://iprpraha.cz/uploads/assets/web\_model2050v-2015.2015.pdf)
 * [Dopravní chování 2 ](https://iprpraha.cz/uploads/assets/dokumenty/ssp/analyzy/dopravni\_chovani/dopravni\_chovani\_praha\_a\_str\_kraj.pdf)
 * [Driving Futures](https://github.com/irawinder/DrivingFutures)
+* [Activity and Trip based travel models](https://medium.com/data-mining-the-city/activity-trip-based-travel-models-e4833571570)
