@@ -110,6 +110,8 @@ For example simulating 10% of population results in **bus PCE = 0.3**. This can 
 
 <mark style="color:red;">Different from</mark> <mark style="color:red;"></mark><mark style="color:red;">`transit-vehicles.xml`</mark> <mark style="color:red;"></mark><mark style="color:red;">which is for public transit (bus, tram, ...)!</mark>
 
+Specifies a type of car, bike, ...
+
 See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
 
 ### Transport Modes
