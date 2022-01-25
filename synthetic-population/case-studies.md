@@ -143,4 +143,21 @@ An origin–destination matrix is a matrix in which each cell represents the num
 
 ## Ústí nad Labem
 
+### Data
+
+* census 2011&#x20;
+* National HTS 2016
+* City HTS 2016
+* Data about facilities - [https://www.czso.cz/csu/rso/registr\_scitacich\_obvodu](https://www.czso.cz/csu/rso/registr\_scitacich\_obvodu)
+
+1. Zoning data
+2. stochastic simulation of several demographic transition processes that update census 2011 data (based on [natality](https://www.czso.cz/csu/czso/porodnost-a-plodnost-2011-2015) and [mortality](https://www.czso.cz/csu/czso/umrtnostni-tabulky-metodika) rates, residential mobility)
+3. Clean raw travel survey data
+4. Trips going in/out of the catchment area will start/end at the "city gates"
+5. merge census and HTS - they use two different HTS data (2 sets of mandatory/preferred columns while matching with hot-deck)
+6. Get facilities/build data - building purpose, activity sector (households, industry, agriculture, forestry, transportation, utilities, hospitality, administrative, public services, ...)&#x20;
+7. assign facilities to zones and classify them according to trip purposes
+8. home and primary locations (work, education) - based on OD pairs from merged census and HTS and facility data
+9. secondary locations
+
 [https://www.researchgate.net/publication/357836049\_Synthetic\_Population\_Generator\_for\_Activity-Based\_Travel\_Demand\_Models](https://www.researchgate.net/publication/357836049\_Synthetic\_Population\_Generator\_for\_Activity-Based\_Travel\_Demand\_Models)
