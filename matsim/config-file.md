@@ -56,6 +56,7 @@ trafficDynamics
 usePersonIdForMissingVehicleId
 numberOfThreads - for parallel QSim
 vehiclesSource - specifies whether only vehicle types are used or more detailed type for each vehicle ID (see Vehicles)
+insertingWaitingVehiclesBeforeDrivingVehicles
 ```
 
 ### network
