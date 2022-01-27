@@ -11,8 +11,8 @@
 2. _Optional: Import the matsim folder into an IDE as a Maven Project_&#x20;
 3. Insert input data (MATSim input files: network.xml, plans.xml ... ) into `matsim/data/matsim-files/input` directory
 4. Move into the `matsim` folder
-5. Run the downsampling of population if needed. The script samples the population xml file: `./downsample.sh 0.1`
-6. Create a new MATSim configuration file for running the simulation: `./generate_config.sh`\
+5. ~~Run the downsampling of population if needed. The script samples the population xml file: `./downsample.sh 0.1`~~This step is moved to the SYNPP pipeline (see [Synthetic Population](../synthetic-population/) pages)
+6. Create a new MATSim configuration file to run the simulation: `./generate_config.sh`\
    ``Make sure to change the values of parameters in the json property file (e.g. simulation seed, correct population file name...) before running the config generator script. You can add more key-value pairs but make sure it follows the [MATSim configuration file](config-file.md) standard.\
    A new MATSim configuration file with suffix `-run` will be created in `matsim/data/matsim-files`.
 7. Build a JAR file using a maven-wrapper: `./mvnw clean package`\
