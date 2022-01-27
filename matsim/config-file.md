@@ -4,6 +4,10 @@ description: The config file influences how the MATSim simulation behaves.
 
 # Config File
 
+Our up-to-date configuration file that holds all the stored parameters for the simulation is updated and maintained here:
+
+[https://github.com/MetacitySuite/Metacity-MATSim/blob/main/matsim/data/matsim-files/config-prague.xml](https://github.com/MetacitySuite/Metacity-MATSim/blob/main/matsim/data/matsim-files/config-prague.xml)
+
 ## Default Configuration File
 
 The list of available parameters and valid parameter values may vary from release to release. For a list of all available settings available with the version you are working with, run "DefaultConfig.java" in the Metacity-MATSim module.
