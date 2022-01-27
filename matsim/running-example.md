@@ -86,16 +86,6 @@ The routes used by tram can be defined in the mapping configuration file <mark s
 
 As of now the trams are also in their own network, not driving alongside cars or buses. Please see: [https://github.com/matsim-org/matsim-code-examples/issues/397#issuecomment-658866756](https://github.com/matsim-org/matsim-code-examples/issues/397#issuecomment-658866756)
 
-#### Public Transit References
-
-* [https://github.com/matsim-org/pt2matsim/wiki](https://github.com/matsim-org/pt2matsim/wiki)
-* [https://github.com/matsim-org/matsim-code-examples/wiki/pt](https://github.com/matsim-org/matsim-code-examples/wiki/pt)
-* [https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/83099693/Transit+Tutorial?focusedCommentId=151191553](https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/83099693/Transit+Tutorial?focusedCommentId=151191553)
-* [https://d-nb.info/1066161852/34 ](https://d-nb.info/1066161852/34)
-* [https://www.researchgate.net/publication/317039686\_MATSim\_simulations\_in\_the\_Tel\_Aviv\_Metropolitan\_Area\_Direct\_competition\_between\_public\_transport\_and\_cars\_on\_the\_same\_roadway](https://www.researchgate.net/publication/317039686\_MATSim\_simulations\_in\_the\_Tel\_Aviv\_Metropolitan\_Area\_Direct\_competition\_between\_public\_transport\_and\_cars\_on\_the\_same\_roadway)
-* [https://jitpack.io/p/colinsheppard/pt2matsim](https://jitpack.io/p/colinsheppard/pt2matsim)
-* [https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf](https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf)
-
 ### Scaling Vehicle PCE
 
 When running a scaled-down simulation, the PCE for buses have to be re-defined, otherwise the buses get stuck.
