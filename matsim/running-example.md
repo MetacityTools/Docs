@@ -41,7 +41,7 @@ All these following steps are prepared in the `CreateMatsimNetwork.java`, and ca
 
 Before running the simulation, a MATSim network must be created.&#x20;
 
-First, a multimodal network has to be created (roads for cars, buses, tram, rail, ...). The network is created using the OSM (see [here](osm.md)). The conversion is controlled using the OSM-Network configuration file <mark style="background-color:green;">osm-network-config-file.xml</mark>.&#x20;
+First, a multimodal network has to be created (roads for cars, buses, tram, rail, ...). The network is created using the OSM (see [here](osm.md)). The conversion is controlled using the OSM-Network configuration file [<mark style="background-color:green;">osm-network-config-file.xml</mark>](https://github.com/MetacitySuite/Metacity-MATSim/blob/main/matsim/data/matsim-files/osm-network-config-file.xml).&#x20;
 
 The OSM road structure is projected into coordinates in which the Euclidean distance is valid.
 
@@ -56,7 +56,7 @@ Parameters involving paths (and need to be changed accordingly):
 
 ### Public Transit
 
-The GTFS for the public transit is then mapped onto the network. Click [here](filtering-gtfs.md) to see how to filter out routes outside the OSM area. The mapping is configured using the <mark style="background-color:purple;">pt-mapping-config.xml</mark> mapping configuration file.&#x20;
+The GTFS for the public transit is then mapped onto the network. Click [here](filtering-gtfs.md) to see how to filter out routes outside the OSM area. The mapping is configured using the [<mark style="background-color:purple;">pt-mapping-config.xml</mark>](https://github.com/MetacitySuite/Metacity-MATSim/blob/main/matsim/data/matsim-files/pt-mapping-config.xml) mapping configuration file.&#x20;
 
 The links of the network have \[x, y] projected coordinates specified, meanwhile the GTFS is in WGS84 and the route is not given - only the order of stops along the route are known. Therefore, in this step the transit schedules are mapped onto the MATSim multimodal network and so the public transport is merged with the MATSim network.
 
