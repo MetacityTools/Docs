@@ -5,6 +5,15 @@
 1. OpenJDK (11), or any JDK v.11+ (not 16)
 2. Python 3.8
 
+### Input files
+
+* `pt-network-prague.xml.gz` - multi-modal network with mapped public transit (from OSM + GTFS)
+* `population.xml.gz` - population/plans (demand) file with daily plans of agents
+* `transit-schedule.xml.gz` - schedule for public transit (from GTFS)
+* `transit-vehicles.xml.gz` - description of public transit vehicles (trams, buses, trains)
+* `vehicles.xml` - description of non-public vehicles (cars, bikes, ...)
+* `config.xml` - configuration file that defines inputs and other simulation parameters (see [Config File](config-file.md) page)
+
 ## Running the Simulation
 
 1. Clone the Metacity-MATSim repository
@@ -113,6 +122,16 @@ For example simulating 10% of population results in **bus PCE = 0.3**. This can 
 <mark style="color:red;">Different from</mark> <mark style="color:red;"></mark><mark style="color:red;">`transit-vehicles.xml`</mark> <mark style="color:red;"></mark><mark style="color:red;">which is for public transit (bus, tram, ...)!</mark>
 
 Specifies a type of car, bike, ...
+
+If this file is used, the `config.xml` file must include parameter:
+
+```
+<module name="qsim">
+    ...
+    <param name="vehiclesSource" value="modeVehicleTypesFromVehiclesData" /> 
+</module>
+
+```
 
 See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
 
