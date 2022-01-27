@@ -131,6 +131,12 @@ If this file is used, the `config.xml` file must include parameter:
     <param name="vehiclesSource" value="modeVehicleTypesFromVehiclesData" /> 
 </module>
 
+...
+
+<module name="vehicles" >
+	<param name="vehiclesFile" value="./input/vehicles.xml" /> <!-- path to the vehicle.xml file relative to the config.xml file -->
+</module>
+
 ```
 
 See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
