@@ -144,9 +144,11 @@ If this file is used, the `config.xml` file must include the parameter `vehicles
 
 ```
 
+### Population / Plans
 
+TODO
 
-### Transport Modes
+## Transport Modes
 
 * Main mode (network mode) - these modes use routing algorithm on the provided MATSim network (with e. g. "qsim" algorithm)
   * car, (bike <mark style="color:red;">\*</mark>), ...
@@ -159,8 +161,3 @@ If this file is used, the `config.xml` file must include the parameter `vehicles
 
 See mixed traffic settings in MATSim: [https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/84246576/Mixed+traffic](https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/84246576/Mixed+traffic)
 
-
-
-### Population / Plans
-
-TODO
