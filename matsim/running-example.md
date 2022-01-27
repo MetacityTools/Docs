@@ -121,9 +121,14 @@ For example simulating 10% of population results in **bus PCE = 0.3**. This can 
 
 <mark style="color:red;">Different from</mark> <mark style="color:red;"></mark><mark style="color:red;">`transit-vehicles.xml`</mark> <mark style="color:red;"></mark><mark style="color:red;">which is for public transit (bus, tram, ...)!</mark>
 
-Specifies a type of car, bike, ...
+See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
 
-If this file is used, the `config.xml` file must include parameter:
+Specifies a type of car, bike, ... that the agents use
+
+* either by type of the vehicle - `modeVehicleTypesFromVehiclesData`
+* or individually for each agent (by id) - `fromVehiclesData`
+
+If this file is used, the `config.xml` file must include the parameter `vehiclesSource`:
 
 ```
 <module name="qsim">
@@ -139,7 +144,7 @@ If this file is used, the `config.xml` file must include parameter:
 
 ```
 
-See: [https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic](https://github.com/matsim-org/matsim-libs/tree/master/examples/scenarios/equil-mixedTraffic)
+
 
 ### Transport Modes
 
