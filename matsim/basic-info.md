@@ -8,13 +8,14 @@ description: >-
 
 ## References
 
-[Official MATSim Resources](../resources/matsim.md#official-matsim-resources)
+[Official MATSim Resources](../resources/matsim.md#official-matsim-resources)&#x20;
+
 [Overview of considered SW solutions](../resources/traffic-simulators.md)
 
 ## Introduction
 
 * Microscopic modeling of traffic: MATSim performs integral microscopic simulation of resulting traffic flows and the congestion they produce.
-* Microscopic behavioral modeling of demand/agent-based modeling: MATSim uses a microscopic description of demand by tracing the daily schedule and the synthetic travelers’ decisions.  In retrospect, this can be called “agent-based”.
+* Microscopic behavioral modeling of demand/agent-based modeling: MATSim uses a microscopic description of demand by tracing the daily schedule and the synthetic travelers’ decisions. In retrospect, this can be called “agent-based”.
 * Computational physics: MATSim performs fast microscopic simulations with 10^7 or more “particles”.
 * Complex adaptive systems/co-evolutionary algorithms: MATSim optimizes the experienced utilities of the whole schedule through the co-evolutionary search for the resulting equilibrium or steady state.
 
@@ -58,7 +59,7 @@ Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology
 ![Taken from MATSim's user guide](../.gitbook/assets/matsim-stages.png)
 
 * Initial demand - describes mobility behaviour (list of agents and their plans)
-* Execution - “mobsim”, agents and vehicles are moved around in the network&#x20;
+* Execution - “mobsim”, agents and vehicles are moved around in the network
 * Scoring - after execution of the plans end, the plans are evaluated based on the execution
 * Replanning - performed by “strategy modules”
 * Analysis - at the end of complete simulation, performed automatically or separate post-process
@@ -78,10 +79,10 @@ Each agent maintains multiple plans for the day, which are scored when the plan 
 
 Can be configured in “planCalcScore” module.
 
-* **Mobsim** - the mobility simulation takes one “selected” plan per agent and executes it in a synthetic reality.&#x20;
+* **Mobsim** - the mobility simulation takes one “selected” plan per agent and executes it in a synthetic reality.
 * **Scoring** - the actual performance of the plan in the synthetic reality is taken to calculate each executed plan’s score.
 * **Replanning**
-  1. PLAN REMOVAL If an agent has more than the maximum number of plans (configurable) then some plans can be discarded (by a plan selector).&#x20;
+  1. PLAN REMOVAL If an agent has more than the maximum number of plans (configurable) then some plans can be discarded (by a plan selector).
   2. INNOVATION For some agents, a plan is copied, modified, and selected for the next iteration.
   3. CHOICE All other agents choose between their plans.
 
@@ -96,7 +97,7 @@ A short description of MATSim inputs for running a plausible simulation.
 
 ### Population.xml or Plans.xml (demand)
 
-Agents and their plans&#x20;
+Agents and their plans
 
 * Planning and replanning (a lot of replanning causes fluctuations)
 * 1 or more plans (choice set, gene pool) - 1 is executed and scored
@@ -111,7 +112,7 @@ Agents and their plans&#x20;
 * What needs to be configured
   * input files locations("scenario data", "data containers")
   * computational/performance settings(e.g. number of threads)
-  * scoring&#x20;
+  * scoring
   * parameters
   * replanning strategies
   * replanning strategies' behaviour
