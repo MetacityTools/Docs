@@ -18,8 +18,10 @@
 7. Build a JAR file using a maven-wrapper: `./mvnw clean package`\
    ``Dependencies are installed into your `/home/yourusername/.m2` directory.\
    The used packages are specified in `matsim/pom.xml` file.
-8. Run: `./run_matsim.sh`\
-   The script defines how much memory will be used for the Java app, change it to your wanted size (option `-Xmx`, e.g. `-Xmx10g` will allocate 10GB RAM)
+8.  (a) Either run: `./run_matsim.sh`\
+    The script defines how much memory will be used for the Java app, change it to your wanted size (option `-Xmx`, e.g. `-Xmx10g` will allocate 10GB RAM)
+
+    (b) Or something like: `java -Xmx10g -cp matsim-13.0-v1.0.0-SNAPSHOT.jar org.matsim.run.Controler data/matsim-files/config-prague-run.xml`
 9. The simulation results will be in `matsim/output` directory by default.
 
 ## Preparing MATSim Input Data
