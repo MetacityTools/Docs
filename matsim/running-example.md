@@ -4,6 +4,7 @@
 
 1. OpenJDK (11), or any JDK v.11+ (not 16)
 2. Python 3.8
+3. MATSim version 13.0+
 
 ### Input files
 
