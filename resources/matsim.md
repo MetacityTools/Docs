@@ -28,3 +28,9 @@
 * [https://jitpack.io/p/colinsheppard/pt2matsim](https://jitpack.io/p/colinsheppard/pt2matsim)
 * [https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf](https://ethz.ch/content/dam/ethz/special-interest/baug/ivt/ivt-dam/publications/students/501-600/sa530.pdf)
 
+
+
+### Example Configuration Files
+
+[https://github.com/matsim-org/matsim-code-examples/issues/596](https://github.com/matsim-org/matsim-code-examples/issues/596)
+
