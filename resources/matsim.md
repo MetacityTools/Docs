@@ -32,5 +32,10 @@
 
 ### Example Configuration Files
 
-[https://github.com/matsim-org/matsim-code-examples/issues/596](https://github.com/matsim-org/matsim-code-examples/issues/596)
+{% embed url="https://github.com/matsim-org/matsim-code-examples/issues/596" %}
 
+### MATSim code examples
+
+[https://github.com/matsim-org/matsim-code-examples/find/11.x](https://github.com/matsim-org/matsim-code-examples/find/11.x)
+
+&#x20;
