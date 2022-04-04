@@ -22,6 +22,7 @@
   * [UI & UX](development/ui-and-ux.md)
   * [3D City Model](development/3d-city-model.md)
   * [Miscellaneous](development/miscellaneous.md)
+  * [Current state](development/current-state.md)
 * [Resources](resources/README.md)
   * [Trafic Simulation](resources/trafic-simulation.md)
   * [Projects](resources/projects.md)
