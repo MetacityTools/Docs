@@ -30,3 +30,4 @@ Other:
 ## References
 * [Comparative Evaluation of Road Traffic Simulators based on Modeler’s Specifications](https://www.scitepress.org/Papers/2021/102383/102383.pdf)
 * [Detailed Streetspace Modelling for Multiple Applications: Discussions on the Proposed CityGML 3.0 Transportation Model](https://mediatum.ub.tum.de/doc/1612624/1612624.pdf)
+* [Matsim comparison post](https://matsim.atlassian.net/wiki/spaces/MATPUB/pages/84705338/MATSim+vs.+...)

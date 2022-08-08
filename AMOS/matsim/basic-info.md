@@ -9,7 +9,6 @@ description: >-
 ## References
 
 [Official MATSim Resources](../resources/matsim.md#official-matsim-resources)&#x20;
-
 [Overview of considered SW solutions](../resources/traffic-simulators.md)
 
 ## Introduction

@@ -135,9 +135,6 @@ If this file is used, the `config.xml` file must include the parameter `vehicles
 
 ```
 
-### Population / Plans
-
-TODO
 
 ## Transport Modes
 
