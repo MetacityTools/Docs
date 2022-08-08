@@ -11,7 +11,7 @@ coverY: 0
 
 ### **Repositories**
 
-#### **SynthPop:**&#x20;
+#### **Metacity-SynthPop:**&#x20;
 
 Population with travel demands - primary and secondary.
 
@@ -23,13 +23,16 @@ Possible future improvement:
 * location assignment should be also mode dependent
 * missing travels: people from Prague metropolitan region, travels partly outside Prague, tourism, logistics
 
-#### **MATsim Output exporter:**
+#### **Metacity-MATsimOutput:**
 
-Functional export for each vehicle type. Person trips are currently not implemented.
+MATsim output exporter - converts MATSim output files to internal SIM format.
+Functional export for each vehicle type, with an updated set of passengers. Person trips (individual daily travels as SIM) are currently not implemented.
 
-### **MATSim simulation**
+### **Metacity-MATSim**
+* contains working configuration for MATSim
 
-Last run in Tramola under Secondary locations scenario - 500 iterations, run 23.
+But:
+Last simulation run in Tramola under Secondary locations scenario - 500 iterations, run 23.
 
 Modes: car, pt, walk, bike, ride
 

@@ -4,7 +4,9 @@ description: A set of tools for urban data synthesis, analysis and visualization
 
 # Metacity
 [WEB](https://metacity.cc)
+
 [DEMO](https://demo.metacity.cc/)
+
 
 ## Metacity History
 * Metacity early days
@@ -15,3 +17,5 @@ description: A set of tools for urban data synthesis, analysis and visualization
 * Metacity + Banana GL = <3
 * Metacity Web
 * PDS 
+
+[Table of contents](SUMMARY.md)
