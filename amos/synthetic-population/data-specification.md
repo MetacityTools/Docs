@@ -1,7 +1,7 @@
 ---
-description: Definition of available and necessary data to create a synthetic population.
+description: Definition and preprocessing of available and necessary data to create a synthetic population.
 ---
-
+# Data Specification
 
 # Available data (as of 7. 12. 2021):
 * **SLDB 2011** - Full census (Praha + stredni Cechy) 
@@ -61,7 +61,6 @@ Steps:
     - If age > 18 and driving_license is NA -> driving_license = True
     - If age < 18 and driving_license is NA -> driving_license = False
     - If age < 16 or age > 64 -> pt_avail = True
-Remove 
 
 ### Trips
 Steps:
@@ -71,10 +70,3 @@ Steps:
 4. Keep only travelers where ‘*_purpose’ == ‘home’ and ‘*_code’ == 1000
 5. Fill NA in ‘*_code’ for missing commute home-work, home-education (and vice versa)
 6. Impute driving mode "other" by mode of groupby by traveling speed.
-
-
-# Data Specification Historical 
-
-{% embed url="https://docs.google.com/document/d/1xIxFxnPrZ9Fja_9PfYYTN6YLcxZzfu4d14OFNExxBMU/edit?usp=sharing" %}
-
-{% embed url="https://docs.google.com/document/d/1z9pfQD27ZfFH5mb1TW-I7XZU8QffYONaMPy1DfIt_2k/edit?usp=sharing" %}

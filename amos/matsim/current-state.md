@@ -67,3 +67,9 @@ Run report 500, car within choices
 {% file src="../.gitbook/assets/report_300_car_nochoice.pdf" %}
 Run report 300 iterations, car not in free choices
 {% endfile %}
+
+
+### Tramola environment
+Available at: A/META/matsim/tramola-21.0.6/
+Run with: java -Xmx2g -jar tramola-21.0.6.jar
+

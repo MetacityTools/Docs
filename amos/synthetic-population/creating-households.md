@@ -1,6 +1,5 @@
 # Generating Households
 
-
 ## Motivation
 An individual's decision depends on both his/her characteristics as well as on family situation and social connections. 
 Defined social links affect realistic choices and daily routines of individuals, such as financial decisions or transportation modes - children driven to schools by parents, splitting one car between spouses etc. but also affect larger societal phenomenons such as disease transmission or opinion bubbles.
@@ -21,3 +20,10 @@ People:
 Residences:
 * [ČSÚ aggregated household data, 2011](https://vdb.czso.cz/vdbvo2/faces/cs/index.jsf?page=statistiky&katalog=30847#katalog=30739)
 * SHP file with residence buildings and the avg. number of inhabitans for each zone in Prague
+
+
+# Work in progress:
+
+[GitHub repository](https://github.com/KankaJan/MetacityStats2011)
+
+Repository contains tool for generating synthetic population for Prague from curently openly available aggregated data at CSU.

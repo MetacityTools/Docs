@@ -1,4 +1,12 @@
+---
+    description: "Research studies used as a basis for the AMOS project."
+---
 # Case Studies
+
+* Sao Paulo
+* Paris and Ile-de-France
+* Ústí nad Labem
+
 
 ## Sao Paulo
 
@@ -18,13 +26,13 @@ Sociodemographic information of people and households (HH) - scaled to 10%
             df_census.columns = ["federationCode", "areaCode", "householdWeight", "metropolitanRegion", "personNumber", "gender", "age", "goingToSchool", "employment", "onLeave", "helpsInWork", "farmWork", "householdIncome", "motorcycleAvailability", "carAvailability", "numberOfMembers"]
     ```
 
-    1. Spatial editing
+    2. Spatial editing
 
     ```
             df_census["zone_id"] = df_census["areaCode"] 
     ```
 
-    1. cleaned
+    3. cleaned
 
     ```
             df = df[["person_id", "household_id","weight","zone_id","residence_area_index","age", "sex", "employment", "binary_car_availability","household_size", "household_income"]]
@@ -54,14 +62,14 @@ From zones in shapefiles (use geopandas, set current coordinate system crs, tran
         df_facilities_education["offers_work"] = True
     ```
 
-    1.
+    2.
 
     ```
         df_facilities_education["offers_other"] = True
     ```
 4. From shapefile of zones - transform geometries to a new coordinate reference system (geopandas): geometry, zone\_id
 
-### HTS
+### Household Travel Survey
 
 [data](https://transparencia.metrosp.com.br/dataset/pesquisa-origem-e-destino/resource/4362eaa3-c0aa-410a-a32b-37355c091075) household travel survey \~ contains 84 889 samples which are weighted, so that the total weight sum amounts to 20 508 979, more or less the number of inhabitants in the area in 2017.
 
@@ -76,7 +84,7 @@ From zones in shapefiles (use geopandas, set current coordinate system crs, tran
         df_persons["geometry"] = [geo.Point(*xy) for xy in zip(df_persons["homeCoordX"], df_persons["homeCoordY"])]
     ```
 
-    1.
+    2.
 
     ```
         df_geo = gpd.GeoDataFrame(df_persons, crs = {"init" : "EPSG:29183"})
@@ -87,17 +95,20 @@ From zones in shapefiles (use geopandas, set current coordinate system crs, tran
     home_zones = gpd.sjoin(df_geo[["person_id","geometry"]], df_zones[["zone_id","geometry"]], op = "within",how="left")
 ```
 
-1.  Generating areas 1.
+
+1.  Generating areas 
+    1.
 
     ```
     sp_area = [3 * (z in center) + 2 * (z in city and z not in center) + 1 * (z in region and z not in city) for z in zone_id] 
     ```
 
-    1.
+    2.
 
     ```
     df_persons["residence_area_index"] = sp_area
     ```
+
 2. Generating trips
    1. origin and destination purpose (shop, work, ...), mode, zones, …
    2. Remove trips from a place to the same place
