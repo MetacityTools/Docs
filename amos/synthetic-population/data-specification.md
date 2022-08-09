@@ -1,7 +1,6 @@
 ---
 description: Definition and preprocessing of available and necessary data to create a synthetic population.
 ---
-# Data Specification
 
 # Available data (as of 7. 12. 2021):
 * **SLDB 2011** - Full census (Praha + stredni Cechy) 

@@ -1,6 +1,6 @@
 # MATSim output processing
 
-Scripts to process MATSim events and network files available in (https://github.com/MetacitySuite/Metacity-MATSimOutput)[this] repository.
+Scripts to process MATSim events and network files are available in [this](https://github.com/MetacitySuite/Metacity-MATSimOutput) repository.
 The output is movement information in SIM format that can by visualized in Metacity and MATSim network converted to ShapeFile.
 
 ## SIM files

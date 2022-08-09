@@ -31,7 +31,5 @@ These attributes are exported to the following format:
 
 # Comparison notebooks
 
-To compare the results of different synthetic population pipelines and our input data, we use the following notebook:
-
-```{notebook} https://github.com/MetacitySuite/Metacity-SynthPop/blob/master/synthesis/stats/comparison.ipynb
-```
+To compare the results of different synthetic population pipelines and our input data, we use the following notebooks:
+[GitHub directory](https://github.com/MetacitySuite/Metacity-SynthPop/blob/master/synthesis/stats)

@@ -3,9 +3,6 @@ description: >-
   Roughly extracted information from MATSim's user guide, MATSim's tutorial
   slides and the MATSim Book.
 ---
-
-# Basic Info
-
 ## References
 
 [Official MATSim Resources](../resources/matsim.md#official-matsim-resources)&#x20;

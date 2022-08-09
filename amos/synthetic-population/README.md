@@ -4,8 +4,6 @@ cover: >-
 coverY: 0
 ---
 
-# Synthetic Population
-
 [PRESENTATION]()
 
 Our goal was to create simple one-level synthetic population with travel demands for an average day to showcase the possibilities of the project.

@@ -1,5 +1,3 @@
-
-
 # Spatial distribution
 
 To match each census datapoint with corresponding travel survey point, we previously acquired the census data at ZSJ level.
