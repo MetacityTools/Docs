@@ -1,9 +1,7 @@
+---
+description: Non-exhaustive list of known traffic/movement simulation SW solutions.
+---
 # Vis and Meta Software
-
----
-description: >-
-  Non-exhaustive list of known traffic/movement simulation SW solutions.
----
 
 ## List of Known Solutions
 Open Source:
