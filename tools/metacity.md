@@ -69,41 +69,6 @@ Any time you make change to the C++ code, you can build it with:
 python setup.py build_ext --inplace
 ```
 
-### Tests
-
-`Metacity` comes with a few testing datasets and uses [`pytest`](https://docs.pytest.org/en/7.1.x/) for testing. To run the tests locally, with coverage analysis, run:
-
-```bash
-python -m pytest tests/* --cov=metacity --cov-report term-missing
-```
-
-If you need to see the output of the tested code, run the command above with an extra flag `-s`
-
-The tests are located inside `tests`directory:
-
-* `tests/conftest.py` contains [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) providing the testing data.
-* `tests/test_module.py` contains individual tests, the `module` placeholder in the filename is usually replaced with the name of the tested Python module (not required)
-
-Always test your code!
-
-### Publishing
-
-Before you publish a new version:
-
-* you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
-* make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
-
-To publish the code, run the following commands:
-
-```
-rm -rf dist;
-rm -rf metacity.egg*;
-python setup.py sdist; 
-python -m twine upload dist/*;
-```
-
-What is going to end up inside the published package is specified in `MANIFEST.in` that is located in the root of the repository.
-
 ## Usage
 
 The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
@@ -470,3 +435,72 @@ grid.add_layer(terrain)
 
 Now, each tile inside `grid` contains only a single model.&#x20;
 
+## DevOps&#x20;
+
+After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in `.github/workflows/ci.yml` are executed. Generally, it involves&#x20;
+
+1. Building the C++ parts of the code
+2. Running tests with `pytest` - see [Testing](metacity.md#tests)
+
+### Testing
+
+`Metacity` comes with a few testing datasets and uses [`pytest`](https://docs.pytest.org/en/7.1.x/) for testing. To run the tests locally, with coverage analysis, run:
+
+```bash
+python -m pytest tests/* --cov=metacity --cov-report term-missing
+```
+
+If you need to see the output of the tested code, run the command above with an extra flag `-s`
+
+The tests are located inside `tests`directory:
+
+* `tests/conftest.py` contains [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) providing the testing data.
+* `tests/test_module.py` contains individual tests, the `module` placeholder in the filename is usually replaced with the name of the tested Python module (not required)
+
+Always test your code!
+
+### Publishing
+
+Before you publish a new version:
+
+* you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
+* make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
+
+Note, that it is possible to publish a new version by successfully merging a Pull Request from `dev` to `main` branch by adding `action::package` into the merge commit message - see [Pull Request Flags](metacity.md#pull-request-flags).
+
+To publish the code, run the following commands:
+
+```
+rm -rf dist;
+rm -rf metacity.egg*;
+python setup.py sdist; 
+python -m twine upload dist/*;
+```
+
+What is going to end up inside the published package is specified in `MANIFEST.in` that is located in the root of the repository.
+
+### Branches
+
+| Branch | Status                                                                                                                                                                                           | Description                                                           |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| main   | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=main)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22) | protected, merged PRs auto tested and deployed to PyPI if tag present |
+| dev    | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=dev)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22)  | merged PRs auto tested and version bumped if tag present              |
+
+### Pull Request Flags
+
+Typing any of the following strings into the commit message while merging a pull request will trigger an action in the CI.
+
+#### From `any branch` to `dev`
+
+When merging from any branch to `dev` branch:
+
+* `action::bump` - flag to run bump package version, the version is bumped as a patch if no version tag is used.
+  * `version::patch` - bump version after patch/bug fix/minor change
+  * `version::minor` - bump version after new feature/minor change
+  * `version::major` - bump version after major change/breaking change
+
+#### From `dev` to `main`
+
+When merging from `dev` to `main` branch:
+
+* `action::package` - flag to deploy to PyPI
