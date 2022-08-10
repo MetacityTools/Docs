@@ -4,9 +4,7 @@ description: Python package for Geodata processing
 
 # 🌆 Metacity
 
-_What is this good for?_
-
-The `Metacity` package allows us to preprocess geospatial data and export it in a form that will be more suitable for web visualization.&#x20;
+The `Metacity` package allows to preprocess geospatial data and export it in a form that is more suitable for web visualization.&#x20;
 
 ### Installation
 
@@ -147,9 +145,124 @@ models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
-### Models
+### Models, Metadata & Attributes
 
-TODO
+A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning. The geometry is stored in `Attributes`. See the following example:
+
+```python
+from metacity.geometry import Model, Attribute
+
+model = Model()
+position_attr = Attribute()
+position_attr.push_polygon3D([[0, 0, 0, \
+                               0, 0, 1, \
+                               0, 1, 1]])
+                          
+#Model.add_attribute(self, arg0: str, arg1: Attribute) -> None
+model.add_attribute("POSITION", position_attr)
+
+#Model.set_metadata(self, arg0: json) -> None
+model.set_metadata({ "description": "An example triangle" })
+```
+
+The geometry attributes and the metadata is usually loaded using the `metacity.io` module. Additionally, the `Model` class has a few more methods:
+
+```python
+#Complementary to method add_attribute, there is also 
+#Model.attribute_exists(self, arg0: str) -> bool
+position_exists = model.attribute_exists("POSITION")
+
+#Model.get_attribute(self, arg0: str) -> Attribute
+position_attr = model.get_attribute("POSITION")
+
+#@property
+#Model.metadata(self) -> json
+metadata = model.metadata
+```
+
+Note, that the property `Model.metadata` returns a copy of the metdata, making any changes to it won't affect
+
+
+
+#### Attributes&#x20;
+
+`Attributes` work similarly to [GLTF buffers](https://www.khronos.org/files/gltf20-reference-guide.pdf). The `Attribute` API allows parsing of various data and make necessary conversions. All data is stored inside as if it was 3D data (2D data gets padded by zeroes).&#x20;
+
+If everything works as intended, you as a user **should rarely work directly with** `Attributes`. Occasionally, it might be useful to be able to access the Attribute API:
+
+```python
+from metacity.geometry import Attribute
+
+points = Attribute()
+#Insert 2D points using push_line2D method:
+#Attribute.push_point2D(self, arg0: List[float]) -> None
+points.push_line2D([0, 0, \
+                    1, 1, \
+                    1, 2])
+#Similar for 3D points
+#Attribute.push_point3D(self, arg0: List[float]) -> None
+points.push_point3D([0, 0, 0,   \
+                    1, 1, 0.5, \
+                    1, 2, 1])
+```
+
+Parsing Lines is very similar to parsing points, although the main difference is the data gets stored as individual segments duplicating inner vertices.  &#x20;
+
+```python
+from metacity.geometry import Attribute
+
+lines = Attribute()
+#Insert 2D line string using push_line2D method:
+#Attribute.push_line2D(self, arg0: List[float]) -> None
+lines.push_line2D([0, 0, \
+                    1, 1, \
+                    1, 2])
+#in the example above, the vertices get internally stored as:
+#input:          a - b - c
+#stored values: [0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 2, 0]
+#               [a - b, b - c]
+#               every 3rd zero is padding for 3D data, inner vertex si duplicated 
+
+#Similar for 3D points
+#Attribute.push_line3D(self, arg0: List[float]) -> None
+lines.push_line3D([0, 0, 0,   \
+                    1, 1, 0.5, \
+                    1, 2, 1])
+```
+
+Polygons are automatically triangulated, the API also supports polygons with holes:
+
+```python
+from metacity.geometry import Attribute
+
+points = Attribute()
+#Insert simple 2D polygon using push_polygon3D method:
+#Attribute.push_polygon2D(self, arg0: List[List[float]]) -> None
+position.push_polygon2D([[0, 0, \
+                          0, 1, \
+                          1, 1, \
+                          0, 1]])
+
+#Insert 2D polygon with hole in the middle:
+position.push_polygon2D([[0, 0, \
+                          0, 1, \
+                          1, 1, \
+                          0, 1], \
+                          [0.25, 0.25, \
+                           0.25, 0.75,
+                           0.75, 0.75,
+                           0.75, 0.25])
+#The structure draws from GeoJSON specs - 
+#the List[List[float]] can be interpreted as
+#[[polygon], [hole], [hole] ...] 
+
+#All works equivalently for 3D:
+#Attribute.push_polygon3D(self, arg0: List[List[float]]) -> None    
+position.push_polygon3D([[0, 0, 1, \
+                          0, 1, 1, \
+                          1, 1, 1, \
+                          0, 1, 1]])                       
+```
 
 ### Layers
 
