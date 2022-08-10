@@ -69,6 +69,14 @@ Any time you make change to the C++ code, you can build it with:
 python setup.py build_ext --inplace
 ```
 
+### Debugging
+
+If you encounter any problems, ensure you:
+
+* have `GDAL` and `CMake` installed
+* installed packages based on `requirements.txt`
+* have a C++ compiler supporting C++17 installed
+
 ## Usage
 
 The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
@@ -414,7 +422,7 @@ The `layout.json` example:
 
 ### Merging&#x20;
 
-Sometimes, a layer contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all of the models located in individual tiles to one model per tile.
+Sometimes, a single tile contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all models in individual tiles into one model per tile.
 
 {% hint style="warning" %}
 Remember the [`Attribute` type mixing rules](metacity.md#attribute-caveats)? Similar rules apply here:
@@ -437,14 +445,16 @@ Now, each tile inside `grid` contains only a single model.&#x20;
 
 ## DevOps&#x20;
 
-After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in `.github/workflows/ci.yml` are executed. Generally, it involves&#x20;
+After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in [`ci.yml`](https://github.com/MetacitySuite/Metacity/blob/main/.github/workflows/ci.yml) are executed. Generally, it involves&#x20;
 
 1. Building the C++ parts of the code
 2. Running tests with `pytest` - see [Testing](metacity.md#tests)
 
+Additional actions can be triggered using the [Pull Request Flags](metacity.md#pull-request-flags).
+
 ### Testing
 
-`Metacity` comes with a few testing datasets and uses [`pytest`](https://docs.pytest.org/en/7.1.x/) for testing. To run the tests locally, with coverage analysis, run:
+`Metacity` comes with a few testing datasets and uses [`pytest`](https://docs.pytest.org/en/7.1.x/). To run the tests locally, with coverage analysis, run:
 
 ```bash
 python -m pytest tests/* --cov=metacity --cov-report term-missing
@@ -452,7 +462,7 @@ python -m pytest tests/* --cov=metacity --cov-report term-missing
 
 If you need to see the output of the tested code, run the command above with an extra flag `-s`
 
-The tests are located inside `tests`directory:
+The tests are located inside the `tests` directory:
 
 * `tests/conftest.py` contains [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) providing the testing data.
 * `tests/test_module.py` contains individual tests, the `module` placeholder in the filename is usually replaced with the name of the tested Python module (not required)
@@ -466,9 +476,9 @@ Before you publish a new version:
 * you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
 * make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
 
-Note, that it is possible to publish a new version by successfully merging a Pull Request from `dev` to `main` branch by adding `action::package` into the merge commit message - see [Pull Request Flags](metacity.md#pull-request-flags).
+Note that it is possible to publish a new version by successfully merging a Pull Request from `dev` to `main` branch by adding `action::package` into the merge commit message - see [Pull Request Flags](metacity.md#pull-request-flags).
 
-To publish the code, run the following commands:
+To publish the code from your local computer, run the following commands:
 
 ```
 rm -rf dist;
@@ -477,7 +487,7 @@ python setup.py sdist;
 python -m twine upload dist/*;
 ```
 
-What is going to end up inside the published package is specified in `MANIFEST.in` that is located in the root of the repository.
+The contents of the package are specified in `MANIFEST.in` located in the root of the repository.
 
 ### Branches
 
