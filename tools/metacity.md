@@ -69,6 +69,14 @@ Any time you make change to the C++ code, you can build it with:
 python setup.py build_ext --inplace
 ```
 
+### Debugging
+
+If you encounter any problems, ensure you:
+
+* have `GDAL` and `CMake` installed
+* installed packages based on `requirements.txt`
+* have a C++ compiler supporting C++17 installed
+
 ## Usage
 
 The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
@@ -152,6 +160,14 @@ assert model.metadata["description"] != "A new description"
 </strong>model.set_metadata({ "description": "A new description" })
 assert model.metadata["description"] == "A new description"</code></pre>
 
+It is possible to check what is the geometry type of the `Model`. Note that models do not support mixing geometry types. If you need this feature, consider splitting your geometry into several `Models`.&#x20;
+
+<pre class="language-python"><code class="lang-python"><strong>#@property
+</strong><strong>#Model.geom_type(self) -> int
+</strong>geometry_type_code = model.geom_type</code></pre>
+
+For the encoding explanation, see [Attribute Type](metacity.md#undefined). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
+
 ### Attributes&#x20;
 
 `Attributes` work similarly to [GLTF buffers](https://www.khronos.org/files/gltf20-reference-guide.pdf). The `Attribute` API allows parsing of various data. All data is stored inside as if it was 3D data (2D data gets padded by zeroes).&#x20;
@@ -180,7 +196,11 @@ points = Attribute()
 <strong>#Attribute.push_point3D(self, points: List[float]) -> None
 </strong>points.push_point3D([0, 0, 0,   \
                      1, 1, 0.5, \
-                     1, 2, 1])</code></pre>
+                     1, 2, 1])
+                     
+<strong>#@property
+</strong><strong>#Attribute.geom_type(self) -> int:
+</strong>assert points.geom_type == 1</code></pre>
 
 Parsing Lines is very similar to parsing points, although the main difference is the data gets stored as individual segments duplicating inner vertices.  &#x20;
 
@@ -202,16 +222,20 @@ lines = Attribute()
 <strong>#Attribute.push_line3D(self, line: List[float]) -> None
 </strong>lines.push_line3D([0, 0, 0,   \
                     1, 1, 0.5, \
-                    1, 2, 1])</code></pre>
+                    1, 2, 1])
+                    
+<strong>#@property
+</strong><strong>#Attribute.geom_type(self) -> int:
+</strong>assert lines.geom_type == 2</code></pre>
 
 Polygons are automatically triangulated, the API also supports polygons with holes:
 
 <pre class="language-python"><code class="lang-python">from metacity.geometry import Attribute
 
-points = Attribute()
+triangles = Attribute()
 #Insert simple 2D polygon using push_polygon3D method:
 <strong>#Attribute.push_polygon2D(self, polygon: List[List[float]]) -> None
-</strong>position.push_polygon2D([[0, 0, \
+</strong>triangles.push_polygon2D([[0, 0, \
                           0, 1, \
                           1, 1, \
                           0, 1]])
@@ -219,7 +243,7 @@ points = Attribute()
 #The structure draws from GeoJSON specs,
 #the List[List[float]] can be interpreted as [[polygon], [hole], [hole] ...] 
 #Insert 2D polygon with a hole in the middle:
-position.push_polygon2D([[0, 0, \
+triangles.push_polygon2D([[0, 0, \
                           0, 1, \
                           1, 1, \
                           0, 1],\
@@ -230,10 +254,28 @@ position.push_polygon2D([[0, 0, \
 
 #All works equivalently for 3D:
 <strong>#Attribute.push_polygon3D(self, polygon: List[List[float]]) -> None    
-</strong>position.push_polygon3D([[0, 0, 1, \
+</strong>triangles.push_polygon3D([[0, 0, 1, \
                           0, 1, 1, \
                           1, 1, 1, \
-                          0, 1, 1]])                       </code></pre>
+                          0, 1, 1]])     
+                          
+<strong>#@property
+</strong><strong>#Attribute.geom_type(self) -> int:
+</strong>assert triangles.geom_type == 3                  </code></pre>
+
+### Type
+
+Notice the `geom_type` property:
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Attribute
+attribute = Attribute()
+#...
+<strong>#@property
+</strong><strong>#Attribute.geom_type(self) -> int:
+</strong>assert attribute.geom_type == 0 #No geometry
+assert attribute.geom_type == 1 #Points
+assert attribute.geom_type == 2 #Lines
+assert attribute.geom_type == 3 #Triangles</code></pre>
 
 ### Attribute Caveats
 
