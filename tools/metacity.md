@@ -127,10 +127,9 @@ Importing data is fairly easy with the functionalities provided by the `metacity
 
 #### Importing a single file
 
-```python
-from metacity.io import parse
-models = parse("data/file.shp", from_crs="EPSG:4326", to_crs="EPSG:5514")
-```
+<pre class="language-python"><code class="lang-python">from metacity.io import parse
+<strong>#parse(file: str, from_crs: str = None, to_crs: str = None) -> List[Models]
+</strong>models = parse("data/file.shp", from_crs="EPSG:4326", to_crs="EPSG:5514")</code></pre>
 
 The `parse` function loads contents of a provided file and optionally transforms it from one coordinate reference system to another. It returns a list of `Models`.
 
@@ -138,10 +137,9 @@ The `parse` function loads contents of a provided file and optionally transforms
 
 Often, the geospatial data is partitioned into several files and scattered among several directories. If you wish to import all of the data located in the directory tree under a certain folder, you can do:
 
-```python
-from metacity.io import parse_recursively
-models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")
-```
+<pre class="language-python"><code class="lang-python">from metacity.io import parse_recursively
+<strong>#parse_recursively(dir: str, from_crs: str = None, to_crs: str = None) -> List[Models]
+</strong>models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")</code></pre>
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
@@ -162,19 +160,19 @@ position_attr.push_polygon3D([[0, 0, 0, \
                                0, 0, 1, \
                                0, 1, 1]])
                           
-<strong>#Model.add_attribute(self, arg0: str, arg1: Attribute) -> None
+<strong>#Model.add_attribute(self, attr_name: str, attr: Attribute) -> None
 </strong>model.add_attribute("POSITION", position_attr)
 
-<strong>#Model.set_metadata(self, arg0: dict) -> None
+<strong>#Model.set_metadata(self, metadata: dict) -> None
 </strong>model.set_metadata({ "description": "An example triangle" })</code></pre>
 
 Additionally, the `Model` class has the following methods:
 
 <pre class="language-python"><code class="lang-python">#Complementary to method add_attribute, there is also 
-<strong>#Model.attribute_exists(self, arg0: str) -> bool
+<strong>#Model.attribute_exists(self, attr_name: str) -> bool
 </strong>assert model.attribute_exists("POSITION") == True
 
-<strong>#Model.get_attribute(self, arg0: str) -> Attribute
+<strong>#Model.get_attribute(self, attr_name: str) -> Attribute
 </strong>position_attr = model.get_attribute("POSITION")</code></pre>
 
 Note that the property `Model.metadata` returns a copy. Updating it won't affect the metadata stored inside the model. If you wish to update the metadata, use the `Model.set_metadata` method:
@@ -185,7 +183,7 @@ Note that the property `Model.metadata` returns a copy. Updating it won't affect
 assert model.metadata["description"] != "A new description"
 
 #updating the metadata
-<strong>#Model.set_metadata(self, arg0: dict) -> None
+<strong>#Model.set_metadata(self, metadata: dict) -> None
 </strong>model.set_metadata({ "description": "A new description" })
 assert model.metadata["description"] == "A new description"</code></pre>
 
@@ -209,12 +207,12 @@ If everything works as intended, a user **should rarely work directly with** `At
 
 points = Attribute()
 #Insert 2D points using push_line2D method:
-<strong>#Attribute.push_point2D(self, arg0: List[float]) -> None
+<strong>#Attribute.push_point2D(self, points: List[float]) -> None
 </strong>points.push_line2D([0, 0, \
                     1, 1, \
                     1, 2])
 #Similar for 3D points
-<strong>#Attribute.push_point3D(self, arg0: List[float]) -> None
+<strong>#Attribute.push_point3D(self, points: List[float]) -> None
 </strong>points.push_point3D([0, 0, 0,   \
                      1, 1, 0.5, \
                      1, 2, 1])</code></pre>
@@ -225,7 +223,7 @@ Parsing Lines is very similar to parsing points, although the main difference is
 
 lines = Attribute()
 #Insert 2D line string using push_line2D method:
-<strong>#Attribute.push_line2D(self, arg0: List[float]) -> None
+<strong>#Attribute.push_line2D(self, line: List[float]) -> None
 </strong>lines.push_line2D([0, 0, \
                     1, 1, \
                     1, 2])
@@ -236,7 +234,7 @@ lines = Attribute()
 #               every 3rd zero is padding for 3D data, inner vertex si duplicated 
 
 #Similar for 3D points
-<strong>#Attribute.push_line3D(self, arg0: List[float]) -> None
+<strong>#Attribute.push_line3D(self, line: List[float]) -> None
 </strong>lines.push_line3D([0, 0, 0,   \
                     1, 1, 0.5, \
                     1, 2, 1])</code></pre>
@@ -247,7 +245,7 @@ Polygons are automatically triangulated, the API also supports polygons with hol
 
 points = Attribute()
 #Insert simple 2D polygon using push_polygon3D method:
-<strong>#Attribute.push_polygon2D(self, arg0: List[List[float]]) -> None
+<strong>#Attribute.push_polygon2D(self, polygon: List[List[float]]) -> None
 </strong>position.push_polygon2D([[0, 0, \
                           0, 1, \
                           1, 1, \
@@ -255,18 +253,18 @@ points = Attribute()
                           
 #The structure draws from GeoJSON specs,
 #the List[List[float]] can be interpreted as [[polygon], [hole], [hole] ...] 
-#Insert 2D polygon with hole in the middle:
+#Insert 2D polygon with a hole in the middle:
 position.push_polygon2D([[0, 0, \
                           0, 1, \
                           1, 1, \
-                          0, 1], \
+                          0, 1],\
                           [0.25, 0.25, \
-                           0.25, 0.75,
-                           0.75, 0.75,
+                           0.25, 0.75, \
+                           0.75, 0.75, \
                            0.75, 0.25])
 
 #All works equivalently for 3D:
-<strong>#Attribute.push_polygon3D(self, arg0: List[List[float]]) -> None    
+<strong>#Attribute.push_polygon3D(self, polygon: List[List[float]]) -> None    
 </strong>position.push_polygon3D([[0, 0, 1, \
                           0, 1, 1, \
                           1, 1, 1, \
@@ -280,7 +278,7 @@ Sometimes, it is handy to organize things into groups. In Metacity, you can use 
 layer = Layer()
 
 models = [Model(), Model()]
-<strong>#Layer.add_models(models: List[Model]) -> None
+<strong>#Layer.add_models(self, models: List[Model]) -> None
 </strong>layer.add_models(models)</code></pre>
 
 It is also possible to add a single model:
@@ -289,7 +287,7 @@ It is also possible to add a single model:
 layer = Layer()
 
 model = Model()
-<strong>#Layer.add_model(model: Model) -> None
+<strong>#Layer.add_model(self, model: Model) -> None
 </strong>layer.add_models(model)</code></pre>
 
 You can access the individual models again. Deleting a `Model` from the returned list does not remove it from the `Layer`.  The models are not copied, the returned list contains references to the models stored inside Layer.
@@ -298,7 +296,7 @@ You can access the individual models again. Deleting a `Model` from the returned
 layer = Layer()
 #... loading data, processing it
 
-<strong>#Layer.get_models() -> List[Model]
+<strong>#Layer.get_models(self) -> List[Model]
 </strong>models = layer.get_models()</code></pre>
 
 Moreover, it is possible to store and load the contents of a `Layer` to and from the `.gltf` format.&#x20;
@@ -315,6 +313,54 @@ layer = Layer()
 </strong><strong>#Layer.from_gltf(filename: str) -> None
 </strong>layer_copy = Layer()
 layer_copy.from_gltf("layer.gltf")</code></pre>
+
+`Layer` offers a few handy methods which can modify models:
+
+#### Height mapping
+
+If you have 2D point data in one `Layer` and a height mesh in a different one, you can easily map the original 2D data onto the terrain:
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
+from metacity.io import parse_recursively
+
+terrain = Layer()
+terrain.add_models(parse_recursively("terrain"))
+
+trees = Layer()
+trees.add_models(parse_recursively("trees"))
+
+<strong>#Layer.map_to_height(self, layer: Layer) -> None
+</strong>trees.map_to_height(terrain)</code></pre>
+
+#### Model simplification
+
+In case you need to simplify your geometry by approximating it with its crude envelope (not a perfect convex hull), you can use the following method:
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
+from metacity.io import parse_recursively
+
+buildings = Layer()
+buildings.add_models(parse_recursively("buildings"))
+
+<strong>#Layer.simplify_envelope(self) -> None
+</strong>buildings.simplify_envelope()</code></pre>
+
+#### Model Re-mesh using a Height Map
+
+It is possible to re-mesh a model using a height-map approach. A grid of vertices is generated and placed "on top" of the source model, effectively covering it.&#x20;
+
+The new mesh is divided into several tiles (each is a separate `Model`), and each tile is further divided according to the supplied parameters:
+
+![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](../.gitbook/assets/remesh.png)
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
+from metacity.io import parse_recursively
+
+terrain = Layer()
+terrain.add_models(parse_recursively("terrain"))
+
+<strong>#Layer.simplify_remesh_height(self, tile_side: float, tile_divisions: int) -> None
+</strong>terrain.simplify_remesh_height(100, 4)</code></pre>
 
 ### Grids
 
