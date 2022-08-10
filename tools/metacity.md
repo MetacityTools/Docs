@@ -288,7 +288,7 @@ layer = Layer()
 
 model = Model()
 <strong>#Layer.add_model(self, model: Model) -> None
-</strong>layer.add_models(model)</code></pre>
+</strong>layer.add_model(model)</code></pre>
 
 You can access the individual models again. Deleting a `Model` from the returned list does not remove it from the `Layer`.  The models are not copied, the returned list contains references to the models stored inside Layer.
 
