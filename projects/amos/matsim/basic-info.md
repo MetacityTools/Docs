@@ -3,23 +3,25 @@ description: >-
   Roughly extracted information from MATSim's user guide, MATSim's tutorial
   slides and the MATSim Book.
 ---
-## References
 
-[Official MATSim Resources](../resources/matsim.md#official-matsim-resources)&#x20;
-[Overview of considered SW solutions](../resources/traffic-simulators.md)
+# Basic Info
 
-## Introduction
+### References
+
+[Official MATSim Resources](../resources/matsim.md#official-matsim-resources) [Overview of considered SW solutions](../../../amos/resources/traffic-simulators.md)
+
+### Introduction
 
 * Microscopic modeling of traffic: MATSim performs integral microscopic simulation of resulting traffic flows and the congestion they produce.
 * Microscopic behavioral modeling of demand/agent-based modeling: MATSim uses a microscopic description of demand by tracing the daily schedule and the synthetic travelers’ decisions. In retrospect, this can be called “agent-based”.
 * Computational physics: MATSim performs fast microscopic simulations with 10^7 or more “particles”.
 * Complex adaptive systems/co-evolutionary algorithms: MATSim optimizes the experienced utilities of the whole schedule through the co-evolutionary search for the resulting equilibrium or steady state.
 
-## Terminology
+### Terminology
 
 Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology)
 
-### Agent-Based Transport Simulation <a href="#docs-internal-guid-07481320-7fff-cfe4-90ca-18cec94a7a0d" id="docs-internal-guid-07481320-7fff-cfe4-90ca-18cec94a7a0d"></a>
+#### Agent-Based Transport Simulation <a href="#docs-internal-guid-07481320-7fff-cfe4-90ca-18cec94a7a0d" id="docs-internal-guid-07481320-7fff-cfe4-90ca-18cec94a7a0d"></a>
 
 * **Agent**: A synthetic person, part of a synthetic population.
 * **Plan**: the intention of an agent, typically for one day."going to work at 07:30, go shopping on the way home at 17:00, be home at 17:45".Each agent needs at least one plan.
@@ -30,7 +32,7 @@ Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology
 * **Score**: utility of a plan after it was simulated.
 * **Scenario, Model**: several datasets and parameters describing infrastructure (supply) and demand in a region. "Scenario" and "model" are often used without differentiation in MATSim's context.
 
-### MATSim Loop
+#### MATSim Loop
 
 * **Scenario data**: description of infrastructure (road network, transit schedule, ...) and agents.
 * **Execution**: Agents' travel plans are executed in parallel.A.k.a.: mobsim (mobility simulation), synthetic reality, network loading, traffic flow simulation
@@ -43,16 +45,16 @@ Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology
 * **Co-Evolutionary algorithm**: If a plan performs good or bad also depends on the plans of all the other agents.
 * **Nash-Equilibrium**: Each agent tries to optimize its plan egotistically. (≠ system optimum)
 
-### Other
+#### Other
 
 * **Plans** (input) vs. **events** (output)
 * **Legs** vs. **Trips**
   * Plan contains “activity” (e. g. working) and “legs” (going to work by car)
   * Trips - moving from one node to another with a 0 duration activity
 
-## Simulation Stages
+### Simulation Stages
 
-![Taken from MATSim's user guide](../.gitbook/assets/matsim-stages.png)
+![Taken from MATSim's user guide](../../../amos/.gitbook/assets/matsim-stages.png)
 
 * Initial demand - describes mobility behaviour (list of agents and their plans)
 * Execution - “mobsim”, agents and vehicles are moved around in the network
@@ -60,7 +62,7 @@ Please, refer to [MATSim docs](https://www.matsim.org/docs/userguide/terminology
 * Replanning - performed by “strategy modules”
 * Analysis - at the end of complete simulation, performed automatically or separate post-process
 
-## Scoring - Utility and Fitness
+### Scoring - Utility and Fitness
 
 Compares different plans.
 
@@ -71,7 +73,7 @@ Higher score means a “better” plan (better performance).
 
 Each agent maintains multiple plans for the day, which are scored when the plan is executed (in the mobsim), selected and sometimes modified.
 
-### Phases
+#### Phases
 
 Can be configured in “planCalcScore” module.
 
@@ -82,16 +84,16 @@ Can be configured in “planCalcScore” module.
   2. INNOVATION For some agents, a plan is copied, modified, and selected for the next iteration.
   3. CHOICE All other agents choose between their plans.
 
-## MATSim Inputs
+### MATSim Inputs
 
 A short description of MATSim inputs for running a plausible simulation.
 
-### Network.xml
+#### Network.xml
 
 * Roads (car, public transport, subway)
 * Network change events in a file (for timeVariantNetwork)
 
-### Population.xml or Plans.xml (demand)
+#### Population.xml or Plans.xml (demand)
 
 Agents and their plans
 
@@ -101,7 +103,7 @@ Agents and their plans
 * Removing bad plans (survival of the fittest)
 * Executing a plan (= network loading)
 
-### Config.xml
+#### Config.xml
 
 * One (and only argument) when running MATSim
 * “Interface” for simple MATSim usage
@@ -114,11 +116,11 @@ Agents and their plans
   * replanning strategies' behaviour
   * analyses/output
 
-### Public transport data
+#### Public transport data
 
 Transit schedule of the public transport and how they interact with the network
 
-## Deterministic Public Transit Simulation
+### Deterministic Public Transit Simulation
 
 {% embed url="https://github.com/SchweizerischeBundesbahnen/matsim-sbb-extensions" %}
 MATSim's Swiss Rail Extension
