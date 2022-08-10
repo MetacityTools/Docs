@@ -69,14 +69,6 @@ Any time you make change to the C++ code, you can build it with:
 python setup.py build_ext --inplace
 ```
 
-### Debugging
-
-If you encounter any problems, ensure you:
-
-* have `GDAL` and `CMake` installed
-* installed packages based on `requirements.txt`
-* have a C++ compiler supporting C++17 installed
-
 ## Usage
 
 The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
