@@ -1,18 +1,16 @@
 ---
-description: Python package geo data processing
+description: Python package for Geodata processing
 ---
 
 # 🌆 Metacity
 
-The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
+_What is this good for?_
 
-* `metacity.geometry` - code related to geometry processing
-* `metacity.utils` - utilities for managing file systems and inspecting data
-* `metacity.io` - importing and exporting data
+The `Metacity` package allows us to preprocess geospatial data and export it in a form that will be more suitable for web visualization.&#x20;
 
-### Installing Dependencies
+### Installation
 
-This repository relies on system packages `GDAL` and `CMake`. Please make sure they are installed before trying to install the `Metacity` package.
+The package relies on system packages [`GDAL`](https://gdal.org) and [`CMake`](https://cmake.org). Please make sure they are installed before trying to install the `Metacity` package.
 
 1. Install [GDAL](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/gdal-ubuntu-pkg.html)
 
@@ -28,12 +26,8 @@ sudo apt-get install gdal-bin
 sudo apt-get install cmake
 ```
 
-### Installation
-
-Requirements:
-
 * If you don't want to edit the `Metacity` code,
-* and if you have [`GDAL`](https://gdal.org) and [`CMake`](https://cmake.org) installed on your system (section [dependencies](metacity.md#undefined)),
+* and if you have [`GDAL`](https://gdal.org) and [`CMake`](https://cmake.org) installed on your system,
 
 you can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 
@@ -112,7 +106,101 @@ python -m twine upload dist/*;
 
 What is going to end up inside the published package is specified in `MANIFEST.in` that is located in the root of the repository.
 
-## Structure
+## Usage
 
-soon
+The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
 
+* `metacity.io` - importing and exporting data
+* `metacity.geometry` - geometry processing
+* `metacity.utils` - managing file systems and inspecting data
+
+The easiest way to understand `Metacity` is to think of it as a _pipeline_.
+
+### Data Import
+
+Metacity currently supports the following formats:
+
+| Format    | Suffix  | Reference                                                                                                                                             |
+| --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shapefile | `.shp`  | [ESRI Shapefile Technical Description](https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf) |
+| GeoJSON   | `.json` | [The GeoJSON Specification (RFC 7946)](https://geojson.org)                                                                                           |
+
+Importing data is fairly easy with the functionalities provided by the `metacity.io` module:
+
+#### Importing a single file
+
+```python
+from metacity.io import parse
+models = parse("data/file.shp", from_crs="EPSG:4326", to_crs="EPSG:5514")
+```
+
+The `parse` function loads contents of a provided file and optionally transforms it from one coordinate reference system to another. It returns a list of `Models`.
+
+#### Importing multiple files
+
+Often, the geospatial data is partitioned into several files and scattered among several directories. If you wish to import all of the data located in the directory tree under a certain folder, you can do:
+
+```python
+from metacity.io import parse_recursively
+models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")
+```
+
+The returned value is a flattened list of `Models` regardless of how many files were processed.
+
+### Models
+
+TODO
+
+### Layers
+
+Sometimes, it is handy to organize things into groups. In Metacity, you can use `Layers`.
+
+```python
+from metacity.geometry import Layer
+layer = Layer()
+layer.add_models(models)
+```
+
+#### Methods
+
+<details>
+
+<summary><code>Layer.add_model(model: Model) -> None</code></summary>
+
+Adds a single model into the layer, returns `None`
+
+</details>
+
+<details>
+
+<summary><code>Layer.add_models(models: List[Model]) -> None</code></summary>
+
+Adds a list of models into the layer, returns `None`
+
+</details>
+
+<details>
+
+<summary><code>Layer.get_models() -> List[Model]</code></summary>
+
+Returns a list of `Models` stored in `Layer`. Deleting a `Model` from the returned list does not remove it from the `Layer`. The models are not copied.
+
+</details>
+
+<details>
+
+<summary><code>Layer.from_gltf(filename: str) -> None</code></summary>
+
+Loads a `Layer` from `.gltf` file. All geometry and metadata are preserved.
+
+</details>
+
+<details>
+
+<summary><code>Layer.to_gltf(filename: str) -> None</code></summary>
+
+Saves `Layer` contents into a `.gltf` file. All geometry and metadata are preserved.
+
+</details>
+
+### Grid
