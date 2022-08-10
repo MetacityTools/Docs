@@ -163,44 +163,19 @@ layer.add_models(models)
 
 #### Methods
 
-<details>
+**`Layer.add_model(model: Model) -> None`**\
+``Adds a single model into the layer, returns `None`
 
-<summary><code>Layer.add_model(model: Model) -> None</code></summary>
+**`Layer.add_models(models: List[Model]) -> None`**\
+``Adds a list of models into the layer, returns `None`
 
-Adds a single model into the layer, returns `None`
+**`Layer.get_models() -> List[Model]`**\
+``Returns a list of `Models` stored in `Layer`. Deleting a `Model` from the returned list does not remove it from the `Layer`. The models are not copied.
 
-</details>
+**`Layer.from_gltf(filename: str) -> None`**\
+``Loads a `Layer` from `.gltf` file. All geometry and metadata are preserved.
 
-<details>
-
-<summary><code>Layer.add_models(models: List[Model]) -> None</code></summary>
-
-Adds a list of models into the layer, returns `None`
-
-</details>
-
-<details>
-
-<summary><code>Layer.get_models() -> List[Model]</code></summary>
-
-Returns a list of `Models` stored in `Layer`. Deleting a `Model` from the returned list does not remove it from the `Layer`. The models are not copied.
-
-</details>
-
-<details>
-
-<summary><code>Layer.from_gltf(filename: str) -> None</code></summary>
-
-Loads a `Layer` from `.gltf` file. All geometry and metadata are preserved.
-
-</details>
-
-<details>
-
-<summary><code>Layer.to_gltf(filename: str) -> None</code></summary>
-
-Saves `Layer` contents into a `.gltf` file. All geometry and metadata are preserved.
-
-</details>
+**`Layer.to_gltf(filename: str) -> None`**\
+``Saves `Layer` contents into a `.gltf` file. All geometry and metadata are preserved.
 
 ### Grid
