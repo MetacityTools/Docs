@@ -208,7 +208,7 @@ If everything works as intended, a user **should rarely work directly with** `At
 points = Attribute()
 #Insert 2D points using push_line2D method:
 <strong>#Attribute.push_point2D(self, points: List[float]) -> None
-</strong>points.push_line2D([0, 0, \
+</strong>points.push_point2D([0, 0, \
                     1, 1, \
                     1, 2])
 #Similar for 3D points
@@ -269,6 +269,31 @@ position.push_polygon2D([[0, 0, \
                           0, 1, 1, \
                           1, 1, 1, \
                           0, 1, 1]])                       </code></pre>
+
+#### Attribute Caveats
+
+As demonstrated above, `Attributes` can handle loading various types of data. What you should never do is _mix_ those types of data:
+
+```python
+#!!!NEVER DO THIS!!!
+from metacity.geometry import Attribute
+points = Attribute()
+points.push_point2D([0, 0, 1, 1, 1, 2])
+points.push_line2D([0, 0, 1, 1, 1, 2]) #<- will raise exception
+```
+
+What you can do is mix 2D and 3D data since 2D gets internally padded by zeroes:
+
+```
+from metacity.geometry import Attribute
+points = Attribute()
+points.push_point2D([0, 0, 1, 1, 1, 2])
+points.push_point3D([0, 0, 0, 1, 1, 0, 1, 2, 0]) #<- is allowed
+```
+
+{% hint style="warning" %}
+Internally, `Attribute` keeps track of the first assigned type (points, lines, or polygons) and checks all future assignments against it. If the type does not match, an exception gets raised.
+{% endhint %}
 
 ### Layers
 
@@ -363,4 +388,85 @@ terrain.add_models(parse_recursively("terrain"))
 </strong>terrain.simplify_remesh_height(100, 4)</code></pre>
 
 ### Grids
+
+Working with large datasets locally might be fine but for streaming it is necessary to tile the data into individual tiles and load only what's in the viewport.
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer, Grid, Model
+from metacity.io import parse_recursively
+
+terrain = Layer()
+terrain.add_models(parse_recursively("terrain"))
+
+<strong>#Grid(self, tile_width: float, tile_height: float) -> Grid
+</strong>grid = Grid(1000, 1000)
+<strong>#Grid.add_layer(self, layer: Layer) -> None
+</strong>grid.add_layer(terrain)
+<strong>#Grid.add_model(self, arg0: Model) -> None
+</strong>grid.add_model(Model())</code></pre>
+
+Exporting data from the grid prepares several files for streaming:
+
+<pre class="language-python"><code class="lang-python">from metacity.utils.filesystem import recreate_dir
+
+<strong>#recreate_dir(dir: str) -> None
+</strong>recreate_dir("grid")
+<strong>#Grid.to_gltf(self, dir: str) -> None
+</strong>grid.to_gltf("grid")</code></pre>
+
+The first `recreate_dir` empties the specified directory and  `Grid.to_gltf` then fills it with individual tiles and a `layout.json:`
+
+```
+grid
+├── layout.json
+├── tile123_456.glb
+...
+└── tile678_879.glb
+```
+
+* The individual tiles are `.gltf` files named `tilex_y.gltf` where `x` and `y` are replaced by the respective tile coordinates.
+* In the two examples above, the grid is tiled into tiles with the dimensions 1000 by 1000 units
+* The `layout.json` file contains the mapping of the tiles to the real coordinates
+
+The `layout.json` example:
+
+```json5
+{
+    "tileHeight": 1000.0,
+    "tileWidth": 1000.0,
+    "tiles": [
+        { //start tile
+            "file": "tile-731_-1036.glb", //name of the file
+            "size": 174, //number of objects inside a tile
+            "x": -731, //tile x-coordinate, 
+                       //to get a real coordinate, multiply by tileWidth
+            "y": -1036 //tile y-coordinate
+                       //to get a real coordinate, multiply by tileHeight
+        }, //end tile
+        ... //more tiles
+    ]
+}
+```
+
+#### Geometry simplification
+
+Sometimes, a layer contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all of the models located in individual tiles to one model per tile.
+
+{% hint style="warning" %}
+Remember the [`Attribute` type mixing rules](metacity.md#attribute-caveats)? Similar rules apply here:
+
+* All models must contain identical `Attributes`
+* All `Attributes` with corresponding names across models must be of the same type
+{% endhint %}
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer, Grid, Model
+from metacity.io import parse_recursively
+
+terrain = Layer()
+terrain.add_models(parse_recursively("terrain"))
+grid = Grid(1000, 1000)
+grid.add_layer(terrain)
+<strong>#Grid.tile_merge(self) -> None
+</strong>grid.tile_merge()</code></pre>
+
+Now, each tile inside `grid` contains only a single model.&#x20;
 
