@@ -145,7 +145,7 @@ models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
-### Models = Metadata + Attributes
+### Models
 
 A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning.&#x20;
 
@@ -154,8 +154,7 @@ A `Model` is a universal entity for storing geometry and metadata, it has no spe
 
 See the following example:
 
-```python
-from metacity.geometry import Model, Attribute
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Model, Attribute
 
 model = Model()
 position_attr = Attribute()
@@ -163,35 +162,32 @@ position_attr.push_polygon3D([[0, 0, 0, \
                                0, 0, 1, \
                                0, 1, 1]])
                           
-#Model.add_attribute(self, arg0: str, arg1: Attribute) -> None
-model.add_attribute("POSITION", position_attr)
+<strong>#Model.add_attribute(self, arg0: str, arg1: Attribute) -> None
+</strong>model.add_attribute("POSITION", position_attr)
 
-#Model.set_metadata(self, arg0: dict) -> None
-model.set_metadata({ "description": "An example triangle" })
-```
+<strong>#Model.set_metadata(self, arg0: dict) -> None
+</strong>model.set_metadata({ "description": "An example triangle" })</code></pre>
 
 Additionally, the `Model` class has the following methods:
 
-```python
-#Complementary to method add_attribute, there is also 
-#Model.attribute_exists(self, arg0: str) -> bool
-position_exists = model.attribute_exists("POSITION")
+<pre class="language-python"><code class="lang-python">#Complementary to method add_attribute, there is also 
+<strong>#Model.attribute_exists(self, arg0: str) -> bool
+</strong>assert model.attribute_exists("POSITION") == True
 
-#Model.get_attribute(self, arg0: str) -> Attribute
-position_attr = model.get_attribute("POSITION")
-
-#@property
-#Model.metadata(self) -> dict
-metadata = model.metadata
-```
+<strong>#Model.get_attribute(self, arg0: str) -> Attribute
+</strong>position_attr = model.get_attribute("POSITION")</code></pre>
 
 Note that the property `Model.metadata` returns a copy. Updating it won't affect the metadata stored inside the model. If you wish to update the metadata, use the `Model.set_metadata` method:
 
-```python
+<pre class="language-python"><code class="lang-python"><strong>#@property
+</strong><strong>#Model.metadata(self) -> dict
+</strong>model.metadata["description"] = "A new description"
+assert model.metadata["description"] != "A new description"
+
 #updating the metadata
-#Model.set_metadata(self, arg0: dict) -> None
-model.set_metadata({ "description": "A new description" })
-```
+<strong>#Model.set_metadata(self, arg0: dict) -> None
+</strong>model.set_metadata({ "description": "A new description" })
+assert model.metadata["description"] == "A new description"</code></pre>
 
 #### Attributes&#x20;
 
@@ -209,31 +205,28 @@ A unique name identifies each attribute. There are a few names that are commonly
 
 If everything works as intended, a user **should rarely work directly with** `Attributes`. Occasionally, it might be useful to be able to access the Attribute API:
 
-```python
-from metacity.geometry import Attribute
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Attribute
 
 points = Attribute()
 #Insert 2D points using push_line2D method:
-#Attribute.push_point2D(self, arg0: List[float]) -> None
-points.push_line2D([0, 0, \
+<strong>#Attribute.push_point2D(self, arg0: List[float]) -> None
+</strong>points.push_line2D([0, 0, \
                     1, 1, \
                     1, 2])
 #Similar for 3D points
-#Attribute.push_point3D(self, arg0: List[float]) -> None
-points.push_point3D([0, 0, 0,   \
+<strong>#Attribute.push_point3D(self, arg0: List[float]) -> None
+</strong>points.push_point3D([0, 0, 0,   \
                      1, 1, 0.5, \
-                     1, 2, 1])
-```
+                     1, 2, 1])</code></pre>
 
 Parsing Lines is very similar to parsing points, although the main difference is the data gets stored as individual segments duplicating inner vertices.  &#x20;
 
-```python
-from metacity.geometry import Attribute
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Attribute
 
 lines = Attribute()
 #Insert 2D line string using push_line2D method:
-#Attribute.push_line2D(self, arg0: List[float]) -> None
-lines.push_line2D([0, 0, \
+<strong>#Attribute.push_line2D(self, arg0: List[float]) -> None
+</strong>lines.push_line2D([0, 0, \
                     1, 1, \
                     1, 2])
 #in the example above, the vertices get internally stored as:
@@ -243,25 +236,25 @@ lines.push_line2D([0, 0, \
 #               every 3rd zero is padding for 3D data, inner vertex si duplicated 
 
 #Similar for 3D points
-#Attribute.push_line3D(self, arg0: List[float]) -> None
-lines.push_line3D([0, 0, 0,   \
+<strong>#Attribute.push_line3D(self, arg0: List[float]) -> None
+</strong>lines.push_line3D([0, 0, 0,   \
                     1, 1, 0.5, \
-                    1, 2, 1])
-```
+                    1, 2, 1])</code></pre>
 
 Polygons are automatically triangulated, the API also supports polygons with holes:
 
-```python
-from metacity.geometry import Attribute
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Attribute
 
 points = Attribute()
 #Insert simple 2D polygon using push_polygon3D method:
-#Attribute.push_polygon2D(self, arg0: List[List[float]]) -> None
-position.push_polygon2D([[0, 0, \
+<strong>#Attribute.push_polygon2D(self, arg0: List[List[float]]) -> None
+</strong>position.push_polygon2D([[0, 0, \
                           0, 1, \
                           1, 1, \
                           0, 1]])
-
+                          
+#The structure draws from GeoJSON specs,
+#the List[List[float]] can be interpreted as [[polygon], [hole], [hole] ...] 
 #Insert 2D polygon with hole in the middle:
 position.push_polygon2D([[0, 0, \
                           0, 1, \
@@ -271,52 +264,42 @@ position.push_polygon2D([[0, 0, \
                            0.25, 0.75,
                            0.75, 0.75,
                            0.75, 0.25])
-#The structure draws from GeoJSON specs - 
-#the List[List[float]] can be interpreted as
-#[[polygon], [hole], [hole] ...] 
 
 #All works equivalently for 3D:
-#Attribute.push_polygon3D(self, arg0: List[List[float]]) -> None    
-position.push_polygon3D([[0, 0, 1, \
+<strong>#Attribute.push_polygon3D(self, arg0: List[List[float]]) -> None    
+</strong>position.push_polygon3D([[0, 0, 1, \
                           0, 1, 1, \
                           1, 1, 1, \
-                          0, 1, 1]])                       
-```
+                          0, 1, 1]])                       </code></pre>
 
 ### Layers
 
 Sometimes, it is handy to organize things into groups. In Metacity, you can use `Layers`.
 
-```python
-from metacity.geometry import Layer, Model
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer, Model
 layer = Layer()
 
 models = [Model(), Model()]
-#Layer.add_models(models: List[Model]) -> None
-layer.add_models(models)
-```
+<strong>#Layer.add_models(models: List[Model]) -> None
+</strong>layer.add_models(models)</code></pre>
 
 It is also possible to add a single model:
 
-```python
-from metacity.geometry import Layer, Model
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer, Model
 layer = Layer()
 
 model = Model()
-#Layer.add_model(model: Model) -> None
-layer.add_models(model)
-```
+<strong>#Layer.add_model(model: Model) -> None
+</strong>layer.add_models(model)</code></pre>
 
 You can access the individual models again. Deleting a `Model` from the returned list does not remove it from the `Layer`.  The models are not copied, the returned list contains references to the models stored inside Layer.
 
-```python
-from metacity.geometry import Layer
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
 layer = Layer()
 #... loading data, processing it
 
-#Layer.get_models() -> List[Model]
-models = layer.get_models()
-```
+<strong>#Layer.get_models() -> List[Model]
+</strong>models = layer.get_models()</code></pre>
 
 Moreover, it is possible to store and load the contents of a `Layer` to and from the `.gltf` format.&#x20;
 
@@ -324,11 +307,14 @@ Moreover, it is possible to store and load the contents of a `Layer` to and from
 layer = Layer()
 #... loading data, processing it
 
-#Store the data
-#Layer.to_gltf(filename: str) -> None
-layer.to_gltf("layer.gltf")
+<strong>#Store the data
+</strong><strong>#Layer.to_gltf(filename: str) -> None
+</strong>layer.to_gltf("layer.gltf")
 
-#Load the data
-<strong>#Layer.from_gltf(filename: str) -> None
-</strong><strong>layer_copy = Layer()
-</strong>layer_copy.from_gltf("layer.gltf")</code></pre>
+<strong>#Load the data
+</strong><strong>#Layer.from_gltf(filename: str) -> None
+</strong>layer_copy = Layer()
+layer_copy.from_gltf("layer.gltf")</code></pre>
+
+### Grids
+
