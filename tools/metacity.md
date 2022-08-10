@@ -114,7 +114,7 @@ The Python package`metacity` acts as the entry data gateway. It consists of seve
 
 The easiest way to understand `Metacity` is to think of it as a _pipeline_.
 
-### Data Import
+## Data Import
 
 Metacity currently supports the following formats:
 
@@ -125,7 +125,7 @@ Metacity currently supports the following formats:
 
 Importing data is fairly easy with the functionalities provided by the `metacity.io` module:
 
-#### Importing a single file
+### Importing a single file
 
 <pre class="language-python"><code class="lang-python">from metacity.io import parse
 <strong>#parse(file: str, from_crs: str = None, to_crs: str = None) -> List[Models]
@@ -133,7 +133,7 @@ Importing data is fairly easy with the functionalities provided by the `metacity
 
 The `parse` function loads contents of a provided file and optionally transforms it from one coordinate reference system to another. It returns a list of `Models`.
 
-#### Importing multiple files
+### Importing multiple files
 
 Often, the geospatial data is partitioned into several files and scattered among several directories. If you wish to import all of the data located in the directory tree under a certain folder, you can do:
 
@@ -143,11 +143,11 @@ Often, the geospatial data is partitioned into several files and scattered among
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
-### Models
+## Models
 
 A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning.&#x20;
 
-* The geometry is stored in `Attributes`. Models can have multiple `Attributes`, see section [Attributes](metacity.md#attributes).
+* The geometry is stored in `Attributes`. Models can have multiple `Attributes` - see section [Attributes](metacity.md#attributes).
 * The properties can be attached to a model as a metadata
 
 See the following example:
@@ -187,7 +187,7 @@ assert model.metadata["description"] != "A new description"
 </strong>model.set_metadata({ "description": "A new description" })
 assert model.metadata["description"] == "A new description"</code></pre>
 
-#### Attributes&#x20;
+### Attributes&#x20;
 
 `Attributes` work similarly to [GLTF buffers](https://www.khronos.org/files/gltf20-reference-guide.pdf). The `Attribute` API allows parsing of various data. All data is stored inside as if it was 3D data (2D data gets padded by zeroes).&#x20;
 
@@ -270,7 +270,7 @@ position.push_polygon2D([[0, 0, \
                           1, 1, 1, \
                           0, 1, 1]])                       </code></pre>
 
-#### Attribute Caveats
+### Attribute Caveats
 
 As demonstrated above, `Attributes` can handle loading various types of data. What you should never do is _mix_ those types of data:
 
@@ -284,7 +284,7 @@ points.push_line2D([0, 0, 1, 1, 1, 2]) #<- will raise exception
 
 What you can do is mix 2D and 3D data since 2D gets internally padded by zeroes:
 
-```
+```python
 from metacity.geometry import Attribute
 points = Attribute()
 points.push_point2D([0, 0, 1, 1, 1, 2])
@@ -295,7 +295,7 @@ points.push_point3D([0, 0, 0, 1, 1, 0, 1, 2, 0]) #<- is allowed
 Internally, `Attribute` keeps track of the first assigned type (points, lines, or polygons) and checks all future assignments against it. If the type does not match, an exception gets raised.
 {% endhint %}
 
-### Layers
+## Layers
 
 Sometimes, it is handy to organize things into groups. In Metacity, you can use `Layers`.
 
@@ -341,9 +341,9 @@ layer_copy.from_gltf("layer.gltf")</code></pre>
 
 `Layer` offers a few handy methods which can modify models:
 
-#### Height mapping
+### Height Mapping
 
-If you have 2D point data in one `Layer` and a height mesh in a different one, you can easily map the original 2D data onto the terrain:
+If you have 2D point data in one `Layer` and a mesh with the height information (such as terrain) in a different one, you can easily map the original 2D data onto the terrain:
 
 <pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
 from metacity.io import parse_recursively
@@ -357,7 +357,7 @@ trees.add_models(parse_recursively("trees"))
 <strong>#Layer.map_to_height(self, layer: Layer) -> None
 </strong>trees.map_to_height(terrain)</code></pre>
 
-#### Model simplification
+### Simplification
 
 In case you need to simplify your geometry by approximating it with its crude envelope (not a perfect convex hull), you can use the following method:
 
@@ -370,13 +370,13 @@ buildings.add_models(parse_recursively("buildings"))
 <strong>#Layer.simplify_envelope(self) -> None
 </strong>buildings.simplify_envelope()</code></pre>
 
-#### Model Re-mesh using a Height Map
+### Height Map Re-mesh
 
 It is possible to re-mesh a model using a height-map approach. A grid of vertices is generated and placed "on top" of the source model, effectively covering it.&#x20;
 
 The new mesh is divided into several tiles (each is a separate `Model`), and each tile is further divided according to the supplied parameters:
 
-![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](../.gitbook/assets/remesh.png)
+![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](<../.gitbook/assets/remesh (1).png>)
 
 <pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
 from metacity.io import parse_recursively
@@ -387,7 +387,7 @@ terrain.add_models(parse_recursively("terrain"))
 <strong>#Layer.simplify_remesh_height(self, tile_side: float, tile_divisions: int) -> None
 </strong>terrain.simplify_remesh_height(100, 4)</code></pre>
 
-### Grids
+## Grids
 
 Working with large datasets locally might be fine but for streaming it is necessary to tile the data into individual tiles and load only what's in the viewport.
 
@@ -423,7 +423,7 @@ grid
 └── tile678_879.glb
 ```
 
-* The individual tiles are `.gltf` files named `tilex_y.gltf` where `x` and `y` are replaced by the respective tile coordinates.
+* The individual tiles are `.glb` files named `tilex_y.glb` where `x` and `y` are replaced by the respective tile coordinates.
 * In the two examples above, the grid is tiled into tiles with the dimensions 1000 by 1000 units
 * The `layout.json` file contains the mapping of the tiles to the real coordinates
 
@@ -447,7 +447,7 @@ The `layout.json` example:
 }
 ```
 
-#### Geometry simplification
+### Merging&#x20;
 
 Sometimes, a layer contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all of the models located in individual tiles to one model per tile.
 
