@@ -376,7 +376,7 @@ It is possible to re-mesh a model using a height-map approach. A grid of vertice
 
 The new mesh is divided into several tiles (each is a separate `Model`), and each tile is further divided according to the supplied parameters:
 
-![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](<../.gitbook/assets/remesh (1).png>)
+![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](../.gitbook/assets/remesh.png)
 
 <pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
 from metacity.io import parse_recursively
@@ -454,7 +454,7 @@ Sometimes, a layer contains a lot of models, but you don't need to distinguish b
 {% hint style="warning" %}
 Remember the [`Attribute` type mixing rules](metacity.md#attribute-caveats)? Similar rules apply here:
 
-* All models must contain identical `Attributes`
+* All models must contain identically named `Attributes`
 * All `Attributes` with corresponding names across models must be of the same type
 {% endhint %}
 
