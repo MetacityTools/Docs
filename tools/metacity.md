@@ -4,7 +4,7 @@ description: Python package for Geodata processing
 
 # 🌆 Metacity
 
-The `Metacity` package allows to preprocess geospatial data and export it in a form that is more suitable for web visualization.&#x20;
+The `Metacity` package allows to preprocess geospatial data and export it in a more suitable form for web visualization.&#x20;
 
 ### Installation
 
@@ -145,9 +145,14 @@ models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
-### Models, Metadata & Attributes
+### Models = Metadata + Attributes
 
-A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning. The geometry is stored in `Attributes`. See the following example:
+A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning.&#x20;
+
+* The geometry is stored in `Attributes`. Models can have multiple `Attributes`, see section [Attributes](metacity.md#attributes).
+* The properties can be attached to a model as a metadata
+
+See the following example:
 
 ```python
 from metacity.geometry import Model, Attribute
@@ -161,11 +166,11 @@ position_attr.push_polygon3D([[0, 0, 0, \
 #Model.add_attribute(self, arg0: str, arg1: Attribute) -> None
 model.add_attribute("POSITION", position_attr)
 
-#Model.set_metadata(self, arg0: json) -> None
+#Model.set_metadata(self, arg0: dict) -> None
 model.set_metadata({ "description": "An example triangle" })
 ```
 
-The geometry attributes and the metadata is usually loaded using the `metacity.io` module. Additionally, the `Model` class has a few more methods:
+Additionally, the `Model` class has the following methods:
 
 ```python
 #Complementary to method add_attribute, there is also 
@@ -176,19 +181,33 @@ position_exists = model.attribute_exists("POSITION")
 position_attr = model.get_attribute("POSITION")
 
 #@property
-#Model.metadata(self) -> json
+#Model.metadata(self) -> dict
 metadata = model.metadata
 ```
 
-Note, that the property `Model.metadata` returns a copy of the metdata, making any changes to it won't affect
+Note that the property `Model.metadata` returns a copy. Updating it won't affect the metadata stored inside the model. If you wish to update the metadata, use the `Model.set_metadata` method:
 
-
+```python
+#updating the metadata
+#Model.set_metadata(self, arg0: dict) -> None
+model.set_metadata({ "description": "A new description" })
+```
 
 #### Attributes&#x20;
 
-`Attributes` work similarly to [GLTF buffers](https://www.khronos.org/files/gltf20-reference-guide.pdf). The `Attribute` API allows parsing of various data and make necessary conversions. All data is stored inside as if it was 3D data (2D data gets padded by zeroes).&#x20;
+`Attributes` work similarly to [GLTF buffers](https://www.khronos.org/files/gltf20-reference-guide.pdf). The `Attribute` API allows parsing of various data. All data is stored inside as if it was 3D data (2D data gets padded by zeroes).&#x20;
 
-If everything works as intended, you as a user **should rarely work directly with** `Attributes`. Occasionally, it might be useful to be able to access the Attribute API:
+A unique name identifies each attribute. There are a few names that are commonly used for certain types of attributes:
+
+| Name       | Description                         |
+| ---------- | ----------------------------------- |
+| `POSITION` | coordinates of the vertex positions |
+| `NORMAL`   | normal buffer                       |
+| `COLOR`    | vertex color                        |
+
+`Metacity` does not utilize indices for geometry reuse, all data is stored "as is" in sequential order.
+
+If everything works as intended, a user **should rarely work directly with** `Attributes`. Occasionally, it might be useful to be able to access the Attribute API:
 
 ```python
 from metacity.geometry import Attribute
@@ -202,8 +221,8 @@ points.push_line2D([0, 0, \
 #Similar for 3D points
 #Attribute.push_point3D(self, arg0: List[float]) -> None
 points.push_point3D([0, 0, 0,   \
-                    1, 1, 0.5, \
-                    1, 2, 1])
+                     1, 1, 0.5, \
+                     1, 2, 1])
 ```
 
 Parsing Lines is very similar to parsing points, although the main difference is the data gets stored as individual segments duplicating inner vertices.  &#x20;
@@ -269,26 +288,47 @@ position.push_polygon3D([[0, 0, 1, \
 Sometimes, it is handy to organize things into groups. In Metacity, you can use `Layers`.
 
 ```python
-from metacity.geometry import Layer
+from metacity.geometry import Layer, Model
 layer = Layer()
+
+models = [Model(), Model()]
+#Layer.add_models(models: List[Model]) -> None
 layer.add_models(models)
 ```
 
-#### Methods
+It is also possible to add a single model:
 
-**`Layer.add_model(model: Model) -> None`**\
-``Adds a single model into the layer, returns `None`
+```python
+from metacity.geometry import Layer, Model
+layer = Layer()
 
-**`Layer.add_models(models: List[Model]) -> None`**\
-``Adds a list of models into the layer, returns `None`
+model = Model()
+#Layer.add_model(model: Model) -> None
+layer.add_models(model)
+```
 
-**`Layer.get_models() -> List[Model]`**\
-``Returns a list of `Models` stored in `Layer`. Deleting a `Model` from the returned list does not remove it from the `Layer`. The models are not copied.
+You can access the individual models again. Deleting a `Model` from the returned list does not remove it from the `Layer`.  The models are not copied, the returned list contains references to the models stored inside Layer.
 
-**`Layer.from_gltf(filename: str) -> None`**\
-``Loads a `Layer` from `.gltf` file. All geometry and metadata are preserved.
+```python
+from metacity.geometry import Layer
+layer = Layer()
+#... loading data, processing it
 
-**`Layer.to_gltf(filename: str) -> None`**\
-``Saves `Layer` contents into a `.gltf` file. All geometry and metadata are preserved.
+#Layer.get_models() -> List[Model]
+models = layer.get_models()
+```
 
-### Grid
+Moreover, it is possible to store and load the contents of a `Layer` to and from the `.gltf` format.&#x20;
+
+<pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
+layer = Layer()
+#... loading data, processing it
+
+#Store the data
+#Layer.to_gltf(filename: str) -> None
+layer.to_gltf("layer.gltf")
+
+#Load the data
+<strong>#Layer.from_gltf(filename: str) -> None
+</strong><strong>layer_copy = Layer()
+</strong>layer_copy.from_gltf("layer.gltf")</code></pre>
