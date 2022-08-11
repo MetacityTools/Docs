@@ -87,6 +87,20 @@ The Python package`metacity` acts as the entry data gateway. It consists of seve
 
 The easiest way to understand `Metacity` is to think of it as a _pipeline_.
 
+### Processing CLI
+
+Do you have just a couple of files you want to convert for visualization in BananaGL? Then the&#x20;
+
+```bash
+python -m metacity.pipeline
+```
+
+utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch.)
+
+![Metacity Pipeline CLI](../.gitbook/assets/CLI.png)
+
+
+
 ## Data Import
 
 Metacity currently supports the following formats:
