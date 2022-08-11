@@ -95,7 +95,7 @@ Do you have just a couple of files you want to convert for visualization in Bana
 python -m metacity.pipeline
 ```
 
-utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch.)
+utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch -[ local compilation required](metacity.md#how-to-compile-locally).)
 
 ![](../.gitbook/assets/CLI.png)
 
