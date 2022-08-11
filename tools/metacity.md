@@ -97,9 +97,7 @@ python -m metacity.pipeline
 
 utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch.)
 
-![Metacity Pipeline CLI](../.gitbook/assets/CLI.png)
-
-
+![](../.gitbook/assets/CLI.png)
 
 ## Data Import
 
