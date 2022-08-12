@@ -83,9 +83,9 @@ The Python package`metacity` acts as the entry data gateway. The easiest way to 
 
 1. [Import your data](metacity.md#data-import)
 2. [Create new Layer(s)](metacity.md#layers)
-3. Optionally optimize and modify the data ([Height mapping](metacity.md#height-mapping), etc.)
+3. Optionally optimize and modify the data (see[ Layer Modifiers](metacity.md#layer-modifiers))
 4. Convert Layers selected for visualization to [Grid](metacity.md#grids)&#x20;
-5. Optionally optimize the Grid data ([Model merging](metacity.md#merging), etc.)
+5. Optionally optimize the Grid data (see [Grid Modifiers](metacity.md#undefined))
 6. [Export tiled](metacity.md#undefined) data for streaming
 
 ### Structure
@@ -368,6 +368,8 @@ layer = Layer()
 </strong>layer_copy = Layer()
 layer_copy.from_gltf("layer.gltf")</code></pre>
 
+## Layer Modifiers
+
 `Layer` offers a few handy methods which can modify models:
 
 ### Height Mapping
@@ -478,7 +480,9 @@ The `layout.json` example:
 }
 ```
 
-### Merging&#x20;
+## Grid Modifiers
+
+### Tile Merging&#x20;
 
 Sometimes, a single tile contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all models in individual tiles into one model per tile.
 
