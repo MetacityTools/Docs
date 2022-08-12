@@ -9,7 +9,7 @@
 
 ## Projects
 
-* [AMOS](projects/amos/README.md)
+* [🏙️ AMOS](projects/amos/README.md)
   * [Synthetic Population](projects/amos/synthetic-population/README.md)
     * [Case Studies](projects/amos/synthetic-population/case-studies.md)
     * [Data Specification](projects/amos/synthetic-population/data-specification.md)
@@ -37,5 +37,6 @@
     * [Synthetic Population](projects/amos/resources/synthetic-population.md)
     * [Public Relations](projects/amos/resources/public-relations.md)
     * [Inspiration](projects/amos/resources/inspiration.md)
-* [Metacity Block Edition](projects/blocks/README.md)
-  * [Epic](projects/blocks/epic-grant.md)
+* [🧱 Metacity Block Edition](projects/blocks/README.md)
+  * [🎮 Epic Games Mega Grant](projects/blocks/epic-grant.md)
+  * [🧠 Internal notes](projects/blocks/notes.md)
