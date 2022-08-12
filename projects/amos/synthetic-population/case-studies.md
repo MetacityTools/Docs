@@ -3,42 +3,27 @@
 ---
 # Case Studies
 
-* Sao Paulo
-* Paris and Ile-de-France
-* Ústí nad Labem
-
-
 ## Sao Paulo
+[Paper](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/429951/ab1545.pdf?sequence=1\&isAllowed=y)  [GitHub](https://github.com/eqasim-org/sao\_paulo/blob/master/docs/howto.md)
 
-[Article](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/429951/ab1545.pdf?sequence=1\&isAllowed=y) [GitHub](https://github.com/eqasim-org/sao\_paulo/blob/master/docs/howto.md)
-
-### Census Data
-
-[data](https://centrodametropole.fflch.usp.br/en/download-de-dados?f%5B0%5D=facets\_temas%3Ademographic%20census%202010\&f%5B1%5D=facets\_tipos%3Ano%20cartographic\&busca\_geral=\&items\_per\_page=20)
+### Census [Data](https://centrodametropole.fflch.usp.br/en/download-de-dados?f%5B0%5D=facets\_temas%3Ademographic%20census%202010\&f%5B1%5D=facets\_tipos%3Ano%20cartographic\&busca\_geral=\&items\_per\_page=20)
 
 Sociodemographic information of people and households (HH) - scaled to 10%
 
-1.  Cleaning - raw.py, cleaned.py
-
-    1. Orig - raw
-
+1.  Cleaning
+    a. Original data
+    ```py
+    df_census.columns = ["federationCode", "areaCode", "householdWeight", "metropolitanRegion", "personNumber", "gender", "age", "goingToSchool", "employment", "onLeave", "helpsInWork", "farmWork", "householdIncome", "motorcycleAvailability", "carAvailability", "numberOfMembers"]
     ```
-            df_census.columns = ["federationCode", "areaCode", "householdWeight", "metropolitanRegion", "personNumber", "gender", "age", "goingToSchool", "employment", "onLeave", "helpsInWork", "farmWork", "householdIncome", "motorcycleAvailability", "carAvailability", "numberOfMembers"]
+    b. Spatial editing
+    ```py
+    df_census["zone_id"] = df_census["areaCode"] 
     ```
-
-    2. Spatial editing
-
+    c. cleaned
+    ```py
+    df = df[["person_id", "household_id","weight","zone_id","residence_area_index","age", "sex", "employment", "binary_car_availability","household_size", "household_income"]]
     ```
-            df_census["zone_id"] = df_census["areaCode"] 
-    ```
-
-    3. cleaned
-
-    ```
-            df = df[["person_id", "household_id","weight","zone_id","residence_area_index","age", "sex", "employment", "binary_car_availability","household_size", "household_income"]]
-    ```
-2. Entry HHi is multiplicated by weight wi (which indicates how many households a specific entry represents, use stochastic rounding for floats) \~ “copy” each household wi times
-   1. Mind the sampling rate (direct or not)
+2. Entry HHi is multiplicated by weight wi (which indicates how many households a specific entry represents, use stochastic rounding for floats) \~ “copy” each household wi times. (Mind the sampling rate (direct or not.)
 3. Income information is in the census - divided into bins
 
 ### Zones
@@ -47,25 +32,23 @@ Sociodemographic information of people and households (HH) - scaled to 10%
 
 From zones in shapefiles (use geopandas, set current coordinate system crs, transform to different coord system), set zone id
 
-```
-    df_zones_census_dissolved = df_zones_census_dissolved[['geometry', 'AP_2010_CH']]
-    df_zones_census_dissolved.columns = [ "geometry", "zone_id"]
+```py
+df_zones_census_dissolved = df_zones_census_dissolved[['geometry', 'AP_2010_CH']]
+df_zones_census_dissolved.columns = [ "geometry", "zone_id"]
 ```
 
 1. Extract roads from OSM: x, y, purpose
 2. Create “opportunities” - offer work, offer houses - transform geometries to a new coordinate reference system (geopandas)
 3.  Add schools to opportunities - transform geometries to a new coordinate reference system (geopandas)
 
-    1.
-
+    a.
+    ```py
+    df_facilities_education["offers_work"] = True
     ```
-        df_facilities_education["offers_work"] = True
-    ```
 
-    2.
-
-    ```
-        df_facilities_education["offers_other"] = True
+    b.
+    ```py
+    df_facilities_education["offers_other"] = True
     ```
 4. From shapefile of zones - transform geometries to a new coordinate reference system (geopandas): geometry, zone\_id
 
@@ -78,52 +61,45 @@ From zones in shapefiles (use geopandas, set current coordinate system crs, tran
 3. Remapping categories (work - employed, not employed, student; trip purpose - home, leisure, shop, work; mode - pt, car, car-passenger...)
 4.  Create point from home\_coord for each person + remapping to correct coordinate system
 
-    1.
-
+    a.
+    ```py
+    df_persons["geometry"] = [geo.Point(*xy) for xy in zip(df_persons["homeCoordX"], df_persons["homeCoordY"])]
     ```
-        df_persons["geometry"] = [geo.Point(*xy) for xy in zip(df_persons["homeCoordX"], df_persons["homeCoordY"])]
-    ```
 
-    2.
-
-    ```
-        df_geo = gpd.GeoDataFrame(df_persons, crs = {"init" : "EPSG:29183"})
+    b.
+    ```py
+    df_geo = gpd.GeoDataFrame(df_persons, crs = {"init" : "EPSG:29183"})
     ```
 5. Map home coords (points) of each person to zones (poly) -> home\_zones
 
-```
+    ```py
     home_zones = gpd.sjoin(df_geo[["person_id","geometry"]], df_zones[["zone_id","geometry"]], op = "within",how="left")
-```
-
-
-1.  Generating areas 
-    1.
-
     ```
+
+
+6.  Generating areas 
+    a.
+    ```py
     sp_area = [3 * (z in center) + 2 * (z in city and z not in center) + 1 * (z in region and z not in city) for z in zone_id] 
     ```
 
-    2.
-
-    ```
+    b.
+    ```py
     df_persons["residence_area_index"] = sp_area
     ```
 
-2. Generating trips
+7. Generating trips
    1. origin and destination purpose (shop, work, ...), mode, zones, …
    2. Remove trips from a place to the same place
    3. Remove trips not starting at home, remove trips not ending at home
    4. Calculate activity duration
    5. Spatial join origin & destination coords with zones
 
-#### Output
+8. Output
+    * persons.csv
+    * trips.csv
 
-Persons.csv - "person\_id", "weight", "age", "sex", "employment", "binary\_car\_availability", "has\_pt\_subscription", "home\_zone", "household\_income", "residence\_area\_index", "homeCoordX", "homeCoordY"
-
-Trips.csv - "person\_id", "trip\_id", "new\_trip\_id", "preceeding\_purpose", "following\_purpose", "mode","departure\_time", "arrival\_time", "crowfly\_distance", "activity\_duration", "origin\_x", "origin\_y", "destination\_x", "destination\_y", "origin\_zone", "destination\_zone", "homeCoordX", "homeCoordY"
-
-### OD matrices
-
+*OD matrices*
 An origin–destination matrix is a matrix in which each cell represents the number of trips from an origin zone (given by the corresponding row of the matrix) to a destination zone (column), or the percentage of trips starting in the origin zone that reach the destination zone. Those matrices can be created from the household travel survey. In this study, one weighted origin–destination matrix was generated for work trips.
 
 ## Paris and Ile-de-France
@@ -153,14 +129,15 @@ An origin–destination matrix is a matrix in which each cell represents the num
 5. the locations of all other activities in the persons’ activity chains are chosen
 
 ## Ústí nad Labem
-
-### Data
-
-* census 2011&#x20;
+[Paper](https://www.researchgate.net/publication/357836049\_Synthetic\_Population\_Generator\_for\_Activity-Based\_Travel\_Demand\_Models)
+### Input Data
+* full anonymous census 2011 with household information
+* CSU natality and mortality data between 2011 and 2016
 * National HTS 2016
 * City HTS 2016
-* Data about facilities - [https://www.czso.cz/csu/rso/registr\_scitacich\_obvodu](https://www.czso.cz/csu/rso/registr\_scitacich\_obvodu)
+* Additional facility data - [Registr sčítacích obvodů a budov](https://www.czso.cz/csu/rso/registr\_scitacich\_obvodu)
 
+### Processing Steps
 1. Zoning data
 2. stochastic simulation of several demographic transition processes that update census 2011 data (based on [natality](https://www.czso.cz/csu/czso/porodnost-a-plodnost-2011-2015) and [mortality](https://www.czso.cz/csu/czso/umrtnostni-tabulky-metodika) rates, residential mobility)
 3. Clean raw travel survey data
@@ -169,6 +146,6 @@ An origin–destination matrix is a matrix in which each cell represents the num
 6. Get facilities/build data - building purpose, activity sector (households, industry, agriculture, forestry, transportation, utilities, hospitality, administrative, public services, ...)&#x20;
 7. assign facilities to zones and classify them according to trip purposes
 8. home and primary locations (work, education) - based on OD pairs from merged census and HTS and facility data
-9. secondary locations
+9. impute secondary locations
 
-[https://www.researchgate.net/publication/357836049\_Synthetic\_Population\_Generator\_for\_Activity-Based\_Travel\_Demand\_Models](https://www.researchgate.net/publication/357836049\_Synthetic\_Population\_Generator\_for\_Activity-Based\_Travel\_Demand\_Models)
+
