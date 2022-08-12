@@ -533,7 +533,7 @@ Always test your code!
 
 ### Publishing
 
-Before you publish a new version:
+Before you publish a new version to `pip`:
 
 * you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
 * make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
