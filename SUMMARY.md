@@ -4,7 +4,7 @@
 
 ## Tools
 
-* [🌆 Metacity](tools/metacity.md)
+* [🏙 Metacity](tools/metacity.md)
 * [🍌 BananaGL](tools/bananagl.md)
 
 ## Projects
