@@ -79,13 +79,23 @@ If you encounter any problems, ensure you:
 
 ## Usage
 
-The Python package`metacity` acts as the entry data gateway. It consists of several sub-packages:
+The Python package`metacity` acts as the entry data gateway. The easiest way to understand `Metacity` is to think of it as a _pipeline_. To prepare your data for visualization, you will need to:
+
+1. [Import your data](metacity.md#data-import)
+2. [Create new Layer(s)](metacity.md#layers)
+3. Optionally optimize and modify the data ([Height mapping](metacity.md#height-mapping), etc.)
+4. Convert Layers selected for visualization to [Grid](metacity.md#grids)&#x20;
+5. Optionally optimize the Grid data ([Model merging](metacity.md#merging), etc.)
+6. [Export tiled](metacity.md#undefined) data for streaming
+
+### Structure
+
+`Metacity` consists of several sub-packages:
 
 * `metacity.io` - importing and exporting data
 * `metacity.geometry` - geometry processing
 * `metacity.utils` - managing file systems and inspecting data
-
-The easiest way to understand `Metacity` is to think of it as a _pipeline_.
+* (in `dev` only) `metacity.pipeline` with a CLI tool for data processing
 
 ### Processing CLI
 
@@ -178,7 +188,7 @@ It is possible to check what is the geometry type of the `Model`. Note that mode
 </strong><strong>#Model.geom_type(self) -> int
 </strong>geometry_type_code = model.geom_type</code></pre>
 
-For the encoding explanation, see [Attribute Type](metacity.md#undefined). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
+For the encoding explanation, see Attribute [Geometry Type](metacity.md#type). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
 
 ### Attributes&#x20;
 
@@ -275,7 +285,7 @@ triangles.push_polygon2D([[0, 0, \
 </strong><strong>#Attribute.geom_type(self) -> int:
 </strong>assert triangles.geom_type == 3                  </code></pre>
 
-### Type
+### Geometry Type
 
 Notice the `geom_type` property:
 
@@ -423,23 +433,25 @@ terrain.add_models(parse_recursively("terrain"))
 <strong>#Grid.add_model(self, arg0: Model) -> None
 </strong>grid.add_model(Model())</code></pre>
 
-Exporting data from the grid prepares several files for streaming:
+### Exporting data
+
+This is the final step of getting the data ready for visualization. Exporting data from the grid prepares several files for streaming:
 
 <pre class="language-python"><code class="lang-python">from metacity.utils.filesystem import recreate_dir
 
 <strong>#recreate_dir(dir: str) -> None
-</strong>recreate_dir("grid")
+</strong>recreate_dir("terrain_grid_export")
 <strong>#Grid.to_gltf(self, dir: str) -> None
-</strong>grid.to_gltf("grid")</code></pre>
+</strong>grid.to_gltf("terrain_grid_export")</code></pre>
 
 The first `recreate_dir` empties the specified directory and  `Grid.to_gltf` then fills it with individual tiles and a `layout.json:`
 
 ```
-grid
+terrain_grid_export
 ├── layout.json
 ├── tile123_456.glb
 ...
-└── tile678_879.glb
+└── tile678_879.glb 
 ```
 
 * The individual tiles are `.glb` files named `tilex_y.glb` where `x` and `y` are replaced by the respective tile coordinates.
