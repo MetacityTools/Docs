@@ -85,8 +85,8 @@ The Python package`metacity` acts as the entry data gateway. The easiest way to 
 2. [Create new Layer(s)](metacity.md#layers)
 3. Optionally optimize and modify the data (see[ Layer Modifiers](metacity.md#layer-modifiers))
 4. Convert Layers selected for visualization to [Grid](metacity.md#grids)&#x20;
-5. Optionally optimize the Grid data (see [Grid Modifiers](metacity.md#undefined))
-6. [Export tiled](metacity.md#undefined) data for streaming
+5. Optionally optimize the Grid data (see [Grid Modifiers](metacity.md#grid-modifiers))
+6. [Export tiled](metacity.md#exporting-data) data for streaming
 
 ### Structure
 
@@ -480,7 +480,7 @@ The `layout.json` example:
 }
 ```
 
-## Grid Modifiers
+## Grid Modifiers <a href="#grid-modifiers" id="grid-modifiers"></a>
 
 ### Tile Merging&#x20;
 
