@@ -457,10 +457,10 @@ terrain_grid_export
 ```
 
 * The individual tiles are `.glb` files named `tilex_y.glb` where `x` and `y` are replaced by the respective tile coordinates.
-* In the two examples above, the grid is tiled into tiles with the dimensions 1000 by 1000 units
+* In the examples above, the grid is tiled into tiles with the dimensions 1000 by 1000 units
 * The `layout.json` file contains the mapping of the tiles to the real coordinates
 
-The `layout.json` example:
+The `layout.json` file for this example would look like this:
 
 ```json5
 {
