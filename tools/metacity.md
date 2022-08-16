@@ -533,10 +533,9 @@ Always test your code!
 
 ### Publishing
 
-Before you publish a new version to [pipy.org](https://pipy.org):
+There is a `release.sh` script that will let you update the version number and publish the updated package. Before you publish a new version to [pipy.org](https://pipy.org):
 
 * you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
-* make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
 
 To publish the code from your local computer, run the following commands:
 

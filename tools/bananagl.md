@@ -8,7 +8,7 @@ Visualize data preprocessed by Metacity with [BananaGL](https://github.com/Metac
 
 ### Installation
 
-You can always grab a version&#x20;
+See [Releases](https://github.com/MetacitySuite/BananaGL/releases/), all you need is to download `bananagl.zip` and use its contents in your project.
 
 ## Loading Data
 
