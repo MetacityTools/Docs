@@ -37,6 +37,6 @@
     * [Synthetic Population](projects/amos/resources/synthetic-population.md)
     * [Public Relations](projects/amos/resources/public-relations.md)
     * [Inspiration](projects/amos/resources/inspiration.md)
-* [🧱 Metacity Block Edition](projects/blocks/README.md)
-  * [🎮 Epic Games Mega Grant](projects/blocks/epic-grant.md)
+* [Metacity Block Edition](projects/blocks/README.md)
+  * [Epic Games Mega Grant](projects/blocks/epic-grant.md)
   * [🧠 Internal notes](projects/blocks/notes.md)

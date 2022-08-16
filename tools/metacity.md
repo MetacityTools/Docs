@@ -2,7 +2,7 @@
 description: Python package for Geodata processing
 ---
 
-# 🌆 Metacity
+# 🏙 Metacity
 
 The `Metacity` package allows to preprocess geospatial data and export it in a more suitable form for web visualization.&#x20;
 
@@ -538,8 +538,6 @@ Before you publish a new version to [pipy.org](https://pipy.org):
 * you will need a password or a secret token (which can only be provided by [the cat](https://github.com/vojtatom))
 * make sure the version number in `setup.py` is correct and not behind [the last published version](https://pypi.org/project/metacity/)
 
-Note that it is possible to publish a new version by successfully merging a Pull Request from `dev` to `main` branch by adding `action::package` into the merge commit message - see [Pull Request Flags](metacity.md#pull-request-flags).
-
 To publish the code from your local computer, run the following commands:
 
 ```
@@ -553,26 +551,8 @@ The contents of the package are specified in `MANIFEST.in` located in the root o
 
 ### Branches
 
-| Branch | Status                                                                                                                                                                                           | Description                                                           |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| main   | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=main)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22) | protected, merged PRs auto tested and deployed to PyPI if tag present |
-| dev    | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=dev)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22)  | merged PRs auto tested and version bumped if tag present              |
+| Branch | Status                                                                                                                                                                                           | Description                       |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
+| main   | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=main)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22) | protected, merged PRs auto tested |
+| dev    | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20CI/badge.svg?branch=dev)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22)  | merged PRs auto tested            |
 
-### Pull Request Flags
-
-Typing any of the following strings into the commit message while merging a pull request will trigger an action in the CI.
-
-#### From `any branch` to `dev`
-
-When merging from any branch to `dev` branch:
-
-* `action::bump` - flag to run bump package version, the version is bumped as a patch if no version tag is used.
-  * `version::patch` - bump version after patch/bug fix/minor change
-  * `version::minor` - bump version after new feature/minor change
-  * `version::major` - bump version after major change/breaking change
-
-#### From `dev` to `main`
-
-When merging from `dev` to `main` branch:
-
-* `action::package` - flag to deploy to PyPI
