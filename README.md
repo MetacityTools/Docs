@@ -1,6 +1,6 @@
 # What is Metacity
 
-**Metacity Suite** is a set of urban data synthesis, analysis, and **visualization tools**. We are developing several open-source tools:
+**Metacity Suite** is a set of urban data **synthesis, analysis**, and **visualization tools**. We are developing several open-source tools:
 
 * ****[**Metacity**](tools/metacity.md) is a Python package for urban data processing
 * ****[**BananaGL**](tools-and-services/bananagl/) is a JavaScript 3D web visualization library for data preprocessed by `Metacity`
