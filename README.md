@@ -22,8 +22,8 @@
 
 There is also documentation for some of our older projects:
 
-* ****[**AMOS**](projects/amos/) **** is a project targeted at developing a synthetic population based on data from the city of Prague
-* ****[**Metacity Block Edition**](projects/blocks/) is a pitch for another project concerning urban data synthesis and simulation
+* ****[**AMOS**](projects/amos/) **** is a project that involves developing a synthetic population based on data from the city of Prague
+* ****[**Metacity Block Edition**](projects/blocks/) is a pitch for another project involving urban data synthesis and simulation
 
 ## Where can you find out more
 
