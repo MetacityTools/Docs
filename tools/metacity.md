@@ -81,12 +81,12 @@ If you encounter any problems, ensure you:
 
 The Python package`metacity` acts as the entry data gateway. The easiest way to understand `Metacity` is to think of it as a _pipeline_. To prepare your data for visualization, you will need to:
 
-1. [Import your data](./#data-import)
-2. [Create new Layer(s)](./#layers)
-3. Optionally optimize and modify the data (see[ Layer Modifiers](./#layer-modifiers))
-4. Convert Layers selected for visualization to [Grid](./#grids)&#x20;
-5. Optionally optimize the Grid data (see [Grid Modifiers](./#grid-modifiers))
-6. [Export tiled](./#exporting-data) data for streaming
+1. [Import your data](metacity.md#data-import)
+2. [Create new Layer(s)](metacity.md#layers)
+3. Optionally optimize and modify the data (see[ Layer Modifiers](metacity.md#layer-modifiers))
+4. Convert Layers selected for visualization to [Grid](metacity.md#grids)&#x20;
+5. Optionally optimize the Grid data (see [Grid Modifiers](metacity.md#grid-modifiers))
+6. [Export tiled](metacity.md#exporting-data) data for streaming
 
 ### Structure
 
@@ -105,9 +105,9 @@ Do you have just a couple of files you want to convert for visualization in Bana
 python -m metacity.pipeline
 ```
 
-utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch -[ local compilation required](./#how-to-compile-locally).)
+utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch -[ local compilation required](metacity.md#how-to-compile-locally).)
 
-![](../../.gitbook/assets/CLI.png)
+![](../.gitbook/assets/CLI.png)
 
 ## Data Import
 
@@ -142,7 +142,7 @@ The returned value is a flattened list of `Models` regardless of how many files 
 
 A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning.&#x20;
 
-* The geometry is stored in `Attributes`. Models can have multiple `Attributes` - see section [Attributes](./#attributes).
+* The geometry is stored in `Attributes`. Models can have multiple `Attributes` - see section [Attributes](metacity.md#attributes).
 * The properties can be attached to a model as a metadata
 
 See the following example:
@@ -188,7 +188,7 @@ It is possible to check what is the geometry type of the `Model`. Note that mode
 </strong><strong>#Model.geom_type(self) -> int
 </strong>geometry_type_code = model.geom_type</code></pre>
 
-For the encoding explanation, see Attribute [Geometry Type](./#type). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
+For the encoding explanation, see Attribute [Geometry Type](metacity.md#type). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
 
 ### Attributes&#x20;
 
@@ -407,7 +407,7 @@ It is possible to re-mesh a model using a height-map approach. A grid of vertice
 
 The new mesh is divided into several tiles (each is a separate `Model`), and each tile is further divided according to the supplied parameters:
 
-![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](../../.gitbook/assets/remesh.png)
+![In the example, the tile\_side is an arbitrary number (let's say 100), and tile\_divisions is equal to 4. The first tile is always aligned with the minimum coordinates of the Layer bounding box. The dotted lines correspond to edges in the newly generated mesh, bold dots are new vertices.](../.gitbook/assets/remesh.png)
 
 <pre class="language-python"><code class="lang-python">from metacity.geometry import Layer
 from metacity.io import parse_recursively
@@ -481,7 +481,7 @@ The `layout.json` file for this example would look like this:
 ```
 
 {% hint style="info" %}
-In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](../../tools/bananagl.md) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
+In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](bananagl.md) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
 {% endhint %}
 
 ## Grid Modifiers <a href="#grid-modifiers" id="grid-modifiers"></a>
@@ -491,7 +491,7 @@ In the example above, the contents of `terrain_grid_export` directory can be upl
 Sometimes, a single tile contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all models in individual tiles into one model per tile.
 
 {% hint style="warning" %}
-Remember the [`Attribute` type mixing rules](./#attribute-caveats)? Similar rules apply here:
+Remember the [`Attribute` type mixing rules](metacity.md#attribute-caveats)? Similar rules apply here:
 
 * All models must contain identically named `Attributes`
 * All `Attributes` with corresponding names across models must be of the same type

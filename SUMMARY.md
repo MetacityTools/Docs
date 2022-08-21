@@ -4,7 +4,7 @@
 
 ## Tools & Services
 
-* [🏙 Metacity](tools-and-services/metacity/README.md)
+* [🏙 Metacity](tools/metacity.md)
   * [DevOps](tools-and-services/metacity/devops.md)
 * [🍌 BananaGL](tools/bananagl.md)
 * [📦 DataAPI](tools-and-services/dataapi.md)
