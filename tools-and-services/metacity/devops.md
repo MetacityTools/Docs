@@ -2,14 +2,14 @@
 description: Developer notes regarding Metacity package
 ---
 
-# Metacity
+# DevOps
 
 After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in [`ci.yml`](https://github.com/MetacitySuite/Metacity/blob/main/.github/workflows/ci.yml) are executed. Generally, it involves&#x20;
 
 1. Building the C++ parts of the code
-2. Running tests with `pytest` - see [Testing](metacity.md#tests)
+2. Running tests with `pytest` - see [Testing](devops.md#tests)
 
-Additional actions can be triggered using the [Pull Request Flags](metacity.md#pull-request-flags).
+Additional actions can be triggered using the [Pull Request Flags](devops.md#pull-request-flags).
 
 ### Testing
 
