@@ -14,7 +14,7 @@ As this is a service, it consists of a several components:
 
 ## Publishing Data
 
-Currently, we need to upload the processed data to the server manually. If you were interested in us opening the access to others, [get in touch with is](mailto:hello@metacity.cc)!
+Currently, we need to upload the processed data to the server manually. If you were interested in us opening the access to others, [get in touch with us](mailto:hello@metacity.cc)!
 
 ## Data API Frontend
 
