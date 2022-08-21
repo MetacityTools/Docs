@@ -6,7 +6,7 @@
 
 * [🏙 Metacity](tools/metacity.md)
 * [🍌 BananaGL](tools/bananagl.md)
-* [📦 Data API](tools-and-services/data-api.md)
+* [📦 DataAPI](tools-and-services/dataapi.md)
 
 ## Projects
 
@@ -41,3 +41,7 @@
 * [Metacity Block Edition](projects/blocks/README.md)
   * [Epic Games Mega Grant](projects/blocks/epic-grant.md)
   * [🧠 Internal notes](projects/blocks/notes.md)
+
+## DevOps
+
+* [Metacity](devops/metacity.md)
