@@ -6,6 +6,7 @@
 
 * [🏙 Metacity](tools/metacity.md)
 * [🍌 BananaGL](tools/bananagl.md)
+* [📦 Data API](tools-and-services/data-api.md)
 
 ## Projects
 
