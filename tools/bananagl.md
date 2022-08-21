@@ -46,7 +46,7 @@ Minimal HTML starting template:
 ```
 
 {% hint style="warning" %}
-**Never** set any **CSS styles** (directly or in a separate style sheet) modifying **width or height of the`<canvas>`.** Set the sizes on its **parent** instead.
+**Never** set any **CSS styles** (directly or in a separate style sheet) modifying **width or height of the`<canvas>`** passed to BananaGL. **** Set the sizes on its **parent** instead.
 {% endhint %}
 
 `BananaGL` keeps the provided `<canvas>` at 100% width and height of its parents, and adds a small annotation to its bottom.&#x20;
