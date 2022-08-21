@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Metacity Suite](README.md)
+* [What is Metacity](README.md)
 
 ## Tools & Services
 

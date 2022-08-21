@@ -1,22 +1,15 @@
----
-description: A set of tools for urban data synthesis, analysis and visualization.
----
+# What is Metacity
 
-# Metacity Suite
+**Metacity Suite** is a set of urban data synthesis, analysis, and **visualization tools**. We are developing several open-source tools:
 
-[WEB](https://metacity.cc)
+* ****[**Metacity**](tools/metacity.md) is a Python package for urban data processing
+* ****[**BananaGL**](tools-and-services/bananagl/) is a JavaScript 3D web visualization library for data preprocessed by `Metacity`
+* ****[**DataAPI**](tools-and-services/dataapi.md) is a tile service hosted by us, providing GLTF models for the BananaGL library
 
-[DEMO](https://demo.metacity.cc/)
+There is also documentation for some of our older projects:
 
-## Metacity History
+* ****[**AMOS**](projects/amos/) **** is a project targeted at developing a synthetic population based on data from the city of Prague
+* ****[**Metacity Block Edition**](projects/blocks/) is a pitch for another project concerning urban data synthesis and simulation
 
-* Metacity early days
-* [AMOS](metacity/amos/)
-  * Nakopni Prahu
-  * Bubny - Zátory
-  * OICT - FCD data
-* Metacity + Banana GL = <3
-* Metacity Web
-* PDS
 
-[Table of contents](metacity/SUMMARY.md)
+
