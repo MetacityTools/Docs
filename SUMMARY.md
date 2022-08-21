@@ -8,7 +8,8 @@
   * [Development](tools-and-services/metacity/development.md)
 * [🍌 BananaGL](tools-and-services/bananagl/README.md)
   * [Development](tools-and-services/bananagl/development.md)
-* [📦 DataAPI](tools-and-services/dataapi.md)
+* [📦 DataAPI](tools-and-services/dataapi/README.md)
+  * [Development](tools-and-services/dataapi/development.md)
 
 ## Projects
 

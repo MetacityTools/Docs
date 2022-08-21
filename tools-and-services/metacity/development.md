@@ -46,8 +46,8 @@ The `release.sh` goes through the following steps:
 
 ### Branches
 
-| Branch |                                                                                                   Status                                                                                                   | Description                             |
-| ------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --------------------------------------- |
-| main   | [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20Testing%20CI/badge.svg?branch=main)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22) | for production                          |
-| dev    |  [![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20Testing%20CI/badge.svg?branch=dev)](https://github.com/MetacitySuite/Metacity/actions?query=workflow%3A%22Metacity+CI%22) | merged PRs auto tested, for development |
+| Branch |                                                       Status                                                       | Description                             |
+| ------ | :----------------------------------------------------------------------------------------------------------------: | --------------------------------------- |
+| main   | ![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20Testing%20CI/badge.svg?branch=main) | for production                          |
+| dev    |  ![Build Status](https://github.com/MetacitySuite/Metacity/workflows/Metacity%20Testing%20CI/badge.svg?branch=dev) | merged PRs auto tested, for development |
 
