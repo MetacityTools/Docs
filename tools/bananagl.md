@@ -28,7 +28,9 @@ Minimal HTML starting template:
     <title>BananaGL Project</title>
 </head>
 <body>
-    <canvas id="canvas">Your browser does not support canvas</canvas>
+    <div id="container">
+        <canvas id="canvas">Your browser does not support canvas</canvas>
+    </div>
     <script src="bananagl.js"></script>
     <script>
         window.onload = () => {
@@ -42,6 +44,12 @@ Minimal HTML starting template:
 </body>
 </html>
 ```
+
+{% hint style="warning" %}
+**Never** set any **CSS styles** (directly or in a separate style sheet) modifying **width or height of the`<canvas>.`**
+{% endhint %}
+
+`BananaGL` keeps the provided `<canvas>` at 100% width and height of its parents, and adds a small annotation to its bottom.&#x20;
 
 ## Initialization
 
