@@ -111,4 +111,106 @@ The function accepts a parameter object with the following properties:
 
 ## Styles
 
-TODO
+The color of mesh models can be modified by providing styling rules to individual layer.
+
+```javascript
+const gl = new BananaGL.BananaGL({...});
+
+gl.loadLayer({
+    api: "https://data.metacity.cc/buildings",
+    baseColor: 0xffffff,
+    style: [
+        gl.style.withAttributeEqualTo("utilization", "office").useColor(0x0000ff),
+        gl.style.withAttributeEqualTo("height", 50).useColor(0xff0000)
+    ]
+});
+```
+
+In the example above, the object with attribute `utilization` set to value `office` will be blue, and all buildings with `height` equal to 50 will be red.
+
+### Computed Properties
+
+On loading, all mesh objects are automatically assigned the following attributes:
+
+* `height` - `number`, height of the object
+* `baseHeight` - `number`, minimal z-coordinate of all object vertices
+* `bbox` -  `[number`\[`], number[]]`, object bounding box, `bbox[0]` is the minimal coordinate , `bbox[1]` is maximum
+
+### Rule Resolution
+
+If two or more rules apply to a single object, the last matched rule is applied.&#x20;
+
+If no rule matches, the `baseColor` of the layer is applied.
+
+### Rule Chaining
+
+If you want to specify a rule where both of the rules must apply, you can chain them in a following way:
+
+```javascript
+const gl = new BananaGL.BananaGL({...});
+
+gl.loadLayer({
+    api: "https://data.metacity.cc/buildings",
+    baseColor: 0xffffff,
+    style: [
+        gl.style.withAttributeEqualTo("utilization", "office")
+                .withAttributeEqualTo("height", 50).useColor(0xffe135)
+    ]
+});
+```
+
+## Style Rules
+
+Several styling rules are available:
+
+### .forAll
+
+Applies the same color to all objects, essentially the same as using `baseColor` (just more computationally expensive, use only for testing or if you really despise your users).
+
+```javascript
+gl.style.forAll().useColor(0xffe135)
+```
+
+### .withAttributeEqualTo
+
+Applies color to all objects with a certain attribute equal to a provided value.
+
+```javascript
+gl.style.withAttributeEqualTo("usage", "restaurant").useColor(0xffe135)
+```
+
+### .withAttributeRange
+
+Applies color to all objects with a certain attribute in provided range.&#x20;
+
+```javascript
+gl.style.withAttributeRange("height", 10, 20).useColor(0xffe135)
+gl.style.withAttributeRange("height", 10, 20).useColor([0x000000, 0xffffff])
+```
+
+### .withAttributeRangeExt
+
+Applies color to all objects with a certain attribute in provided range. If the value is outside of the range, the color is extrapolated (constant method).
+
+In combination with `useColor` with a single color, works as an indicate whether the attribute is present.
+
+```javascript
+gl.style.withAttributeRangeExt("height", 10, 20).useColor(0xffe135)
+gl.style.withAttributeRangeExt("height", 10, 20).useColor([0x000000, 0xffffff])
+```
+
+### .useColor
+
+Specifies which color or colormap should be used if this particular rule applies. You can specify a single color
+
+```javascript
+gl.style.withAttributeEqualTo("usage", "restaurant").useColor(0xffe135)
+```
+
+or a color palette. Palettes work well in combination with `AttributeRange` rules.
+
+```javascript
+gl.style.withAttributeRangeExt("height", 10, 20).useColor([0x000000, 0xffffff])
+```
+
+If you call `useColor` more than once on a single rule, the last provided value is used.

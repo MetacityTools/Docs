@@ -4,8 +4,8 @@
 
 ## Tools & Services
 
-* [🏙 Metacity](tools-and-services/metacity.md)
-* [🍌 BananaGL](tools-and-services/bananagl.md)
+* [🏙 Metacity](tools/metacity.md)
+* [🍌 BananaGL](tools/bananagl.md)
 
 ## Projects
 
