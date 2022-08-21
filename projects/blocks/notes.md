@@ -1,8 +1,9 @@
-# Block Edition Brainstorm
+# 🧠 Internal notes
 
 [MIRO](https://miro.com/app/board/uXjVOXxARPM=/)
 
 6 stages
+
 * create
 * interact
 * aggregate
@@ -10,10 +11,10 @@
 * insight
 * decision
 
-
 ## Data pipeline
 
 Datovy vstup pred abstrakci:
+
 * stavajici zastavba
 * pocty rezidentu (?)
 * potreby rezidentu (?)
@@ -22,12 +23,13 @@ Datovy vstup pred abstrakci:
 * (moznost) zonovani v dané oblasti
 
 Predmet klasifikace a abstrakce:
+
 * domy podle vyuziti: residential, commercial, civic, mix
 * plochy podle vyuziti: landmarks, parky, voda, parkoviste, other
 * bloky podle velikosti a vyuziti
 * residenti v oblasti a jejich potreby - co určuje hustotu lidi v místě a jejich potreby
 * bloky podle dosažitelnosti od bodu zájmu (mozna jen interne)
-* dopravní obsluha - linky mhd - umisteni, pocet, kapacita/hod, vytíženost linky (metrika?), vytíženost dopravniho uzlu 
+* dopravní obsluha - linky mhd - umisteni, pocet, kapacita/hod, vytíženost linky (metrika?), vytíženost dopravniho uzlu
 * komunikace podle modu dopravy
 * komunikace podle intenzity dopravy
 * hoody podle bloku - vyuziti
@@ -36,6 +38,7 @@ Predmet klasifikace a abstrakce:
 * hoody podle dalsich metrik (green spaces, noise, dust levels, temperature and so on).
 
 Predmet zmeny inputu:
+
 * domy podle vyuziti: residential, commercial, civic, recreation, mix
 * plochy podle vyuziti
 * změna plochy v zástavbu a naopak
@@ -46,6 +49,7 @@ Predmet zmeny inputu:
 * dopravní obsluha - linky mhd - umisteni, kapacita/hod
 
 Predmet zmeny outputu:
+
 * bloky a hoody podle dosažitelnosti (typ dopravy, cas dopravy, vytok, odtok casy)
 * poptavka po objektech v blízkosti (co je kritérium?)
 * vytíženost linky
@@ -58,10 +62,8 @@ Predmet zmeny outputu:
 * network-based: diversity, accessibility
 
 ## Visuals
-Vizualizace v gridu, 4-okolí:
-komunikace a linky: usecky, manhattan
-budovy: kvádr
 
+Vizualizace v gridu, 4-okolí: komunikace a linky: usecky, manhattan budovy: kvádr
 
 ## Other
 
@@ -70,9 +72,6 @@ budovy: kvádr
 * kreslení do modelu
 * porovnani zonovani s jinými svetovymi mesty
 
-
-
 ## References
-[ CITY SEER BENCHMARK URBANISM ](https://cityseer.benchmarkurbanism.com/)
-Secondly, what exactly is it that urbanists should be benchmarking?
-[ - Gareth Simons ](https://www.researchgate.net/publication/356377308_Detection_and_prediction_of_urban_archetypes_at_the_pedestrian_scale_computational_toolsets_morphological_metrics_and_machine_learning_methods)
+
+[CITY SEER BENCHMARK URBANISM ](https://cityseer.benchmarkurbanism.com/)Secondly, what exactly is it that urbanists should be benchmarking? [- Gareth Simons](https://www.researchgate.net/publication/356377308\_Detection\_and\_prediction\_of\_urban\_archetypes\_at\_the\_pedestrian\_scale\_computational\_toolsets\_morphological\_metrics\_and\_machine\_learning\_methods)

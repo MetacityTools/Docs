@@ -2,10 +2,10 @@
 
 * [Metacity Suite](README.md)
 
-## Tools
+## Tools & Services
 
-* [🏙 Metacity](tools/metacity.md)
-* [🍌 BananaGL](tools/bananagl.md)
+* [🏙 Metacity](tools-and-services/metacity.md)
+* [🍌 BananaGL](tools-and-services/bananagl.md)
 
 ## Projects
 
