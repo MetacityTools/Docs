@@ -29,6 +29,8 @@ The frontend is a small Flask application, which scans the filesystem on request
 }
 ```
 
+### Dataset Descriptions
+
 It is possible to add a more detailed description to each datasets by placing a `description.json` file into the dataset directory next to the obligatory `layout.json`. The json gets rendered on the frontend above the dataset url.
 
 
