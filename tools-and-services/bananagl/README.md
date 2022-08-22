@@ -79,6 +79,7 @@ The function accepts a parameter object with the following properties:
 | `position`                     |     -    | `number`, initial position of the camera, overwrites the coordinates passed in URL                                                                                   |
 | `target`                       |     -    | `number`, initial target of the camera, overwrites the coordinates passed in URL                                                                                     |
 | `zoomSpeed`                    |     -    | `number`, speed of zooming                                                                                                                                           |
+| `lightIntensity`               |     -    | `number`, total intensity of lights                                                                                                                                  |
 
 ### How Camera works
 
