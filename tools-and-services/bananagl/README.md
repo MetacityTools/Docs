@@ -2,7 +2,7 @@
 description: 3D Web Visualization Library
 ---
 
-# 🍌 BananaGL
+# 🗺 BananaGL
 
 Visualize data preprocessed by `Metacity` with [`BananaGL`](https://github.com/MetacitySuite/BananaGL) - a client-side web visualization library. It is built with [three.js](https://threejs.org/) and `Typescript`.&#x20;
 
@@ -171,7 +171,7 @@ gl.loadLayer({
 
 Several styling rules are available:
 
-### .forAll
+### `.forAll`
 
 Applies the same color to all objects, essentially the same as using `baseColor` (just more computationally expensive, use only for testing or if you really despise your users).
 
@@ -179,7 +179,7 @@ Applies the same color to all objects, essentially the same as using `baseColor`
 gl.style.forAll().useColor(0xffe135)
 ```
 
-### .withAttributeEqualTo
+### `.withAttributeEqualTo`
 
 Applies color to all objects with a certain attribute equal to a provided value.
 
@@ -187,7 +187,7 @@ Applies color to all objects with a certain attribute equal to a provided value.
 gl.style.withAttributeEqualTo("usage", "restaurant").useColor(0xffe135)
 ```
 
-### .withAttributeRange
+### `.withAttributeRange`
 
 Applies color to all objects with a certain attribute in provided range.&#x20;
 
@@ -196,18 +196,18 @@ gl.style.withAttributeRange("height", 10, 20).useColor(0xffe135)
 gl.style.withAttributeRange("height", 10, 20).useColor([0x000000, 0xffffff])
 ```
 
-### .withAttributeRangeExt
+### `.withAttributeRangeExt`
 
 Applies color to all objects with a certain attribute in provided range. If the value is outside of the range, the color is extrapolated (constant method).
 
-In combination with `useColor` with a single color, works as an indicate whether the attribute is present.
+Combined with `useColor` using a single color works as an indication of whether the attribute is present.
 
 ```javascript
 gl.style.withAttributeRangeExt("height", 10, 20).useColor(0xffe135)
 gl.style.withAttributeRangeExt("height", 10, 20).useColor([0x000000, 0xffffff])
 ```
 
-### .useColor
+### `.useColor`
 
 Specifies which color or colormap should be used if this particular rule applies. You can specify a single color
 
@@ -222,3 +222,9 @@ gl.style.withAttributeRangeExt("height", 10, 20).useColor([0x000000, 0xffffff])
 ```
 
 If you call `useColor` more than once on a single rule, the last provided value is used.
+
+```javascript
+gl.style.withAttributeEqualTo("usage", "restaurant")
+        .useColor(0xffe135) //<- not used
+        .useColor(0xffffff) //<- used
+```
