@@ -4,7 +4,7 @@ description: Developer notes regarding Metacity package
 
 # Development
 
-After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in [`test.yaml`](https://github.com/MetacitySuite/Metacity/blob/main/.github/workflows/test.yaml) are executed. Generally, it involves&#x20;
+After uploading any code to the [Metacity GitHub repo](https://github.com/MetacitySuite/Metacity), the actions specified in `ci.yaml` are executed. Generally, it involves&#x20;
 
 1. Building the C++ parts of the code
 2. Running tests with `pytest` - see [Testing](development.md#tests)
