@@ -22,8 +22,8 @@ The `release.sh` goes through the following steps:
 
 ### Branches
 
-| Branch |                                                  Status                                                  | Description                        |
-| ------ | :------------------------------------------------------------------------------------------------------: | ---------------------------------- |
-| main   | ![Build Status](https://github.com/MetacitySuite/BananaGL/workflows/BananaGL%20CI/badge.svg?branch=main) | for production                     |
-| dev    |  ![Build Status](https://github.com/MetacitySuite/BananaGL/workflows/BananaGL%20CI/badge.svg?branch=dev) | for merged PRs, development branch |
+| Branch  |                                                    Status                                                   | Description                        |
+| ------- | :---------------------------------------------------------------------------------------------------------: | ---------------------------------- |
+| release | ![Build Status](https://github.com/MetacitySuite/BananaGL/workflows/BananaGL%20CI/badge.svg?branch=release) | for production                     |
+| dev     |   ![Build Status](https://github.com/MetacitySuite/BananaGL/workflows/BananaGL%20CI/badge.svg?branch=dev)   | for merged PRs, development branch |
 
