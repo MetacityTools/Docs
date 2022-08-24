@@ -8,17 +8,11 @@ After uploading any code to the [BananaGL Repo](https://github.com/MetacitySuite
 
 ### Release
 
-There is a `release.sh` script that will let you update the version number and publish the updated package. Before you publish a new version:
+Everything merged into the branch `release` gets released. Before you publish a new version:
 
-* **make sure the version you want to publish is in the `main` branch**
-* you will need a right to write into the `main` branch
+* **make sure the version number in your code is set up correctly**
 
-The `release.sh` goes through the following steps:
-
-1. version number is updated locally&#x20;
-2. the update is pushed to the main branch
-3. the latest commit is tagged with a version number
-4. tags are pushed, [triggering a release ](https://github.com/MetacitySuite/BananaGL/blob/main/.github/workflows/release.yaml)
+The `version.sh` can inform you about the latest released versions.
 
 ### Branches
 
