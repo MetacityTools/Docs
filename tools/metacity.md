@@ -23,6 +23,10 @@ you can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 pip install metacity
 ```
 
+{% hint style="success" %}
+Starting with version 0.5.0, `GDAL` installation is no longer required.
+{% endhint %}
+
 ### How to compile locally
 
 Metacity is written in Python and C++ using [`pybind11`](https://github.com/pybind/pybind11). If you want to edit the package code yourself, we recommend following these steps first:&#x20;
