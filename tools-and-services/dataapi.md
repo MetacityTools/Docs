@@ -6,15 +6,15 @@ description: Tile service providing GLTF models for BananaGL library
 
 The service frontend is available at [api.metacity.cc](https://api.metacity.cc).
 
-As this is a service, it consists of a several components:
+As this is a service, it consists of several components:
 
 * The **data storage** is just a _good old_ filesystem on our server. It contains folders of data exported from `Metacity` - see [Exporting data](../tools/metacity.md#exporting-data)
-* The catalog **frontend** is a small Flask application called [DataAPI](https://github.com/MetacitySuite/DataAPI) running behind Nginx Unit ([unit config](https://github.com/MetacitySuite/DataAPI/blob/main/config.json))&#x20;
+* The catalog **frontend** is a small Flask application called [DataAPI](https://github.com/MetacitySuite/DataAPI)
 * The data is **served** by Nginx - for more details, see [Development page](dataapi/development.md)
 
 ## Publishing Data
 
-Currently, we need to upload the processed data to the server manually. If you were interested in us opening the access to others, [get in touch with us](mailto:hello@metacity.cc)!
+Currently, we need to upload the processed data to the server manually. If you are interested in us opening the access to others, [get in touch with us](mailto:hello@metacity.cc)!
 
 ## Data API Frontend
 

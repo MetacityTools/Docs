@@ -2,30 +2,20 @@
 description: Python package for Geodata processing
 ---
 
-# 🏙 Metacity
+# 📐 Metacity
 
 The `Metacity` package allows to preprocess geospatial data and export it in a more suitable form for web visualization.&#x20;
 
 ### Installation
 
-The package relies on system packages [`GDAL`](https://gdal.org) and [`CMake`](https://cmake.org). Please make sure they are installed before trying to install the `Metacity` package.
-
-1. Install [GDAL](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/gdal-ubuntu-pkg.html)
-
-```bash
-sudo add-apt-repository ppa:ubuntugis/ppa
-sudo apt-get update
-sudo apt-get install gdal-bin
-```
-
-1. Install [CMake](https://cmake.org/download/)
+The package relies on [`CMake`](https://cmake.org). Please make sure it is installed before trying to install the `Metacity` package.
 
 ```bash
 sudo apt-get install cmake
 ```
 
-* If you don't want to edit the `Metacity` code,
-* and if you have [`GDAL`](https://gdal.org) and [`CMake`](https://cmake.org) installed on your system,
+* If you don't want to edit the `Metacity` code
+* and if you have [`CMake`](https://cmake.org) installed on your system
 
 you can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 
@@ -123,18 +113,18 @@ Importing data is fairly easy with the functionalities provided by the `metacity
 ### Importing a single file
 
 <pre class="language-python"><code class="lang-python">from metacity.io import parse
-<strong>#parse(file: str, from_crs: str = None, to_crs: str = None) -> List[Models]
-</strong>models = parse("data/file.shp", from_crs="EPSG:4326", to_crs="EPSG:5514")</code></pre>
+<strong>#parse(file: str) -> List[Models]
+</strong>models = parse("data/file.shp")</code></pre>
 
-The `parse` function loads contents of a provided file and optionally transforms it from one coordinate reference system to another. It returns a list of `Models`.
+The `parse` function loads contents of a provided file and returns a list of `Models`.
 
 ### Importing multiple files
 
 Often, the geospatial data is partitioned into several files and scattered among several directories. If you wish to import all of the data located in the directory tree under a certain folder, you can do:
 
 <pre class="language-python"><code class="lang-python">from metacity.io import parse_recursively
-<strong>#parse_recursively(dir: str, from_crs: str = None, to_crs: str = None) -> List[Models]
-</strong>models = parse_recursively("data", from_crs="EPSG:4326", to_crs="EPSG:5514")</code></pre>
+<strong>#parse_recursively(dir: str) -> List[Models]
+</strong>models = parse_recursively("data")</code></pre>
 
 The returned value is a flattened list of `Models` regardless of how many files were processed.
 
