@@ -46,7 +46,11 @@ Do you have just a couple of files you want to convert for visualization in Bana
 python -m metacity.pipeline
 ```
 
-utility is right for you! (Note that this feature is currently in development and accessible on the `dev` branch -[ local compilation required](metacity.md#how-to-compile-locally).)
+utility is right for you!&#x20;
+
+{% hint style="info" %}
+Since version \~`0.5.2,`the pipeline CLI lacks colors due to some cross-platform incompatibilities. We are working on a fix.&#x20;
+{% endhint %}
 
 ![](../.gitbook/assets/CLI.png)
 
