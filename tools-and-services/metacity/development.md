@@ -9,6 +9,45 @@ After uploading any code to the [Metacity GitHub repo](https://github.com/Metaci
 1. Building the C++ parts of the code
 2. Running tests with `pytest` - see [Testing](development.md#tests)
 
+### Local compilation
+
+Metacity is written in Python and C++ using [`pybind11`](https://github.com/pybind/pybind11). If you want to edit the package code yourself, we recommend following these steps first:&#x20;
+
+Clone the repository:
+
+```bash
+git clone git@github.com:MetacitySuite/Metacity.git
+```
+
+Inside `Metacity` directory initialize `pybind11` submodule:
+
+```bash
+git submodule update --init --recursive
+```
+
+(Optional but **strongly** recommended) Initialize local Python virtual environment
+
+```bash
+cd Metacity
+python -m venv env
+. ./env/bin/activate
+```
+
+Any time you make change to the C++ code, you can build it with:
+
+```bash
+pip install . # for versions >=0.5.2
+pip setup.py build_ext --inplace  # for versions <=0.5.1
+```
+
+### Debugging
+
+If you encounter any problems, ensure you:
+
+* have `GDAL` and `CMake` installed
+* installed packages based on `requirements.txt`
+* have a C++ compiler supporting C++17 installed
+
 ### Testing
 
 `Metacity` comes with a few testing datasets and uses [`pytest`](https://docs.pytest.org/en/7.1.x/). To run the tests locally, with coverage analysis, run:

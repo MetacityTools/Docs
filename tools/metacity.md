@@ -2,74 +2,21 @@
 description: Python package for Geodata processing
 ---
 
-# 📐 Metacity
+# 🌆 Metacity
 
 The `Metacity` package allows to preprocess geospatial data and export it in a more suitable form for web visualization.&#x20;
 
 ### Installation
 
-The package relies on [`CMake`](https://cmake.org). Please make sure it is installed before trying to install the `Metacity` package.
+Since version `0.5.2`, the package build system relies on [`scikit-build`](https://github.com/scikit-build/scikit-build), [`pybind11`](https://github.com/pybind/pybind11), and [`cibuildwheel`](https://github.com/pypa/cibuildwheel). We do this to simplify the installation process as much as possible.&#x20;
 
-```bash
-sudo apt-get install cmake
-```
-
-* If you don't want to edit the `Metacity` code
-* and if you have [`CMake`](https://cmake.org) installed on your system
-
-you can install `Metacity` with [pip](https://pypi.org/project/metacity/):
+You can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 
 ```bash
 pip install metacity
 ```
 
-{% hint style="success" %}
-Starting with version 0.5.0, `GDAL` installation is no longer required.
-{% endhint %}
-
-### How to compile locally
-
-Metacity is written in Python and C++ using [`pybind11`](https://github.com/pybind/pybind11). If you want to edit the package code yourself, we recommend following these steps first:&#x20;
-
-Clone the repository:
-
-```bash
-git clone git@github.com:MetacitySuite/Metacity.git
-```
-
-(Optional) Initialize local Python virtual environment
-
-```bash
-cd Metacity
-python -m venv env
-. ./env/bin/activate
-```
-
-Inside `Metacity` directory initialize `pybind11` submodule:
-
-```bash
-git submodule update --init --recursive
-```
-
-Install requirements:
-
-```bash
-pip install -r requirements.txt
-```
-
-Any time you make change to the C++ code, you can build it with:
-
-```bash
-python setup.py build_ext --inplace
-```
-
-### Debugging
-
-If you encounter any problems, ensure you:
-
-* have `GDAL` and `CMake` installed
-* installed packages based on `requirements.txt`
-* have a C++ compiler supporting C++17 installed
+If we don't provide wheels for your platform, you want to build an older version, or if you want to tweak the package code yourself, you can also clone the [Metacity repo](https://github.com/MetacitySuite/Metacity) and [compile it using this guide](../tools-and-services/metacity/development.md#local-compilation).
 
 ## Usage
 
