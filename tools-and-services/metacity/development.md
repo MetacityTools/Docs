@@ -44,9 +44,8 @@ pip setup.py build_ext --inplace  # for versions <=0.5.1
 
 If you encounter any problems, ensure you:
 
-* have `GDAL` and `CMake` installed
-* installed packages based on `requirements.txt`
-* have a C++ compiler supporting C++17 installed
+* have `CMake` installed
+* have a C++ compiler supporting C++14 installed
 
 ### Testing
 
