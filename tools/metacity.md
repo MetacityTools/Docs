@@ -14,6 +14,12 @@ You can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 pip install metacity
 ```
 
+We support Python 3.8 to 3.10 and provide precompiled wheels for:
+
+* Windows 64bit
+* macOS 10.9+ (both Intel and Apple Silicon)
+* `manylinux` and `musllinux` distros: ALT Linux 10+, RHEL 9+, Debian 11+, Fedora 34+, Mageia 8+, Photon OS 3.0 with updates, Ubuntu 21.04+, Apline 3.14+, and several others on 64 bit processors only
+
 {% hint style="success" %}
 Since version `0.5.2`, we provide precompiled `wheels`, so you don't have to compile anything locally. The build system relies on [`scikit-build`](https://github.com/scikit-build/scikit-build), [`pybind11`](https://github.com/pybind/pybind11), and [`cibuildwheel`](https://github.com/pypa/cibuildwheel). We do this to simplify the installation process as much as possible.&#x20;
 {% endhint %}
