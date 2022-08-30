@@ -44,7 +44,7 @@ The Python package`metacity` acts as the entry data gateway. The easiest way to 
 * `metacity.io` - importing and exporting data
 * `metacity.geometry` - geometry processing
 * `metacity.utils` - managing file systems and inspecting data
-* (in `dev` only) `metacity.pipeline` with a CLI tool for data processing
+* `metacity.pipeline` with a (slightly limited) CLI tool for data processing
 
 ### Processing CLI
 
