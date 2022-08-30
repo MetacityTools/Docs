@@ -14,7 +14,7 @@ You can install `Metacity` with [pip](https://pypi.org/project/metacity/):
 pip install metacity
 ```
 
-We support Python 3.8 to 3.10 and provide precompiled wheels for:
+We support Python 3.8 to 3.10 and provide precompiled wheels for CPython on:
 
 * Windows 64bit
 * macOS 10.9+ (both Intel and Apple Silicon)
