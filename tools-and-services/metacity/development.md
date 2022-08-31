@@ -36,8 +36,8 @@ python -m venv env
 Any time you make change to the C++ code, you can build it with:
 
 ```bash
-pip install . # for versions >=0.5.2
-pip setup.py build_ext --inplace  # for versions <=0.5.1
+pip install scikit-build cmake pybind11
+pip setup.py build_ext --inplace
 ```
 
 ### Debugging
