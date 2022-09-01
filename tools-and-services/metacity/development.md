@@ -19,12 +19,6 @@ Clone the repository:
 git clone git@github.com:MetacitySuite/Metacity.git
 ```
 
-Inside `Metacity` directory initialize `pybind11` submodule:
-
-```bash
-git submodule update --init --recursive
-```
-
 (Optional but **strongly** recommended) Initialize local Python virtual environment
 
 ```bash
@@ -33,12 +27,15 @@ python -m venv env
 . ./env/bin/activate
 ```
 
-Any time you make change to the C++ code, you can build it with:
+Any time you make change to the **C++ or Python** code, you can build it with:
 
 ```bash
-pip install scikit-build cmake pybind11
-pip setup.py build_ext --inplace
+pip install .
 ```
+
+{% hint style="info" %}
+Up to version `0.5.3` there was a bug in the setup, which caused pollution of the python environment folder with files unrelated to the installation. This has been fixed.
+{% endhint %}
 
 ### Debugging
 
