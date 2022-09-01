@@ -13,7 +13,7 @@ Visualize data preprocessed by `Metacity` with [`BananaGL`](https://github.com/M
 
 See [Releases](https://github.com/MetacitySuite/BananaGL/releases/) on our GitHub.&#x20;
 
-1. Download [`bananagl.zip`](https://github.com/MetacitySuite/BananaGL/releases) (see Assets) and use its contents in your project.
+1. Download [`bananagl.zip`](https://github.com/MetacitySuite/BananaGL/releases) and use its contents in your project.
 2. Create `index.html` and start coding!
 
 Minimal HTML starting template:
