@@ -48,4 +48,5 @@
 ***
 
 * [GitHub](https://github.com/MetacitySuite)
+* [Homepage](https://metacity.cc)
 * [Code of Conduct](code-of-conduct.md)
