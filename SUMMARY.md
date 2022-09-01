@@ -44,3 +44,8 @@
 * [Metacity Block Edition](projects/blocks/README.md)
   * [Epic Games Mega Grant](projects/blocks/epic-grant.md)
   * [🧠 Internal notes](projects/blocks/notes.md)
+
+***
+
+* [GitHub](https://github.com/MetacitySuite)
+* [Code of Conduct](code-of-conduct.md)
