@@ -38,7 +38,7 @@ Minimal HTML starting template:
 
             const gl = new BananaGL.BananaGL({ 
                 canvas: canvas,
-                loaderPath: "loaderWorker.js",
+                metacityWorker: "metacityWorker.js",
             });
     </script>
 </body>
@@ -46,7 +46,7 @@ Minimal HTML starting template:
 ```
 
 {% hint style="warning" %}
-**Never** set any **CSS styles** (directly or in a separate style sheet) modifying **width or height of the`<canvas>`** passed to BananaGL. **** Set the sizes on its **parent** instead.
+**Never** set any **CSS styles** (directly or in a separate style sheet) modifying the **width or height of the`<canvas>`** passed to BananaGL. **** Set the sizes on its **parent** instead.
 {% endhint %}
 
 `BananaGL` keeps the provided `<canvas>` at 100% width and height of its parents, and adds a small annotation to its bottom.&#x20;
@@ -58,7 +58,7 @@ First, you need to initialize the library:
 ```javascript
 const gl = new BananaGL.BananaGL({ 
     canvas: canvas,
-    loaderPath: "loaderWorker.js",
+    metacityWorker: "metacityWorker.js",
 });
 ```
 
@@ -67,7 +67,7 @@ The function accepts a parameter object with the following properties:
 | Parameter                      | Required | Description                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------ | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <p><code>canvas</code><br></p> |     ✅    | `HTMLCanvasElement`                                                                                                                                                                                                                                                                                                                                     |
-| `loaderPath`                   |     ✅    | `string`, a path to background Worker JS file which handles data loading                                                                                                                                                                                                                                                                                |
+| `metacityWorker`               |     ✅    | `string`, a path to background Worker JS file which handles data loading                                                                                                                                                                                                                                                                                |
 | `background`                   |     -    | `number`, such as `0xffffff` defining the background color                                                                                                                                                                                                                                                                                              |
 | `far`                          |     -    | `number`, camera far                                                                                                                                                                                                                                                                                                                                    |
 | `maxDistance`                  |     -    | `number`, limits how far can user zoom out                                                                                                                                                                                                                                                                                                              |
@@ -79,7 +79,7 @@ The function accepts a parameter object with the following properties:
 | `position`                     |     -    | `number`, initial position of the camera, overwrites the coordinates passed in URL                                                                                                                                                                                                                                                                      |
 | `target`                       |     -    | `number`, initial target of the camera, overwrites the coordinates passed in URL                                                                                                                                                                                                                                                                        |
 | `zoomSpeed`                    |     -    | `number`, speed of zooming                                                                                                                                                                                                                                                                                                                              |
-| `lightIntensity`               |     -    | `number`, the total intensity of lights, overrides `ambientLightIntensity` and `directionalLightIntensity`                                                                                                                                                                                                                                              |
+| `lightIntensity`               |     -    | `number`, the total intensity of lights, backup for `ambientLightIntensity` and `directionalLightIntensity`                                                                                                                                                                                                                                             |
 | `ambientLightIntensity`        |     -    | `number`, the intensity of the ambient light                                                                                                                                                                                                                                                                                                            |
 | `directionalLightIntensity`    |     -    | `number`, the intensity of directional top-down light                                                                                                                                                                                                                                                                                                   |
 | `onClick`                      |     -    | `(id: number, metadata: Object) => string`, attach a callback that will return a string to be placed on top of an object after a click; requires `pickable` to be set up to true on layers where the callback should be applied; `id` corresponds to the clicked object id, metadata is the clicked object metadata record (can also be modified here!) |
@@ -87,12 +87,12 @@ The function accepts a parameter object with the following properties:
 
 ### How Camera works
 
-Camera has two significant attributes which influence the LOD loading, etc.:
+The `Camera` has two significant attributes which influence the LOD loading, etc.:
 
 * `position` - actual position of the camera in 3D space
-* `target` - focus point of the camera, always lies in the `z = 0` plane
+* `target` - focus point of the camera that always lies in the `z = 0` plane
 
-Despite its looks, `BananaGL` uses Perspective camera with `fov = 5`, and by default all limits are setup for viewing data in coordinate system `EPSG:5514`.
+Despite its looks, `BananaGL` uses Perspective camera with `fov = 5`, and by default, all limits are set up for viewing data in the coordinate system `EPSG:5514`.
 
 ## Layer
 
@@ -109,22 +109,23 @@ gl.loadLayer({
 
 The function accepts a parameter object with the following properties:
 
-| Parameter       | Required | Description                                                                                                                                                                                                                                               |
-| --------------- | :------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api`           |     ✅    | `string`, path to dataset exported from `Metacity` (see [Exporting data](../../tools/metacity.md#exporting-data)), some sets are available through our [DataAPI](https://api.metacity.cc/), or you can use self-hosted datasets if you have your own data |
-| `baseColor`     |     -    | `number`, base color used for mesh and as a default when no styles are applied                                                                                                                                                                            |
-| `lineColor`     |     -    | `number`, base color used for lines                                                                                                                                                                                                                       |
-| `loadRadius`    |     -    | `number`, radius around camera target (focus point) where all objects will be loaded                                                                                                                                                                      |
-| `lodLimits`     |     -    | `number[]`, breakpoints of camera target-position distance to switch LODs                                                                                                                                                                                 |
-| `name`          |     -    | `string`, name of the layer                                                                                                                                                                                                                               |
-| `pickable`      |     -    | `boolean`, whether the layer objects should be pickable                                                                                                                                                                                                   |
-| `pointColor`    |     -    | `number`, base color used for points when no instance models are provided                                                                                                                                                                                 |
-| `pointInstance` |     -    | `string`, path to GLTF model used for instances                                                                                                                                                                                                           |
-| `styles`        |     -    | `Style[]`, array of styles applicable to layer                                                                                                                                                                                                            |
+| Parameter            | Required | Description                                                                                                                                                                                                                                               |
+| -------------------- | :------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api`                |     ✅    | `string`, path to dataset exported from `Metacity` (see [Exporting data](../../tools/metacity.md#exporting-data)), some sets are available through our [DataAPI](https://api.metacity.cc/), or you can use self-hosted datasets if you have your own data |
+| `baseColor`          |     -    | `number`, default color used when no styles are applied                                                                                                                                                                                                   |
+| `loadingColor`       |     -    | `number`, a color used in the loading animation                                                                                                                                                                                                           |
+| `placeholderColor`   |     -    | `number`, a color used for a placeholder when the geometry is not loaded yet                                                                                                                                                                              |
+| `placeholderOpacity` |     -    | `number`, opacity of the placeholder geometry                                                                                                                                                                                                             |
+| `loadRadius`         |     -    | `number`, radius around camera target (focus point) where all objects will be loaded                                                                                                                                                                      |
+| `lodLimits`          |     -    | `number[]`, breakpoints of camera target-position distance to switch LODs                                                                                                                                                                                 |
+| `name`               |     -    | `string`, name of the layer                                                                                                                                                                                                                               |
+| `pickable`           |     -    | `boolean`, whether the layer objects should be pickable                                                                                                                                                                                                   |
+| `pointInstance`      |     -    | `string`, path to GLTF model used for instances                                                                                                                                                                                                           |
+| `styles`             |     -    | `Style[]`, array of styles applicable to layer                                                                                                                                                                                                            |
 
 ## Styles
 
-The color of mesh models can be modified by providing styling rules to individual layer.
+The color of mesh models can be modified by providing styling rules to individual layers.
 
 ```javascript
 const gl = new BananaGL.BananaGL({...});
