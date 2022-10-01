@@ -17,7 +17,7 @@ To update the live version of the front end on the server, you need to:
 
 ### Nginx Unit config
 
-The currently used config [can be found in the repo](https://github.com/MetacitySuite/DataAPI/blob/main/config.json).
+The currently used config can be found in the repo.
 
 ### Nginx Config
 

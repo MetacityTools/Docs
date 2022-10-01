@@ -4,16 +4,16 @@ description: 3D Web Visualization Library
 
 # 🗺 BananaGL
 
-Visualize data preprocessed by `Metacity` with [`BananaGL`](https://github.com/MetacitySuite/BananaGL) - a client-side web visualization library. It is built with [three.js](https://threejs.org/) and `Typescript`.&#x20;
+Visualize data preprocessed by `Metacity` with `BananaGL` - a client-side web visualization library. It is built with [three.js](https://threejs.org/) and `Typescript`.&#x20;
 
 * 👩‍💻 Newest releases are always available [on our GitHub](https://github.com/MetacitySuite/BananaGL/releases)
 * 📦 Datasets can be obtained from our [DataAPI](https://api.metacity.cc/) service
 
 ### Quick Start Guide
 
-See [Releases](https://github.com/MetacitySuite/BananaGL/releases/) on our GitHub.&#x20;
+See Releases on our GitHub.&#x20;
 
-1. Download [`bananagl.zip`](https://github.com/MetacitySuite/BananaGL/releases) and use its contents in your project.
+1. Download `bananagl.zip` and use its contents in your project.
 2. Create `index.html` and start coding!
 
 Minimal HTML starting template:

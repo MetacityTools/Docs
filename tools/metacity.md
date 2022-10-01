@@ -24,7 +24,7 @@ We support Python 3.8 to 3.10 and provide precompiled wheels for CPython on:
 Since version `0.5.2`, we provide precompiled `wheels`, so you don't have to compile anything locally. The build system relies on [`scikit-build`](https://github.com/scikit-build/scikit-build), [`pybind11`](https://github.com/pybind/pybind11), and [`cibuildwheel`](https://github.com/pypa/cibuildwheel). We do this to simplify the installation process as much as possible.&#x20;
 {% endhint %}
 
-If we don't provide `wheels` for your platform, you want to build an older version, or if you want to tweak the package code yourself, you can also clone the [Metacity repo](https://github.com/MetacitySuite/Metacity) and [compile it using this guide](../tools-and-services/metacity/development.md#local-compilation).
+If we don't provide `wheels` for your platform, you want to build an older version, or if you want to tweak the package code yourself, you can also clone the Metacity repo and [compile it using this guide](../tools-and-services/metacity/development.md#local-compilation).
 
 ## Usage
 

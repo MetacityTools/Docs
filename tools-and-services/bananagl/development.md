@@ -4,7 +4,7 @@ description: Developer notes regarding BananaGL library
 
 # Development
 
-After uploading any code to the [BananaGL Repo](https://github.com/MetacitySuite/BananaGL), the actions specified in [build.yml](https://github.com/MetacitySuite/BananaGL/blob/main/.github/workflows/build.yaml) are executed. Generally, it involves building the library.
+After uploading any code to the BananaGL Repo, the actions specified in build.yml are executed. Generally, it involves building the library.
 
 ### Release
 
