@@ -434,7 +434,7 @@ The `layout.json` file for this example would look like this:
 ```
 
 {% hint style="info" %}
-In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](../tools-and-services/bananagl/) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
+In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](../tools-and-services/metacitygl/bananagl/) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
 {% endhint %}
 
 ## Grid Modifiers <a href="#grid-modifiers" id="grid-modifiers"></a>

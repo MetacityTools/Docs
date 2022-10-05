@@ -2,7 +2,11 @@
 description: 3D Web Visualization Library
 ---
 
-# 🗺 BananaGL
+# 🍌 BananaGL
+
+{% hint style="danger" %}
+The development of this library is now on hold; Metacity Tools are in the process of transitioning from BananaGL to [MetacityGL](https://github.com/MetacityTools/MetacityGL)
+{% endhint %}
 
 Visualize data preprocessed by `Metacity` with `BananaGL` - a client-side web visualization library. It is built with [three.js](https://threejs.org/) and `Typescript`.&#x20;
 
@@ -109,19 +113,19 @@ gl.loadLayer({
 
 The function accepts a parameter object with the following properties:
 
-| Parameter            | Required | Description                                                                                                                                                                                                                                               |
-| -------------------- | :------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api`                |     ✅    | `string`, path to dataset exported from `Metacity` (see [Exporting data](../../tools/metacity.md#exporting-data)), some sets are available through our [DataAPI](https://api.metacity.cc/), or you can use self-hosted datasets if you have your own data |
-| `baseColor`          |     -    | `number`, default color used when no styles are applied                                                                                                                                                                                                   |
-| `loadingColor`       |     -    | `number`, a color used in the loading animation                                                                                                                                                                                                           |
-| `placeholderColor`   |     -    | `number`, a color used for a placeholder when the geometry is not loaded yet                                                                                                                                                                              |
-| `placeholderOpacity` |     -    | `number`, opacity of the placeholder geometry                                                                                                                                                                                                             |
-| `loadRadius`         |     -    | `number`, radius around camera target (focus point) where all objects will be loaded                                                                                                                                                                      |
-| `lodLimits`          |     -    | `number[]`, breakpoints of camera target-position distance to switch LODs                                                                                                                                                                                 |
-| `name`               |     -    | `string`, name of the layer                                                                                                                                                                                                                               |
-| `pickable`           |     -    | `boolean`, whether the layer objects should be pickable                                                                                                                                                                                                   |
-| `pointInstance`      |     -    | `string`, path to GLTF model used for instances                                                                                                                                                                                                           |
-| `styles`             |     -    | `Style[]`, array of styles applicable to layer                                                                                                                                                                                                            |
+| Parameter            | Required | Description                                                                                                                                                                                                                                                  |
+| -------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `api`                |     ✅    | `string`, path to dataset exported from `Metacity` (see [Exporting data](../../../tools/metacity.md#exporting-data)), some sets are available through our [DataAPI](https://api.metacity.cc/), or you can use self-hosted datasets if you have your own data |
+| `baseColor`          |     -    | `number`, default color used when no styles are applied                                                                                                                                                                                                      |
+| `loadingColor`       |     -    | `number`, a color used in the loading animation                                                                                                                                                                                                              |
+| `placeholderColor`   |     -    | `number`, a color used for a placeholder when the geometry is not loaded yet                                                                                                                                                                                 |
+| `placeholderOpacity` |     -    | `number`, opacity of the placeholder geometry                                                                                                                                                                                                                |
+| `loadRadius`         |     -    | `number`, radius around camera target (focus point) where all objects will be loaded                                                                                                                                                                         |
+| `lodLimits`          |     -    | `number[]`, breakpoints of camera target-position distance to switch LODs                                                                                                                                                                                    |
+| `name`               |     -    | `string`, name of the layer                                                                                                                                                                                                                                  |
+| `pickable`           |     -    | `boolean`, whether the layer objects should be pickable                                                                                                                                                                                                      |
+| `pointInstance`      |     -    | `string`, path to GLTF model used for instances                                                                                                                                                                                                              |
+| `styles`             |     -    | `Style[]`, array of styles applicable to layer                                                                                                                                                                                                               |
 
 ## Styles
 

@@ -8,10 +8,10 @@
 [metacity.md](tools/metacity.md)
 {% endcontent-ref %}
 
-[**BananaGL**](tools-and-services/bananagl/) is a JavaScript 3D web visualization library for data preprocessed by `Metacity`
+****[**MetacityGL**](tools-and-services/metacitygl/) is a React-based 3D library web visualization library.
 
-{% content-ref url="tools-and-services/bananagl/" %}
-[bananagl](tools-and-services/bananagl/)
+{% content-ref url="tools-and-services/metacitygl/" %}
+[metacitygl](tools-and-services/metacitygl/)
 {% endcontent-ref %}
 
 [**DataAPI**](tools-and-services/dataapi.md) is a tile service hosted by us, providing GLTF models for the `BananaGL` library
