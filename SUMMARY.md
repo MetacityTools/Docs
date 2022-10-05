@@ -7,7 +7,7 @@
 * [🌆 Metacity](tools/metacity.md)
   * [Development](tools-and-services/metacity/development.md)
 * [🗺 MetacityGL](tools-and-services/metacitygl.md)
-* [🗺 BananaGL](tools-and-services/bananagl/README.md)
+* [🍌 BananaGL](tools-and-services/bananagl/README.md)
   * [Development](tools-and-services/bananagl/development.md)
 * [📦 DataAPI](tools-and-services/dataapi.md)
   * [Development](tools-and-services/dataapi/development.md)

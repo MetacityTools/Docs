@@ -8,3 +8,7 @@ MetacityGL is a React/Three.js library providing 3D visualization capabilities f
 
 This library is a successor of [BananaGL](https://github.com/MetacityTools/BananaGL) and is currently under development.
 
+### Development
+
+The application&#x20;
+
