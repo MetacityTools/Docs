@@ -1,5 +1,5 @@
 ---
-description: React/Three.js visualizaiton library tailored for dynamic and urban data
+description: 3D visualization library tailored for dynamic and urban data
 ---
 
 # 🗺 MetacityGL
