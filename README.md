@@ -1,23 +1,23 @@
-# What is Metacity
+# Welcome
 
 **Metacity Tools** is a set of urban data **processing**, and **visualization tools**. We are developing several open-source tools:
 
-[**Metacity**](tools/metacity.md) is a Python package for urban data processing
+[**Metacity**](metacity/) is a Python package for urban data processing
 
-{% content-ref url="tools/metacity.md" %}
-[metacity.md](tools/metacity.md)
+{% content-ref url="metacity/" %}
+[metacity](metacity/)
 {% endcontent-ref %}
 
-****[**MetacityGL**](tools-and-services/metacitygl.md) is a React-based 3D library web visualization library.
+****[**MetacityGL**](metacitygl.md) is a React-based 3D library web visualization library.
 
-{% content-ref url="tools-and-services/metacitygl.md" %}
-[metacitygl.md](tools-and-services/metacitygl.md)
+{% content-ref url="metacitygl.md" %}
+[metacitygl.md](metacitygl.md)
 {% endcontent-ref %}
 
-[**DataAPI**](tools-and-services/dataapi.md) is a tile service hosted by us, providing GLTF models for the `BananaGL` library
+[**DataAPI**](dataapi/) is a tile service hosted by us, providing GLTF models for the `BananaGL` library
 
-{% content-ref url="tools-and-services/dataapi.md" %}
-[dataapi.md](tools-and-services/dataapi.md)
+{% content-ref url="dataapi/" %}
+[dataapi](dataapi/)
 {% endcontent-ref %}
 
 There is also documentation for some of our older projects:

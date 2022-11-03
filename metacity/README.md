@@ -2,7 +2,7 @@
 description: Python package for Geodata processing
 ---
 
-# 🌆 Metacity
+# Metacity
 
 The `Metacity` package allows to preprocess geospatial data and export it to a more suitable form for web visualization.&#x20;
 
@@ -24,18 +24,18 @@ We support Python 3.8 to 3.10 and provide precompiled wheels for CPython on:
 Since version `0.5.2`, we provide precompiled `wheels`, so you don't have to compile anything locally. The build system relies on [`scikit-build`](https://github.com/scikit-build/scikit-build), [`pybind11`](https://github.com/pybind/pybind11), and [`cibuildwheel`](https://github.com/pypa/cibuildwheel). We do this to simplify the installation process as much as possible.&#x20;
 {% endhint %}
 
-If we don't provide `wheels` for your platform, you want to build an older version, or if you want to tweak the package code yourself, you can also clone the Metacity repo and [compile it using this guide](../tools-and-services/metacity/development.md#local-compilation).
+If we don't provide `wheels` for your platform, you want to build an older version, or if you want to tweak the package code yourself, you can also clone the Metacity repo and [compile it using this guide](development.md#local-compilation).
 
 ## Usage
 
 The Python package`metacity` acts as the entry data gateway. The easiest way to understand `Metacity` is to think of it as a _pipeline_. To prepare your data for visualization, you will need to:
 
-1. [Import your data](metacity.md#data-import)
-2. [Create new Layer(s)](metacity.md#layers)
-3. Optionally optimize and modify the data (see[ Layer Modifiers](metacity.md#layer-modifiers))
-4. Convert Layers selected for visualization to [Grid](metacity.md#grids)&#x20;
-5. Optionally optimize the Grid data (see [Grid Modifiers](metacity.md#grid-modifiers))
-6. [Export tiled](metacity.md#exporting-data) data for streaming
+1. [Import your data](./#data-import)
+2. [Create new Layer(s)](./#layers)
+3. Optionally optimize and modify the data (see[ Layer Modifiers](./#layer-modifiers))
+4. Convert Layers selected for visualization to [Grid](./#grids)&#x20;
+5. Optionally optimize the Grid data (see [Grid Modifiers](./#grid-modifiers))
+6. [Export tiled](./#exporting-data) data for streaming
 
 ### Structure
 
@@ -80,7 +80,7 @@ The returned value is a flattened list of `Models` regardless of how many files 
 
 A `Model` is a universal entity for storing geometry and metadata, it has no specific semantic meaning.&#x20;
 
-* The geometry is stored in `Attributes`. Models can have multiple `Attributes` - see section [Attributes](metacity.md#attributes).
+* The geometry is stored in `Attributes`. Models can have multiple `Attributes` - see section [Attributes](./#attributes).
 * The properties can be attached to a model as a metadata
 
 See the following example:
@@ -126,7 +126,7 @@ It is possible to check what is the geometry type of the `Model`. Note that mode
 </strong><strong>#Model.geom_type(self) -> int
 </strong>geometry_type_code = model.geom_type</code></pre>
 
-For the encoding explanation, see Attribute [Geometry Type](metacity.md#type). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
+For the encoding explanation, see Attribute [Geometry Type](./#type). The `geom_type` property of the `Model` class always returns the type of the `POSITION` attribute.&#x20;
 
 ### Attributes&#x20;
 
@@ -429,7 +429,7 @@ In the example above, the contents of `terrain_grid_export` directory can be upl
 Sometimes, a single tile contains a lot of models, but you don't need to distinguish between them; you only care about getting everything rendered quickly. It is advisable to _merge_ all models in individual tiles into one model per tile.
 
 {% hint style="warning" %}
-Remember the [`Attribute` type mixing rules](metacity.md#attribute-caveats)? Similar rules apply here:
+Remember the [`Attribute` type mixing rules](./#attribute-caveats)? Similar rules apply here:
 
 * All models must contain identically named `Attributes`
 * All `Attributes` with corresponding names across models must be of the same type
