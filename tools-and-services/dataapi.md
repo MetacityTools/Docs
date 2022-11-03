@@ -8,9 +8,9 @@ The service frontend is available at [api.metacity.cc](https://api.metacity.cc).
 
 As this is a service, it consists of several components:
 
-* The **data storage** is just a _good old_ filesystem on our server. It contains folders of data exported from `Metacity` - see [Exporting data](../metacity/#exporting-data)
+* The **data storage** is just a _good old_ filesystem on our server. It contains folders of data exported from `Metacity` - see [Exporting data](../tools/metacity.md#exporting-data)
 * The catalog **frontend** is a small Flask application called [DataAPI](https://github.com/MetacitySuite/DataAPI)
-* The data is **served** by Nginx - for more details, see [Development page](development.md)
+* The data is **served** by Nginx - for more details, see [Development page](dataapi/development.md)
 
 ## Publishing Data
 

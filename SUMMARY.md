@@ -1,11 +1,11 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [Metacity](metacity/README.md)
-  * [Development](metacity/development.md)
-* [MetacityGL](metacitygl.md)
-* [DataAPI](dataapi/README.md)
-  * [Development](dataapi/development.md)
+* [Metacity](tools/metacity.md)
+  * [Development](tools-and-services/metacity/development.md)
+* [MetacityGL](tools-and-services/metacitygl.md)
+* [DataAPI](tools-and-services/dataapi.md)
+  * [Development](tools-and-services/dataapi/development.md)
 
 ## Archives
 
