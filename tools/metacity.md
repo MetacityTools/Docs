@@ -44,23 +44,7 @@ The Python package`metacity` acts as the entry data gateway. The easiest way to 
 * `metacity.io` - importing and exporting data
 * `metacity.geometry` - geometry processing
 * `metacity.utils` - managing file systems and inspecting data
-* `metacity.pipeline` with a (slightly limited) CLI tool for data processing
-
-### Processing CLI
-
-Do you have just a couple of files you want to convert for visualization in BananaGL? Then the&#x20;
-
-```bash
-python -m metacity.pipeline
-```
-
-utility is right for you!&#x20;
-
-{% hint style="info" %}
-Since version \~`0.5.2,`the pipeline CLI lacks colors due to some cross-platform incompatibilities. We are working on a fix.&#x20;
-{% endhint %}
-
-![](../.gitbook/assets/CLI.png)
+* `metacity.pipeline` - CLI tool for quick edits - deprecated
 
 ## Data Import
 
@@ -70,6 +54,7 @@ Metacity currently supports the following formats:
 | --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Shapefile | `.shp`  | [ESRI Shapefile Technical Description](https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf) |
 | GeoJSON   | `.json` | [The GeoJSON Specification (RFC 7946)](https://geojson.org)                                                                                           |
+| OBJ       | `.obj`  | [OBJ wiki page](https://en.wikipedia.org/wiki/Wavefront\_.obj\_file)                                                                                  |
 
 Importing data is fairly easy with the functionalities provided by the `metacity.io` module:
 
@@ -434,7 +419,7 @@ The `layout.json` file for this example would look like this:
 ```
 
 {% hint style="info" %}
-In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](../tools-and-services/bananagl/) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
+In the example above, the contents of `terrain_grid_export` directory can be uploaded to a static file server and used as a data source for a [`BananaGL`](../archives/bananagl/) Layer. The library automatically downloads the `layout.json` and operates based on its contents.
 {% endhint %}
 
 ## Grid Modifiers <a href="#grid-modifiers" id="grid-modifiers"></a>

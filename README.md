@@ -8,10 +8,10 @@
 [metacity.md](tools/metacity.md)
 {% endcontent-ref %}
 
-****[**MetacityGL**](tools-and-services/metacitygl/) is a React-based 3D library web visualization library.
+****[**MetacityGL**](tools-and-services/metacitygl.md) is a React-based 3D library web visualization library.
 
-{% content-ref url="tools-and-services/metacitygl/" %}
-[metacitygl](tools-and-services/metacitygl/)
+{% content-ref url="tools-and-services/metacitygl.md" %}
+[metacitygl.md](tools-and-services/metacitygl.md)
 {% endcontent-ref %}
 
 [**DataAPI**](tools-and-services/dataapi.md) is a tile service hosted by us, providing GLTF models for the `BananaGL` library
@@ -22,8 +22,8 @@
 
 There is also documentation for some of our older projects:
 
-* ****[**AMOS**](projects/amos/) **** is a project that involves developing a synthetic population based on data from the city of Prague
-* ****[**Metacity Block Edition**](projects/blocks/) is a pitch for another project involving urban data synthesis and simulation
+* ****[**AMOS**](archives/amos/) **** is a project that involves developing a synthetic population based on data from the city of Prague
+* ****[**Metacity Block Edition**](archives/blocks/) is a pitch for another project involving urban data synthesis and simulation
 
 ## Where can you find out more
 
