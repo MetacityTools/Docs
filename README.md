@@ -29,8 +29,8 @@ There is also documentation for some of our older projects:
 
 Besides this documentation, check out:
 
-* 🏡 [**Home Website** ](https://metacity.cc)****
-* **🧪** [**Example Project**](https://demo.metacity.cc)****
-* **🧑‍💻** [**GitHub**](https://github.com/metacitytools)****
-* **📦** [**DataAPI Site**](https://api.metacity.cc)****
+* [**Home Website** ](https://metacity.cc)****
+* ****[**Example Project**](https://demo.metacity.cc)****
+* ****[**GitHub**](https://github.com/metacitytools)****
+* ****[**DataAPI Site**](https://api.metacity.cc)****
 
