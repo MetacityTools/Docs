@@ -1,3 +1,8 @@
+---
+cover: .gitbook/assets/Screen Shot 2022-10-26 at 11.15.18.png
+coverY: -56.05189990732159
+---
+
 # Welcome
 
 **Metacity Tools** is a set of urban data **processing**, and **visualization tools**. We are developing several open-source tools:
