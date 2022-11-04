@@ -14,17 +14,18 @@ This library is a successor of [BananaGL](https://github.com/MetacityTools/Banan
 
 The library is separated into several modules. It is totally up to you how you use them; despite being react-based, utilizing some of the modules in react-free apps is also possible.
 
-### Main Modules
+### What's Inside
 
 The complete list (first-level only) of importable stuff follows:
 
 ```typescript
-import { MetacityGL } from 'metacitygl'; //component
-import { Graphics } from 'metacitygl';   //module
-import { Utils } from 'metacitygl';      //module
-import { Extensions } from 'metacitygl'; //module
-import { Grid } from 'metacitygl';       //component
-import 'metacitygl/style.css';           //styles for react components
+import { MetacityGL } from 'metacitygl';         //component
+import { Graphics } from 'metacitygl';           //module
+import { Utils } from 'metacitygl';              //module
+import { Extensions } from 'metacitygl';         //module
+import { Grid } from 'metacitygl';               //component
+import { MetacityLayerProps } from 'metacitygl'; //type
+import 'metacitygl/style.css';                   //styles for react components
 ```
 
 * `MetacityGL` is a base react application component
