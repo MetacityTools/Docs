@@ -1,8 +1,8 @@
 ---
-description: Developer notes regarding Metacity package
+description: Development notes regarding Metacity package
 ---
 
-# Development
+# Development notes
 
 After uploading any code to the Metacity GitHub repo, the actions specified in `ci.yaml` are executed. Generally, it involves&#x20;
 
@@ -27,7 +27,7 @@ python -m venv env
 . ./env/bin/activate
 ```
 
-Any time you make change to the **C++ or Python** code, you can build it with:
+Any time you make a change to the **C++ or Python** code, you can build it with:
 
 ```bash
 pip install .
