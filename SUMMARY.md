@@ -57,8 +57,11 @@
   * [Epic Games Mega Grant](archives/blocks/epic-grant.md)
   * [🧠 Internal notes](archives/blocks/notes.md)
 
+## Links
+
+* [Homepage](https://metacity.cc)
+* [GitHub](https://github.com/metacitytools)
+
 ***
 
-* [GitHub](https://github.com/metacitytools)
-* [Homepage](https://metacity.cc)
 * [Code of Conduct](code-of-conduct.md)
