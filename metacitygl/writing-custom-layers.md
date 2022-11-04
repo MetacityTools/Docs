@@ -93,6 +93,7 @@ With this worker, you can structure the layer the following way:
 
 ```typescript
 import Worker from "./dataWorker?worker&inline";
+import { Graphics } from "metacitygl"
 
 export function CustomLayer(props: MetacityLayerProps) {
     const { context, onLoaded, enableUI } = props;
