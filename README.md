@@ -8,7 +8,7 @@
 [metacity.md](tools/metacity.md)
 {% endcontent-ref %}
 
-****[**MetacityGL**](metacitygl/) is a React-based 3D library web visualization library.
+****[**MetacityGL**](metacitygl/) is a React-based web visualization library.
 
 {% content-ref url="metacitygl/" %}
 [metacitygl](metacitygl/)
