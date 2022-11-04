@@ -122,4 +122,9 @@ export function CustomLayer(props: MetacityLayerProps) {
 }
 ```
 
-There is much more you could do: store the reference to the object in the layer and allow modifying it with the UI; you could create a pool of workers and reuse them between layers instead of creating and terminating them for better performance, etc. See the other pages to get a better grasp of Models, Assemblers and the context.&#x20;
+There is much more you could do:&#x20;
+
+* store the reference to the Model in the layer and allow modifying it with the UI
+* you could create a pool of workers and reuse them between layers instead of creating and terminating them for better performance, etc.&#x20;
+
+See the other pages to get a better grasp of Models, Assemblers and the context.&#x20;
