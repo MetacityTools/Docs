@@ -91,7 +91,7 @@ This query leaves only the selected metadata in the tree. This is useful for opt
 
 ### Tile Merging
 
-Similar to the [grid tile-merging](grids.md#tile-merging) modifier, it is possible to merge all models in a particular tree level:
+Similar to the [grid tile-merging](grids.md#tile-merging) modifier, it is possible to merge models in each node on a particular tree level:
 
 ```python
 from metacity.geometry import Layer, QuadTree, MetadataMode
