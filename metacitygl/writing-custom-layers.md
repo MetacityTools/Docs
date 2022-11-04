@@ -46,18 +46,18 @@ export function CustomLayer(props: MetacityLayerProps) {
              
          //get your data
          const data = (await axios.get(api)).data as Data;
+         
+         //parse it using Metacity's Assemblers
          const asm = new Utils.Assemblers.SomeAssembler();
          for (const item in data) {
              //pass the item to the assembler
          }
- 
-         //parse it using Metacity's Assemblers
          if (asm.empty)
              return;
          
          const buffers = asm.toBuffers();
          //transform it into a Model
-         const model = Graphics.Models.SomeModel.create(e.data);
+         const model = Graphics.Models.SomeModel.create(buffers);
          //pass it to context
          context.add(model);
         
