@@ -29,23 +29,7 @@ import 'metacitygl/style.css';
 }
 </code></pre>
 
-The `<MetacityGL>` tag takes care of graphics context, rendering canvas, navigation, etc., and passes a reference to the context to its children components. That means you can write layer components that can do anything and make things appear in the visualization using the provided API.&#x20;
-
-Each layer should extend the `LayerProps` interface:
-
-```typescript
-import { MetacityLayerProps } from 'metacitygl';
-
-export function CustomLayer(props: MetacityLayerProps) {
-    const { context, onLoaded, enableUI } = props;
-    return (
-        <div>
-            <h1>Custom Layer</h1>
-            <p>This is a custom layer</p>
-        </div>
-    )
-}
-```
+The `<MetacityGL>` tag takes care of graphics context, canvas, navigation, etc., and passes a reference to the context to its children components. That means you can write layer components that can do anything and make things appear in the visualization using the provided API.&#x20;
 
 For more info on how to handle your data, see [Writing Custom Layer](writing-custom-layers.md)s. If you wish to serve content produced by Metacity, see [Loading Metacity Data](loading-metacity-data.md).
 

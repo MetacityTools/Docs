@@ -10,4 +10,4 @@ You can install `MetacityGL` from [npm](https://www.npmjs.com/package/metacitygl
 npm i metacitygl
 ```
 
-The package contains Typescript types and JS bundles compatible with `import` and `require` directives.&#x20;
+The package contains Typescript types and JS bundles.
