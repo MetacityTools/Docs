@@ -33,17 +33,33 @@ Each layer gets these props by default:
 There is a recommended way how to handle any data in MetacityGL. In your custom layer, split the process into 3 parts:
 
 ```typescript
+//... other imports
+import axios from "axios";
+import { Utils } from "metacitygl"
+
 export function CustomLayer(props: MetacityLayerProps) {
     const { context, onLoaded, enableUI } = props;
     
     React.useEffect(() => {
-        if (!context)
+         if (!context)
              return; 
              
-        //get your data
-        //parse it using Metacity's Assemblers
-        //transform it into a Model
-        //pass it to context
+         //get your data
+         const data = (await axios.get(api)).data as Data;
+         const asm = new Utils.Assemblers.SomeAssembler();
+         for (const item in data) {
+             //pass the item to the assembler
+         }
+ 
+         //parse it using Metacity's Assemblers
+         if (asm.empty)
+             return;
+         
+         const buffers = asm.toBuffers();
+         //transform it into a Model
+         const model = Graphics.Models.SomeModel.create(e.data);
+         //pass it to context
+         context.add(model);
         
     }, [context]);
     
@@ -77,7 +93,7 @@ self.onmessage = async function (e: any) {
 
     const asm = new Utils.Assemblers.SomeAssembler();
     for (const item in data) {
-        //pass item to the assembler
+        //pass the item to the assembler
     }
     
     if (!asm.empty) {
@@ -102,7 +118,7 @@ export function CustomLayer(props: MetacityLayerProps) {
         if (!context)
              return; 
         
-        // instantiate a model     
+        // instantiate a worker     
         const worker = new Worker();
         
         //start a job
