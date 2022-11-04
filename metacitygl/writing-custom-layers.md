@@ -58,7 +58,7 @@ export function CustomLayer(props: MetacityLayerProps) {
 
 ### Workers
 
-The data-parsing step usually requires some number-crunching. It is best to isolate these steps into a separate worker process and pass the result back to the layer component. &#x20;
+The data-parsing steps usually require some number-crunching. It is best to isolate these steps into a separate worker process and pass the result back to the layer component. &#x20;
 
 {% code title="dataWorker.ts" %}
 ```typescript
