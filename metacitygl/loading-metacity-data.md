@@ -28,7 +28,7 @@ import 'metacitygl/style.css';
                 color={0x00728a}
             >
                 &#x3C;div>Layer UI&#x3C;/div>
-            &#x3C;/Extensions.MetacityLaye>
+            &#x3C;/Extensions.MetacityLayer>
         &#x3C;/MetacityGL>
     )
 }</code></pre>
@@ -36,7 +36,7 @@ import 'metacitygl/style.css';
 The component `Extensions.MetacityLayer` is designed for parsing and displaying data exported from [Grids](../metacity/grids.md). The layer props look like this:&#x20;
 
 ```jsx
-interface LayerProps extends MetacityGL.MetacityLayerProps {
+interface LayerProps {
     api: string;
     pickable?: boolean;
     color?: number;
@@ -71,4 +71,55 @@ interface LayerProps extends MetacityGL.MetacityLayerProps {
 | `enableUI`         | flag that signals the layer UI should get rendered                     |
 
 ## Tree Layer
+
+```tsx
+import React from 'react'
+import { MetacityGL, Extensions } from 'metacitygl';
+import 'metacitygl/style.css';
+
+export function Application() {
+
+    React.useEffect(() => {
+        return () => {
+            //recommended force cleaning up the rendering context
+            window.location.reload();
+        }
+    }, []);
+
+    return (
+        <MetacityGL background={0x000000}>
+            <Extensions.MetacityTreeLayer
+                api="https://api.some.source/dataset"
+                color={0x00728a}
+            >
+                <div>Layer UI</div>
+            </Extensions.MetacityTreeLayer>
+        </MetacityGL>
+    )
+}
+```
+
+`Extensions.MetacityTreeLayer` extends the `Extensions.MetacityLayer` and allow rendering the Quad-tree built on top of the data. The layer props extend the props from the previous section:
+
+```tsx
+interface TreeLayerProps extends LayerProps {
+    loadingRadius?: number;
+    requestTileRadius?: number;
+    distFactor?: number;
+    distZFactor?: number;
+    radFactor?: number;
+    visualizeTree?: boolean;
+    zOffset?: number;
+}
+```
+
+| prop                | description                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `loadingRadius`     | multiplicative factor influencing the loading distance of individual tree nodes                                                            |
+| `requestTileRadius` | equivalent of `loadingRadius` but for loading the actual model                                                                             |
+| `distFactor`        | exponent factor influencing the loading distance of individual tree nodes in the XY plane - used for computation of the camera distance    |
+| `distZFactor`       | exponent factor influencing the loading distance of individual tree nodes in the Z direction - used for computation of the camera distance |
+| `radFactor`         | exponent factor influencing the loading distance of individual tree nodes - used for computation of the loading threshold                  |
+| `visualizeTree`     | flag whether to render the tree                                                                                                            |
+| `zOffset`           | offsetting the tree model in the Z direction                                                                                               |
 
