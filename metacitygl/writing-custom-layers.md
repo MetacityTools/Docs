@@ -6,7 +6,7 @@ description: How to display any general data
 
 Each layer's props should extend the `MetacityLayerProps` interface:
 
-```typescript
+```tsx
 import { MetacityLayerProps } from 'metacitygl';
 
 export function CustomLayer(props: MetacityLayerProps) {
@@ -32,7 +32,7 @@ Each layer gets these props by default:
 
 There is a recommended way how to handle any data in MetacityGL. In your custom layer, split the process into 3 parts:
 
-```typescript
+```tsx
 //... other imports
 import axios from "axios";
 import { Utils } from "metacitygl"
@@ -77,7 +77,7 @@ export function CustomLayer(props: MetacityLayerProps) {
 The data-parsing steps usually require some number-crunching. It is best to isolate these steps into a separate worker process and pass the result back to the layer component. &#x20;
 
 {% code title="dataWorker.ts" %}
-```typescript
+```tsx
 import axios from "axios";
 import { Utils } from "metacitygl"
 
@@ -107,7 +107,7 @@ self.onmessage = async function (e: any) {
 
 With this worker, you can structure the layer the following way:
 
-```typescript
+```tsx
 import Worker from "./dataWorker?worker&inline";
 import { Graphics } from "metacitygl"
 

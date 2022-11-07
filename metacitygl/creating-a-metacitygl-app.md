@@ -8,7 +8,7 @@ description: Making a react-based app with MetacityGL
 
 An empty application could look like this:
 
-<pre class="language-typescript"><code class="lang-typescript">import React from 'react'
+<pre class="language-tsx"><code class="lang-tsx">import React from 'react'
 import { MetacityGL, Utils } from 'metacitygl';
 import 'metacitygl/style.css';
 
