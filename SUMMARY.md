@@ -3,6 +3,7 @@
 * [Welcome](README.md)
 * [Metacity](tools/metacity.md)
   * [Installation](metacity/installation.md)
+  * [\[dev\] CGAL Dependency](metacity/dev-cgal-dependency.md)
   * [Data Import](metacity/data-import.md)
   * [Models and Attributes](metacity/models-and-attributes.md)
   * [Layers](metacity/layers.md)
