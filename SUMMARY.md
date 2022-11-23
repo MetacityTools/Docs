@@ -9,6 +9,7 @@
   * [Layers](metacity/layers.md)
   * [Grids](metacity/grids.md)
   * [Quad-trees](metacity/quad-trees.md)
+  * [Dockerized Processor](metacity/dockerized-processor.md)
   * [Development notes](tools-and-services/metacity/development.md)
 * [MetacityGL](metacitygl/README.md)
   * [Installation](metacitygl/installation.md)
