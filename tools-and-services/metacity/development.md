@@ -67,8 +67,6 @@ Everything merged into the branch `release` gets released. Before you publish a 
 
 * **make sure the version number in your code is set up correctly**
 
-The `version.sh` can inform you about the latest released versions.
-
 ### Branches
 
 | Branch  |                                                    Status                                                   | Description                             |
