@@ -31,9 +31,10 @@ import 'metacitygl/style.css';
             &#x3C;/Extensions.MetacityLayer>
         &#x3C;/MetacityGL>
     )
-}</code></pre>
+}
+</code></pre>
 
-The component `Extensions.MetacityLayer` is designed for parsing and displaying data exported from [Grids](../metacity/grids.md). The layer props look like this:&#x20;
+The component `Extensions.MetacityLayer` is designed for parsing and displaying data exported from [Grids](../../metacity/grids.md). The layer props look like this:&#x20;
 
 ```jsx
 interface LayerProps {

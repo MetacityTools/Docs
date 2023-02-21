@@ -27,6 +27,7 @@ import 'metacitygl/style.css';
         &#x3C;/MetacityGL>
     )
 }
+
 </code></pre>
 
 The `<MetacityGL>` tag takes care of graphics context, canvas, navigation, etc., and passes a reference to the context to its children components. That means you can write layer components that can do anything and make things appear in the visualization using the provided API.&#x20;
