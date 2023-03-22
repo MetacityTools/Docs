@@ -63,7 +63,7 @@ interface LayerProps {
 | `pickable`         | display metadata on hover - enable only one layer in the visualization |
 | `color`            | hex represtation of the layer base color                               |
 | `colorPlaceholder` | color of unloaded tile placeholder                                     |
-| `styles`           | see [Styles](color-and-styles.md)                                      |
+| `styles`           | see [Styles](broken-reference)                                         |
 | `radius`           | minimal distance for tile loading                                      |
 | `instance`         | `url` of GLTF model to be displyed for point data                      |
 | `size`             | size of the point models                                               |

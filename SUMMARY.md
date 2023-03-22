@@ -14,18 +14,14 @@
 
 ## Archives
 
-* [DataAPI](archives/dataapi/README.md)
-  * [Development](archives/dataapi/development.md)
 * [MetacityGL](archives/metacitygl/README.md)
   * [Installation](archives/metacitygl/installation.md)
   * [Creating a MetacityGL App](archives/metacitygl/creating-a-metacitygl-app.md)
   * [Writing Custom Layers](archives/metacitygl/writing-custom-layers.md)
   * [Loading Metacity Data](archives/metacitygl/loading-metacity-data.md)
-  * [Graphic Context](archives/metacitygl/graphic-context.md)
-  * [Models and Materials](archives/metacitygl/models-and-materials.md)
-  * [Color and Styles](archives/metacitygl/color-and-styles.md)
-  * [Assemblers](archives/metacitygl/assemblers.md)
   * [Development notes](archives/metacitygl/development-notes.md)
+* [DataAPI](archives/dataapi/README.md)
+  * [Development](archives/dataapi/development.md)
 * [BananaGL](archives/bananagl/README.md)
   * [Development](archives/bananagl/development.md)
 * [AMOS](archives/amos/README.md)
