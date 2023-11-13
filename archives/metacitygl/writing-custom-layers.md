@@ -68,8 +68,8 @@ export function CustomLayer(props: MetacityLayerProps) {
 ```
 
 1. Getting your data is probably the easiest part. Use a library you like (e.g. [`axios`](https://axios-http.com/docs/intro)?) and download it.
-2. Transforming the data into a renderable model can be tricky. MetacityGL provides built-in tools called [Assemblers](assemblers.md) that can make your life a little easier. The Assemblers allow you to parse the data incrementally. When you are done, you can export the data from the Assembler in a form that can be directly passed into one of Metacity's Models.
-3. Create a [Model](models-and-materials.md) - you can create a completely new one using [three.js](https://threejs.org) or reuse one defined in the library.
+2. Transforming the data into a renderable model can be tricky. MetacityGL provides built-in tools called [Assemblers](broken-reference) that can make your life a little easier. The Assemblers allow you to parse the data incrementally. When you are done, you can export the data from the Assembler in a form that can be directly passed into one of Metacity's Models.
+3. Create a [Model](broken-reference) - you can create a completely new one using [three.js](https://threejs.org) or reuse one defined in the library.
 4. Pass the created model into the graphics context.&#x20;
 
 ### Workers
@@ -143,4 +143,4 @@ There is much more you could do:&#x20;
 * store the reference to the Model in the layer and allow modifying it with the UI
 * you could create a pool of workers and reuse them between layers instead of creating and terminating them for better performance, etc.&#x20;
 
-See the other pages for a better grasp of [Models](models-and-materials.md), [Assemblers](assemblers.md), and the [context](graphic-context.md).&#x20;
+See the other pages for a better grasp of [Models](broken-reference), [Assemblers](broken-reference), and the [context](broken-reference).&#x20;
